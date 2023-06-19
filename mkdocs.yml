@@ -31,7 +31,8 @@ nav:
     - Getting started: caam/getting-started.md    
     - Embever IoT Library:
       - Introduction: caam/embever-iot-library/index.md
-    # - Embever IoT Core:
+    # - Embever IoT Core:  
+    - User Application Framework: caam/UAF/index.md
   - API Docs: api/index.md
 
 extra:
