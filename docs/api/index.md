@@ -1,3 +1,3 @@
 # API
 
-!!swagger schema.yml!!
+!!swagger embever-openapi3.yaml!!
