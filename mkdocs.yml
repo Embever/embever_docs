@@ -27,32 +27,49 @@ theme:
 
 # Navigation
 nav:
-  - CAAM:
-    - Introduction: caam/index.md
-    - Getting started: caam/getting-started.md    
-    - Embever IoT Library:
-      - Introduction: caam/embever-iot-library/index.md
-      - Getting Started: caam/embever-iot-library/getting-started.md
-      - Installation: caam/embever-iot-library/installation.md
-      - API documentation: 
-        - Introduction: caam/embever-iot-library/api/index.md
-        - Embever IoT Messaging: caam/embever-iot-library/api/ebv_iot_msg.md
-        - Embever GNSS: caam/embever-iot-library/api/ebv_esp_gnss.md
-        - Embever Serial Protocol Driver: caam/embever-iot-library/api/esp_drv.md
-        - The Integration Layer: caam/embever-iot-library/api/integration_layer.md
-        - Logging Module: caam/embever-iot-library/api/logging.md
-      - Integration Guide: caam/embever-iot-library/integration_guide.md
-      - Sample Applications:
-        - Introduction: caam/embever-iot-library/samples/index.md 
-        - Hello Cloud: caam/embever-iot-library/samples/hello_cloud.md
-        - Dash Button: caam/embever-iot-library/samples/dash_btn.md
-        - IoT Blinky: caam/embever-iot-library/samples/cloud_blinky.md
-        - GNSS Simple: caam/embever-iot-library/samples/gnss_simple.md
-        - GNSS Report: caam/embever-iot-library/samples/gnss_report.md
-        - Power Down Mode: caam/embever-iot-library/samples/pwr_down.md
-    # - Embever IoT Core:  
-    - User Application Framework: caam/UAF/index.md
-  - API Docs: api/index.md
+  - Introduction: index.md
+  - Getting Started: getting-started.md
+  - Embever Cloud:
+      - Introduction: cloud/index.md
+      - HTTPS API: cloud/api.md
+  - Firmware:
+      - CaaM Application Framework: 
+        - Overview: firmware/caam-app-framework/index.md
+        - ESP:
+          - Overview: firmware/caam-app-framework/esp/esp-overview.md
+          - EBV IoT Library:
+              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/index.md
+              - Getting Started: firmware/caam-app-framework/esp/embever-iot-library/getting-started.md
+              - Installation: firmware/caam-app-framework/esp/embever-iot-library/installation.md
+              - API documentation: 
+                - Introduction: firmware/caam-app-framework/esp/embever-iot-library/api/index.md
+                - Embever IoT Messaging: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_iot_msg.md
+                - Embever GNSS: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_esp_gnss.md
+                - Embever Serial Protocol Driver: firmware/caam-app-framework/esp/embever-iot-library/api/esp_drv.md
+                - The Integration Layer: firmware/caam-app-framework/esp/embever-iot-library/api/integration_layer.md
+                - Logging Module: firmware/caam-app-framework/esp/embever-iot-library/api/logging.md
+              - Integration Guide: firmware/caam-app-framework/esp/embever-iot-library/integration_guide.md
+              - Sample Applications:
+                - Introduction: firmware/caam-app-framework/esp/embever-iot-library/samples/index.md 
+                - Hello Cloud: firmware/caam-app-framework/esp/embever-iot-library/samples/hello_cloud.md
+                - Dash Button: firmware/caam-app-framework/esp/embever-iot-library/samples/dash_btn.md
+                - IoT Blinky: firmware/caam-app-framework/esp/embever-iot-library/samples/cloud_blinky.md
+                - GNSS Simple: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_simple.md
+                - GNSS Report: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_report.md
+                - Power Down Mode: firmware/caam-app-framework/esp/embever-iot-library/samples/pwr_down.md
+        - Custom Application Framework: firmware/caam-app-framework/custom-app-framework/index.md
+  - Hardware:
+    - Development Board (Caam Mini): hardware/dev-board/index.md
+    - Customization and Integration:
+      - Introduction: hardware/customization/index.md
+      - Schematics: hardware/customization/schematics.md
+      - BOMs: hardware/customization/boms.md
+  - Tutorials:
+    - tutorials/index.md
+  - References:
+    - references/index.md
+  - FAQ/Support/Troubleshooting:
+    - faqs/index.md
 
 extra:
   consent:
