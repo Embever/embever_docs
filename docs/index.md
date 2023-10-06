@@ -1,3 +1,6 @@
-# Welcome to Embever IoT Core Docs
+<h1>IoT Development made Easy</h1>
 
-Help for your journey on IoT Development with Embever IoT Core.
+![](images/caam.jpg)
+
+<!-- List features -->
+<!-- Customer Testimonials -->

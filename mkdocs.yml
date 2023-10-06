@@ -1,4 +1,4 @@
-site_name: Embever IoT Core Docs
+site_name: Cloud-as-a-Module Documentation
 theme:
   favicon: images/favicon.png
   logo: images/logo.png
@@ -27,11 +27,18 @@ theme:
 
 # Navigation
 nav:
-  - Introduction: index.md
-  - Getting Started: getting-started.md
+  - Home: index.md
+  - Getting Started: 
+      - Overview: getting_started/overview.md
+      - Hardware: getting_started/hardware.md
+      - Firmware: getting_started/firmware.md
+      - Cloud: getting_started/cloud.md
+  # - Getting Started: getting-started.md
   - Embever Cloud:
       - Introduction: cloud/index.md
-      - HTTPS API: cloud/api.md
+      - Console: cloud/console.md
+      - Guides: cloud/api.md
+      - API Reference: cloud/api_reference.md
   - Firmware:
       - CaaM Application Framework: 
         - Overview: firmware/caam-app-framework/index.md
@@ -66,8 +73,8 @@ nav:
       - BOMs: hardware/customization/boms.md
   - Tutorials:
     - tutorials/index.md
-  - References:
-    - references/index.md
+  # - References:
+  #   - references/index.md
   - FAQ/Support/Troubleshooting:
     - faqs/index.md
 
