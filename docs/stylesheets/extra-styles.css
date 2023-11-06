@@ -7,3 +7,9 @@
     /* Reset alignment for table cells */
     text-align: initial;
 }
+
+.md-button-next-pg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
