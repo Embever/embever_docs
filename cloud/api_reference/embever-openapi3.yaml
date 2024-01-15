@@ -1,0 +1,2704 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Embever IoT Core API",
+        "version": "",
+        "description": "This API lets you interact with your devices on Embever IoT Core."
+    },
+    "host": "api.embever.com",
+    "basePath": "/v2",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/authenticate/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "access": "eyJ0eXAiOiJKv2QiLCJhbGciOiJIUdUxMi...",
+                                "refresh": "eyJ0eXAiOiJKv2QiLCJhbGciOiJIUzUxMi..."
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "access": {
+                                    "type": "string",
+                                    "description": "The access token. Use in request header."
+                                },
+                                "refresh": {
+                                    "type": "string",
+                                    "description": "The refresh token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Obtain access token",
+                "operationId": "Obtain access token",
+                "description": "",
+                "tags": [
+                    "Authenticating"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "application_token": {
+                                    "type": "string",
+                                    "description": "The application token"
+                                }
+                            },
+                            "required": [
+                                "application_token"
+                            ],
+                            "example": {
+                                "application_token": "eyJ0eXAiOiJKv2QiLCJhbGciOiJIUzUxMi..."
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "devices": "https://api.embever.com/v2/devices/",
+                                "actions": "https://api.embever.com/v2/actions/",
+                                "events": "https://api.embever.com/v2/events/",
+                                "applications": "https://api.embever.com/v2/applications/",
+                                "firmwares": "https://api.embever.com/v2/firmwares/",
+                                "deployments": "https://api.embever.com/v2/deployments/",
+                                "updates": "https://api.embever.com/v2/updates/",
+                                "organisations": "https://api.embever.com/v2/organisations/",
+                                "tokens": "https://api.embever.com/v2/tokens/",
+                                "authenticate": "https://api.embever.com/v2/authenticate/"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "devices": {
+                                    "type": "string"
+                                },
+                                "actions": {
+                                    "type": "string"
+                                },
+                                "events": {
+                                    "type": "string"
+                                },
+                                "applications": {
+                                    "type": "string"
+                                },
+                                "firmwares": {
+                                    "type": "string"
+                                },
+                                "deployments": {
+                                    "type": "string"
+                                },
+                                "updates": {
+                                    "type": "string"
+                                },
+                                "organisations": {
+                                    "type": "string"
+                                },
+                                "tokens": {
+                                    "type": "string"
+                                },
+                                "authenticate": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "devices": "https://api.embever.com/v2/devices/",
+                                "actions": "https://api.embever.com/v2/actions/",
+                                "events": "https://api.embever.com/v2/events/",
+                                "applications": "https://api.embever.com/v2/applications/",
+                                "firmwares": "https://api.embever.com/v2/firmwares/",
+                                "deployments": "https://api.embever.com/v2/deployments/",
+                                "updates": "https://api.embever.com/v2/updates/",
+                                "organisations": "https://api.embever.com/v2/organisations/",
+                                "tokens": "https://api.embever.com/v2/tokens/",
+                                "authenticate": "https://api.embever.com/v2/authenticate/"
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve the Entry Point",
+                "operationId": "Retrieve the Entry Point",
+                "description": "",
+                "tags": [
+                    "API Root"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/devices/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/devices/a1b2c3",
+                                    "id": "a1b2c3",
+                                    "name": "yourdevicename",
+                                    "activated": false,
+                                    "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                    "type": "other",
+                                    "connectivity": {},
+                                    "webhooks": [
+                                        {
+                                            "type": "position",
+                                            "url": "https://mybackend.com/position/"
+                                        },
+                                        {
+                                            "type": "temp",
+                                            "url": "https://mybackend.com/temp/"
+                                        }
+                                    ],
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all devices",
+                "operationId": "List all devices",
+                "description": "Returns a list of the devices in your organisation",
+                "tags": [
+                    "Devices"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The device type (currently either `cellular` or `other` )",
+                        "required": false,
+                        "x-example": "cellular",
+                        "type": "string"
+                    },
+                    {
+                        "name": "activated",
+                        "in": "query",
+                        "description": "Filter for activated or supsended devices (only for cellular)",
+                        "required": false,
+                        "x-example": "true",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "application",
+                        "in": "query",
+                        "description": "ID of the Application to which the device is registered",
+                        "required": false,
+                        "x-example": "98hasdib",
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Filter by the name attribute of the device",
+                        "required": false,
+                        "x-example": "somedevicename",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/devices/a1b2c3",
+                                "id": "a1b2c3",
+                                "name": "yourdevicename",
+                                "activated": false,
+                                "application": "98hasdib",
+                                "type": "other",
+                                "connectivity": {},
+                                "webhooks": [
+                                    {
+                                        "type": "position",
+                                        "url": "https://mybackend.com/position/"
+                                    },
+                                    {
+                                        "type": "temp",
+                                        "url": "https://mybackend.com/temp/"
+                                    }
+                                ],
+                                "created_at": "2018-02-26T16:02:13.978899Z",
+                                "password": "somerandompassword"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "A human readable name."
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether the SIM card is activated. Only for cellular devices. Read only"
+                                },
+                                "application": {
+                                    "type": "string",
+                                    "description": "ID of the Application to which the device should registered"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "Type of the device. Either \"cellular\", or \"other\". Read only."
+                                },
+                                "connectivity": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "An object containing further information regarding the connectivity. Read only"
+                                },
+                                "webhooks": {
+                                    "type": "array",
+                                    "description": "An array of webhooks to which we post updates if an Event is created for that device",
+                                    "items": {}
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Device has been created. Read only"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "description": "Authentication password"
+                                }
+                            },
+                            "required": [
+                                "password"
+                            ]
+                        }
+                    }
+                },
+                "summary": "Create Device",
+                "operationId": "Create Device",
+                "description": "Create a new Device instance",
+                "tags": [
+                    "Devices"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "application": {
+                                    "type": "string",
+                                    "description": "ID of the Application to which the device should registered"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the device"
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "Activated or supsended devices (only for cellular)"
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ],
+                            "example": {
+                                "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "name": "somedevicename",
+                                "activated": true
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/devices/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/devices/a1b2c3",
+                                "id": "a1b2c3",
+                                "name": "yourdevicename",
+                                "activated": false,
+                                "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "type": "other",
+                                "connectivity": {},
+                                "webhooks": [
+                                    {
+                                        "type": "position",
+                                        "url": "https://mybackend.com/position/"
+                                    },
+                                    {
+                                        "type": "temp",
+                                        "url": "https://mybackend.com/temp/"
+                                    }
+                                ],
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "A human readable name."
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether the SIM card is activated. Only for cellular devices. Read only"
+                                },
+                                "application": {
+                                    "type": "string",
+                                    "description": "ID of an Application instance"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "Type of the device. Either \"cellular\", or \"other\". Read only."
+                                },
+                                "connectivity": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "An object containing further information regarding the connectivity. Read only"
+                                },
+                                "webhooks": {
+                                    "type": "array",
+                                    "description": "An array of webhooks to which we post updates if an Event is created for that device",
+                                    "items": {}
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Device has been created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Device Detail",
+                "operationId": "Device Detail",
+                "description": "",
+                "tags": [
+                    "Devices"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the device",
+                        "required": true,
+                        "x-example": "a1b2c3",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/devices/a1b2c3",
+                                "id": "a1b2c3",
+                                "name": "newname",
+                                "activated": false,
+                                "application": "98hasdib",
+                                "type": "other",
+                                "connectivity": {},
+                                "webhooks": [
+                                    {
+                                        "type": "position",
+                                        "url": "https://mybackend.com/position/"
+                                    },
+                                    {
+                                        "type": "temp",
+                                        "url": "https://mybackend.com/temp/"
+                                    }
+                                ],
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the device"
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether the SIM card is activated. Only for cellular devices. Read only"
+                                },
+                                "application": {
+                                    "type": "string",
+                                    "description": "ID of the Application to which the device should registered"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "Type of the device. Either \"cellular\", or \"other\". Read only."
+                                },
+                                "connectivity": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "An object containing further information regarding the connectivity. Read only"
+                                },
+                                "webhooks": {
+                                    "type": "array",
+                                    "description": "An array of webhooks to which we post updates if an Event is created for that device",
+                                    "items": {}
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Device has been created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Update Device",
+                "operationId": "Update Device",
+                "description": "",
+                "tags": [
+                    "Devices"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the device",
+                        "required": true,
+                        "x-example": "a1b2c3",
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "application": {
+                                    "type": "string",
+                                    "description": "ID of the Application to which the device should registered"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the device"
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "Activated or supsended devices (only for cellular)"
+                                }
+                            },
+                            "example": {
+                                "application": "98hasdib",
+                                "name": "newname",
+                                "activated": true
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Delete Device",
+                "operationId": "Delete Device",
+                "description": "",
+                "tags": [
+                    "Devices"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the device",
+                        "required": true,
+                        "x-example": "a1b2c3",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/applications/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/devices/dbeb7f9-2d34-4411-9e34-9c7ae361cb92/",
+                                    "id": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                    "alias": "testapp",
+                                    "description": "Some description",
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all Applications",
+                "operationId": "List all Applications",
+                "description": "",
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/devices/dbeb7f9-2d34-4411-9e34-9c7ae361cb92/",
+                                "id": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "alias": "testapp",
+                                "description": "Some description",
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only."
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Human readable alias of application"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Description of the application"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Application has been created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Create Application",
+                "operationId": "Create Application",
+                "description": "",
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias for your application"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "A description of your application"
+                                },
+                                "secret": {
+                                    "type": "string",
+                                    "description": "Secret key for symmetric key authentication"
+                                }
+                            },
+                            "required": [
+                                "alias",
+                                "secret"
+                            ],
+                            "example": {
+                                "alias": "App1",
+                                "description": "some description",
+                                "secret": "top-secret"
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/applications/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/devices/dbeb7f9-2d34-4411-9e34-9c7ae361cb92/",
+                                "id": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "alias": "testapp",
+                                "description": "Some description",
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only."
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Human readable alias of application"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Description of the application"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Application has been created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Application Detail",
+                "operationId": "Application Detail",
+                "description": "",
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The unique identifier of the object. Read only",
+                        "required": true,
+                        "x-example": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/devices/dbeb7f9-2d34-4411-9e34-9c7ae361cb92/",
+                                "id": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "alias": "testapp",
+                                "description": "Some description",
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only."
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Human readable alias of application"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "Description of the application"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Application has been created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Update Application",
+                "operationId": "Update Application",
+                "description": "",
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The unique identifier of the object. Read only",
+                        "required": true,
+                        "x-example": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias for your application"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "A description of your application"
+                                },
+                                "secret": {
+                                    "type": "string",
+                                    "description": "Secret key for symmetric key authentication"
+                                }
+                            },
+                            "required": [
+                                "alias",
+                                "secret"
+                            ],
+                            "example": {
+                                "alias": "App1",
+                                "description": "some description",
+                                "secret": "top-secret"
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Delete Application",
+                "operationId": "Delete Application",
+                "description": "",
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The unique identifier of the object. Read only",
+                        "required": true,
+                        "x-example": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/actions/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/actions/62542",
+                                    "id": 62542,
+                                    "device": {
+                                        "id": "a1b2c3",
+                                        "name": "yourdevicename"
+                                    },
+                                    "type": "setSettings",
+                                    "payload": {
+                                        "someData": 54
+                                    },
+                                    "webhooks": [
+                                        {
+                                            "status": "action_sent",
+                                            "url": "https://mybackend.com/action_sent/"
+                                        },
+                                        {
+                                            "status": "action_overridden",
+                                            "url": "https://mybackend.com/action_overridden/"
+                                        },
+                                        {
+                                            "status": "response_received",
+                                            "url": "https://mybackend.com/response/"
+                                        },
+                                        {
+                                            "status": "action_delivered",
+                                            "url": "https://mybackend.com/action_delivered/"
+                                        }
+                                    ],
+                                    "status": {
+                                        "action_sent": "2018-02-27T16:02:13.978899Z",
+                                        "action_overridden": "2018-02-27T16:02:15.978899Z",
+                                        "response_received": "2018-02-27T16:02:15.978899Z"
+                                    },
+                                    "service_level": 0,
+                                    "cancelled": false,
+                                    "finished": true,
+                                    "result": {},
+                                    "created_at": "2018-02-26T16:02:13.978899Z",
+                                    "result_code": "Success",
+                                    "expiry_date": "2019-03-27T16:02:13Z",
+                                    "expired": "false"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all actions",
+                "operationId": "List all actions",
+                "description": "Return a list of Action instances",
+                "tags": [
+                    "Actions"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of the action",
+                        "required": false,
+                        "x-example": "getSettings",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "description": "The ID of the device for which the action was created",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/actions/62542",
+                                "id": 62542,
+                                "device": {
+                                    "id": "a1b2c3",
+                                    "name": "yourdevicename"
+                                },
+                                "type": "setSettings",
+                                "payload": {
+                                    "someData": 54
+                                },
+                                "webhooks": [
+                                    {
+                                        "status": "action_sent",
+                                        "url": "https://mybackend.com/action_sent/"
+                                    },
+                                    {
+                                        "status": "action_overridden",
+                                        "url": "https://mybackend.com/action_overridden/"
+                                    },
+                                    {
+                                        "status": "response_received",
+                                        "url": "https://mybackend.com/response/"
+                                    },
+                                    {
+                                        "status": "action_delivered",
+                                        "url": "https://mybackend.com/action_delivered/"
+                                    }
+                                ],
+                                "status": {
+                                    "action_sent": "2018-02-27T16:02:13.978899Z",
+                                    "action_overridden": "2018-02-27T16:02:15.978899Z",
+                                    "response_received": "2018-02-27T16:02:15.978899Z"
+                                },
+                                "service_level": 0,
+                                "cancelled": false,
+                                "finished": true,
+                                "result": {},
+                                "created_at": "2018-02-26T16:02:13.978899Z",
+                                "result_code": "Success",
+                                "expiry_date": "2019-03-27T16:02:13Z",
+                                "expired": "false"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only"
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "device": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The unique identifier of the object. Read only"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "A human readable name."
+                                        }
+                                    },
+                                    "description": "Relation to device based on `id` or `name` attribute of the device."
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "The type of the action that the device shall perform"
+                                },
+                                "payload": {
+                                    "type": "object",
+                                    "properties": {
+                                        "someData": {
+                                            "type": "number",
+                                            "description": "Some data that your device processes"
+                                        }
+                                    },
+                                    "description": "A payload that should be sent to the device along with the Action"
+                                },
+                                "webhooks": {
+                                    "type": "array",
+                                    "description": "An array of webhooks to which we post updates if the status of the Action instance changes",
+                                    "items": {}
+                                },
+                                "status": {
+                                    "type": "object",
+                                    "properties": {
+                                        "action_sent": {
+                                            "type": "string"
+                                        },
+                                        "action_overridden": {
+                                            "type": "string"
+                                        },
+                                        "response_received": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "description": "An object containing information about the current and historic status of the action. Read only"
+                                },
+                                "service_level": {
+                                    "type": "number",
+                                    "description": "Identifier for the service level"
+                                },
+                                "cancelled": {
+                                    "type": "boolean",
+                                    "description": "Indicates wheather the action was cancelled."
+                                },
+                                "finished": {
+                                    "type": "boolean",
+                                    "description": "A boolean indicating whether the action is finished. Read only"
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "An object that is set by the response of the device. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action was created. Read only"
+                                },
+                                "result_code": {
+                                    "type": "string",
+                                    "description": "Inidicates if the result send from the device is a success response or an error response. Read only"
+                                },
+                                "expiry_date": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action expires."
+                                },
+                                "expired": {
+                                    "type": "string",
+                                    "description": "Inidicates if the action is expired or not. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Create an Action",
+                "operationId": "Create an Action",
+                "description": "Create a new Action instance",
+                "tags": [
+                    "Actions"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "device": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The ID of the Device instance. A unique identifier."
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Name of the device"
+                                        }
+                                    },
+                                    "description": "An object for referencing the device"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "The type of the action that the device shall perform"
+                                },
+                                "payload": {
+                                    "type": "object",
+                                    "properties": {
+                                        "someData": {
+                                            "type": "number",
+                                            "description": "Some data that your device processes"
+                                        }
+                                    },
+                                    "description": "A payload that should be sent to the device along with the Action"
+                                },
+                                "webhooks": {
+                                    "type": "array",
+                                    "description": "An array of webhooks to which we post updates if the status of the Action instance changes"
+                                },
+                                "service_level": {
+                                    "type": "number",
+                                    "description": "An identifier for service level"
+                                },
+                                "cancelled": {
+                                    "type": "boolean",
+                                    "description": "Indicates if the action is cancelled"
+                                }
+                            },
+                            "required": [
+                                "device",
+                                "type"
+                            ],
+                            "example": {
+                                "device": {
+                                    "id": "a1b2c3",
+                                    "name": "yourdevicename"
+                                },
+                                "type": "setSettings",
+                                "payload": {
+                                    "someData": 54
+                                },
+                                "webhooks": [
+                                    {
+                                        "status": "action_sent",
+                                        "url": "https://mybackend.com/action_sent/"
+                                    },
+                                    {
+                                        "status": "action_overridden",
+                                        "url": "https://mybackend.com/action_overridden/"
+                                    },
+                                    {
+                                        "status": "response_received",
+                                        "url": "https://mybackend.com/response/"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/actions/{id}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/actions/62542",
+                                "id": 62542,
+                                "device": {
+                                    "id": "a1b2c3",
+                                    "name": "yourdevicename"
+                                },
+                                "type": "setSettings",
+                                "payload": {
+                                    "someData": 54
+                                },
+                                "webhooks": [
+                                    {
+                                        "status": "action_sent",
+                                        "url": "https://mybackend.com/action_sent/"
+                                    },
+                                    {
+                                        "status": "action_overridden",
+                                        "url": "https://mybackend.com/action_overridden/"
+                                    },
+                                    {
+                                        "status": "response_received",
+                                        "url": "https://mybackend.com/response/"
+                                    },
+                                    {
+                                        "status": "action_delivered",
+                                        "url": "https://mybackend.com/action_delivered/"
+                                    }
+                                ],
+                                "status": {
+                                    "action_sent": "2018-02-27T16:02:13.978899Z",
+                                    "action_overridden": "2018-02-27T16:02:15.978899Z",
+                                    "response_received": "2018-02-27T16:02:15.978899Z"
+                                },
+                                "service_level": 0,
+                                "cancelled": false,
+                                "finished": true,
+                                "result": {},
+                                "created_at": "2018-02-26T16:02:13.978899Z",
+                                "result_code": "Success",
+                                "expiry_date": "2019-03-27T16:02:13Z",
+                                "expired": "false"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only"
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "device": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The unique identifier of the object. Read only"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "A human readable name."
+                                        }
+                                    },
+                                    "description": "Relation to device based on `id` or `name` attribute of the device."
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "The type of the action that the device shall perform"
+                                },
+                                "payload": {
+                                    "type": "object",
+                                    "properties": {
+                                        "someData": {
+                                            "type": "number",
+                                            "description": "Some data that your device processes"
+                                        }
+                                    },
+                                    "description": "A payload that should be sent to the device along with the Action"
+                                },
+                                "webhooks": {
+                                    "type": "array",
+                                    "description": "An array of webhooks to which we post updates if the status of the Action instance changes",
+                                    "items": {}
+                                },
+                                "status": {
+                                    "type": "object",
+                                    "properties": {
+                                        "action_sent": {
+                                            "type": "string"
+                                        },
+                                        "action_overridden": {
+                                            "type": "string"
+                                        },
+                                        "response_received": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "description": "An object containing information about the current and historic status of the action. Read only"
+                                },
+                                "service_level": {
+                                    "type": "number",
+                                    "description": "Identifier for the service level"
+                                },
+                                "cancelled": {
+                                    "type": "boolean",
+                                    "description": "Indicates wheather the action was cancelled."
+                                },
+                                "finished": {
+                                    "type": "boolean",
+                                    "description": "A boolean indicating whether the action is finished. Read only"
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "An object that is set by the response of the device. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action was created. Read only"
+                                },
+                                "result_code": {
+                                    "type": "string",
+                                    "description": "Inidicates if the result send from the device is a success response or an error response. Read only"
+                                },
+                                "expiry_date": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action expires."
+                                },
+                                "expired": {
+                                    "type": "string",
+                                    "description": "Inidicates if the action is expired or not. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Action Detail",
+                "operationId": "Action Detail",
+                "description": "",
+                "tags": [
+                    "Actions"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the action",
+                        "required": true,
+                        "x-example": "62542",
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/events/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/actions/12",
+                                    "id": 12,
+                                    "device": "8112635472",
+                                    "type": "someEventType",
+                                    "payload": {
+                                        "someData": 54
+                                    },
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all events",
+                "operationId": "List all events",
+                "description": "Return a list of Event instances",
+                "tags": [
+                    "Events"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of the Event",
+                        "required": false,
+                        "x-example": "battery",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "description": "The ID of the device that sent the Event",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/events/{id}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/actions/12",
+                                "id": 12,
+                                "device": "8112635472",
+                                "type": "someEventType",
+                                "payload": {
+                                    "someData": 54
+                                },
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource. Read only"
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "device": {
+                                    "type": "string",
+                                    "description": "The ID of the Device instance. A unique identifier."
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "The type of the event that was sent from the device"
+                                },
+                                "payload": {
+                                    "type": "object",
+                                    "properties": {
+                                        "someData": {
+                                            "type": "number",
+                                            "description": "Some data  from the device"
+                                        }
+                                    },
+                                    "description": "A payload that was sent by the device along with the Event"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Event was created. read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Event Detail",
+                "operationId": "Event Detail",
+                "description": "",
+                "tags": [
+                    "Events"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Event",
+                        "required": true,
+                        "x-example": "12",
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/organisations/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/organisations/7a2e64a2-9e85-4a75-9d63-f7060e63e0ce",
+                                    "id": "7a2e64a2-9e85-4a75-9d63-f7060e63e0ce",
+                                    "name": "Company Inc.",
+                                    "street": "Sample-Str.",
+                                    "street_number": "16",
+                                    "postal_code": 39112,
+                                    "city": "Remscheid",
+                                    "country": "Germany",
+                                    "max_token_lifespan_in_seconds": 300,
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all Organisations",
+                "operationId": "List all Organisations",
+                "description": "",
+                "tags": [
+                    "Organisation"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/organisation/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/detail": ""
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Organisation"
+                        }
+                    }
+                },
+                "summary": "Organisation Detail",
+                "operationId": "Organisation Detail",
+                "description": "",
+                "tags": [
+                    "Organisation"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The unique identifier of the organisation",
+                        "required": true,
+                        "x-example": "7a2e64a2-9e85-4a75-9d63-f7060e63e0ce",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/detail"
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/organisations/7a2e64a2-9e85-4a75-9d63-f7060e63e0ce",
+                                "id": "7a2e64a2-9e85-4a75-9d63-f7060e63e0ce",
+                                "name": "Company Inc.",
+                                "street": "Sample-Str.",
+                                "street_number": "16",
+                                "postal_code": 39112,
+                                "city": "Remscheid",
+                                "country": "Germany",
+                                "max_token_lifespan_in_seconds": 360,
+                                "created_at": "2018-02-26T16:02:13.978899Z",
+                                "secret": "updated_secret"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the instance. Read only."
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the Organisation"
+                                },
+                                "street": {
+                                    "type": "string",
+                                    "description": "Street name of the address."
+                                },
+                                "street_number": {
+                                    "type": "string",
+                                    "description": "House number of the organisation."
+                                },
+                                "postal_code": {
+                                    "type": "number",
+                                    "description": "ZIP code of the organisations address."
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "description": "City name of the address"
+                                },
+                                "country": {
+                                    "type": "string",
+                                    "description": "Country of the organisation"
+                                },
+                                "max_token_lifespan_in_seconds": {
+                                    "type": "number",
+                                    "description": "Lifespan of the Organisation Token"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Application has been created. Read only"
+                                },
+                                "secret": {
+                                    "type": "string",
+                                    "description": "Secret key used for Symmetric Key Authentication"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Update Organisation",
+                "operationId": "Update Organisation",
+                "description": "",
+                "tags": [
+                    "Organisation"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The unique identifier of the organisation",
+                        "required": true,
+                        "x-example": "7a2e64a2-9e85-4a75-9d63-f7060e63e0ce",
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "secret": {
+                                    "type": "string",
+                                    "description": "Secret key used for Symmetric Key Authentication"
+                                },
+                                "max_token_lifespan_in_seconds": {
+                                    "type": "number",
+                                    "description": "Lifespan of the Organisation Token"
+                                }
+                            },
+                            "example": {
+                                "secret": "updated_secret",
+                                "max_token_lifespan_in_seconds": 360
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/tokens/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/tokens/15/",
+                                    "id": 15,
+                                    "alias": "sometoken",
+                                    "activated": true,
+                                    "expiry_date": "2018-02-26T16:02:13.978899Z",
+                                    "scope": {
+                                        "organisation": "7dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                        "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                        "user": 5
+                                    },
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List Tokens",
+                "operationId": "List Tokens",
+                "description": "",
+                "tags": [
+                    "Tokens"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/tokens/15/",
+                                "id": 16,
+                                "alias": "sometoken",
+                                "activated": true,
+                                "expiry_date": "2018-02-26T16:02:13.978899Z",
+                                "scope": {
+                                    "organisation": "7dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                    "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                    "user": 5
+                                },
+                                "created_at": "2018-01-26T16:02:13.978899Z",
+                                "token": "eyJ0eXAiOiJKv2QiLCJhbGciOiJIUzUxMiJ9.eyJhbGlhcyI6Ijhhc2RvdW5hc2QiLCJvcmdhbmlzYXRpb25faWQiOiI3YTJlNjRhMi05ZTg1LTRhNzUtOWQ2My1mNzA2MGU2M2UwY2UifQ.fFfZoEz60FdCDIi_oCKbxnke25jV5lVsB65cQ9eqh3v-xwMKqtTkvRdfa2yuQbLt9QsmIuMp14Gkxp61yThZhg"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the ressource"
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "ID of the token"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias of the token"
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "If set to false, authenticationg with the token will fail"
+                                },
+                                "expiry_date": {
+                                    "type": "string",
+                                    "description": "If set, the token will expire on that given datetime"
+                                },
+                                "scope": {
+                                    "type": "object",
+                                    "properties": {
+                                        "organisation": {
+                                            "type": "string",
+                                            "description": "Organisation ID"
+                                        },
+                                        "application": {
+                                            "type": "string",
+                                            "description": "Application ID"
+                                        },
+                                        "user": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "description": "Scope of the token. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action was created. Read only"
+                                },
+                                "token": {
+                                    "type": "string",
+                                    "description": "Token"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Create Token",
+                "operationId": "Create Token",
+                "description": "",
+                "tags": [
+                    "Tokens"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias of the token"
+                                },
+                                "organisation": {
+                                    "type": "string",
+                                    "description": "ID of an organisation to authenticate with."
+                                },
+                                "application": {
+                                    "type": "string",
+                                    "description": "ID of an application to authenticate with."
+                                },
+                                "expiry_date": {
+                                    "type": "string",
+                                    "description": "If set, the token will expire on that given datetime"
+                                }
+                            },
+                            "example": {
+                                "alias": "sometoken",
+                                "organisation": "7dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                "expiry_date": "2018-02-26T16:02:13.978899Z"
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/tokens/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/tokens/15/",
+                                "id": 15,
+                                "alias": "sometoken",
+                                "activated": true,
+                                "expiry_date": "2018-02-26T16:02:13.978899Z",
+                                "scope": {
+                                    "organisation": "7dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                    "application": "6dbeb7f9-2d34-4411-9e34-9c7ae361cb92",
+                                    "user": 5
+                                },
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the instance. Read only."
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias of the token"
+                                },
+                                "activated": {
+                                    "type": "boolean",
+                                    "description": "If set to false, authenticationg with the token will fail"
+                                },
+                                "expiry_date": {
+                                    "type": "string",
+                                    "description": "If set, the token will expire on that given datetime"
+                                },
+                                "scope": {
+                                    "type": "object",
+                                    "properties": {
+                                        "organisation": {
+                                            "type": "string",
+                                            "description": "Organisation ID"
+                                        },
+                                        "application": {
+                                            "type": "string",
+                                            "description": "Application ID"
+                                        },
+                                        "user": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "description": "Scope of the token. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action was created. read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Token Detail",
+                "operationId": "Token Detail",
+                "description": "",
+                "tags": [
+                    "Tokens"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the token",
+                        "required": true,
+                        "x-example": "16",
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Delete Token",
+                "operationId": "Delete Token",
+                "description": "",
+                "tags": [
+                    "Tokens"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the token",
+                        "required": true,
+                        "x-example": "16",
+                        "type": "number"
+                    }
+                ]
+            }
+        },
+        "/firmwares/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/firmwares/UBNY6l/",
+                                    "id": "UBNY6l",
+                                    "version": "1.0",
+                                    "alias": "somefw",
+                                    "dest": "EBV",
+                                    "description": "some description",
+                                    "predecessor": "au8auS",
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all Firmwares",
+                "operationId": "List all Firmwares",
+                "description": "",
+                "tags": [
+                    "Firmware"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/firmwares/UBNY6l/",
+                                "id": "UBNY6l",
+                                "version": "1.0",
+                                "alias": "somefw",
+                                "dest": "EBV",
+                                "description": "some description",
+                                "predecessor": "au8auS",
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the instance. Read only."
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "version": {
+                                    "type": "string",
+                                    "description": "Firmware version"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias of the firmware"
+                                },
+                                "dest": {
+                                    "type": "string",
+                                    "description": "Destination of the Firmware. \"EBV\" for Firmware of Embever Micocontroller, \"APP\" for Firmware of Application Microcontroller."
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "A description of the firmware"
+                                },
+                                "predecessor": {
+                                    "type": "string",
+                                    "description": "ID of a firmware instance. Indicating the predecessor"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Firmware has been created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Create Firmware",
+                "operationId": "Create Firmware",
+                "description": ":::warning\nNot implemented yet\n:::",
+                "tags": [
+                    "Firmware"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "version": {
+                                    "type": "string",
+                                    "description": "The version of your firmware"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "description": "Alias of the firmware"
+                                },
+                                "dest": {
+                                    "type": "string",
+                                    "description": "Destination of Firmware, \"EBV\" for Embever Microcontroller, \"APP\" for Application Microcontroller."
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "description": "A description of the firmware"
+                                },
+                                "predecessor": {
+                                    "type": "string",
+                                    "description": "ID of a firmware instance. Indicating the predecessor"
+                                }
+                            },
+                            "required": [
+                                "version",
+                                "alias",
+                                "dest"
+                            ],
+                            "example": {
+                                "version": "1.0",
+                                "alias": "somefw",
+                                "dest": "\"EBV\"",
+                                "description": "some description",
+                                "predecessor": "au8auS"
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/firmwares/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {},
+                        "schema": {
+                            "$ref": "#/definitions/Firmware"
+                        }
+                    }
+                },
+                "summary": "Firmware Detail",
+                "operationId": "Firmware Detail",
+                "description": "",
+                "tags": [
+                    "Firmware"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Firmware instance",
+                        "required": true,
+                        "x-example": "UBNY6l",
+                        "type": "string"
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Delete Firmware",
+                "operationId": "Delete Firmware",
+                "description": "",
+                "tags": [
+                    "Firmware"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Firmware instance",
+                        "required": true,
+                        "x-example": "UBNY6l",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/deployments/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https://api.embever.com/v2/deployments/15/",
+                                    "id": 15,
+                                    "devices": [
+                                        "m8uGz",
+                                        "a1b2c3",
+                                        "s4U9j0",
+                                        "aN901x"
+                                    ],
+                                    "successful": [
+                                        "m8uGz",
+                                        "a1b2c3"
+                                    ],
+                                    "pending": [
+                                        "s4U9j0"
+                                    ],
+                                    "failed": [
+                                        "aN901x"
+                                    ],
+                                    "firmware": "UBNY6l",
+                                    "finished": false,
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all Deployments",
+                "operationId": "List all Deployments",
+                "description": "",
+                "tags": [
+                    "Firmware Updates"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/deployments/15/",
+                                "id": 15,
+                                "devices": [
+                                    "m8uGz",
+                                    "a1b2c3"
+                                ],
+                                "successful": [],
+                                "pending": [],
+                                "failed": [],
+                                "firmware": "UBNY6l",
+                                "finished": false,
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the instance. Read only."
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "devices": {
+                                    "type": "array",
+                                    "description": "IDs of the devices to which the firmware update should be applied",
+                                    "items": {}
+                                },
+                                "successful": {
+                                    "description": "IDs of the devices to which the firmware update is successfully completed. Read only"
+                                },
+                                "pending": {
+                                    "description": "IDs of the devices to which the firmware update is still in progress. Read only"
+                                },
+                                "failed": {
+                                    "description": "IDs of the devices to which the firmware update failed. Read only"
+                                },
+                                "firmware": {
+                                    "type": "string",
+                                    "description": "ID of the firmware that should be deployed"
+                                },
+                                "finished": {
+                                    "type": "boolean",
+                                    "description": "A boolean indicating whether the action is finished. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action was created. read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Create new Deployment",
+                "operationId": "Create new Deployment",
+                "description": "",
+                "tags": [
+                    "Firmware Updates"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "devices": {
+                                    "type": "array",
+                                    "description": "IDs of the devices to which the firmwareupdate should be applied"
+                                },
+                                "firmware": {
+                                    "type": "string",
+                                    "description": "ID of the firmware that should be deployed"
+                                }
+                            },
+                            "required": [
+                                "devices",
+                                "firmware"
+                            ],
+                            "example": {
+                                "devices": [
+                                    "m8uGz",
+                                    "a1b2c3"
+                                ],
+                                "firmware": "UBNY6l"
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/deployments/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https://api.embever.com/v2/deployments/15/",
+                                "id": 15,
+                                "devices": [
+                                    "m8uGz",
+                                    "a1b2c3",
+                                    "s4U9j0",
+                                    "aN901x"
+                                ],
+                                "successful": [
+                                    "m8uGz",
+                                    "a1b2c3"
+                                ],
+                                "pending": [
+                                    "s4U9j0"
+                                ],
+                                "failed": [
+                                    "aN901x"
+                                ],
+                                "firmware": "UBNY6l",
+                                "finished": false,
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the instance. Read only."
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "devices": {
+                                    "type": "array",
+                                    "description": "IDs of the devices to which the firmware update should be applied",
+                                    "items": {}
+                                },
+                                "successful": {
+                                    "type": "array",
+                                    "description": "IDs of the devices to which the firmware update is successfully completed. Read only",
+                                    "items": {}
+                                },
+                                "pending": {
+                                    "type": "array",
+                                    "description": "IDs of the devices to which the firmware update is still in progress. Read only",
+                                    "items": {}
+                                },
+                                "failed": {
+                                    "type": "array",
+                                    "description": "IDs of the devices to which the firmware update failed. Read only",
+                                    "items": {}
+                                },
+                                "firmware": {
+                                    "type": "string",
+                                    "description": "ID of the firmware that should be deployed"
+                                },
+                                "finished": {
+                                    "type": "boolean",
+                                    "description": "A boolean indicating whether the action is finished. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Action was created. read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Deployment Detail",
+                "operationId": "Deployment Detail",
+                "description": "",
+                "tags": [
+                    "Firmware Updates"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Deployment instance",
+                        "required": true,
+                        "x-example": "15",
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/updates/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "url": "https//api.embever.com/v2/updates/23/",
+                                    "id": 23,
+                                    "deployment": 15,
+                                    "device": "m8uGz",
+                                    "status": {
+                                        "action_sent": "2018-02-27T16:02:13.978899Z",
+                                        "response_received": "2018-02-27T16:05:15.978Z"
+                                    },
+                                    "result": {
+                                        "status": 200
+                                    },
+                                    "result_code": "Success",
+                                    "finished": true,
+                                    "changed_at": "2018-02-26T16:02:13.978899Z",
+                                    "created_at": "2018-02-26T16:02:13.978899Z"
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                },
+                "summary": "List all Updates",
+                "operationId": "List all Updates",
+                "description": "",
+                "tags": [
+                    "Firmware Updates"
+                ],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/updates/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "url": "https//api.embever.com/v2/updates/23/",
+                                "id": 23,
+                                "deployment": 15,
+                                "device": "m8uGz",
+                                "status": {
+                                    "action_sent": "2018-02-27T16:02:13.978899Z",
+                                    "response_received": "2018-02-27T16:05:15.978Z"
+                                },
+                                "result": {
+                                    "status": 200
+                                },
+                                "result_code": "Success",
+                                "finished": true,
+                                "changed_at": "2018-02-26T16:02:13.978899Z",
+                                "created_at": "2018-02-26T16:02:13.978899Z"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "URI of the instance. Read only."
+                                },
+                                "id": {
+                                    "type": "number",
+                                    "description": "The unique identifier of the object. Read only"
+                                },
+                                "deployment": {
+                                    "type": "number",
+                                    "description": "The ID of the corresponding deployment"
+                                },
+                                "device": {
+                                    "type": "string",
+                                    "description": "The ID of the corresponding device"
+                                },
+                                "status": {
+                                    "type": "object",
+                                    "properties": {
+                                        "action_sent": {
+                                            "type": "string"
+                                        },
+                                        "response_received": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "description": "An object containing information about the current and historic status of the action. Read only"
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "description": "An object that is set by the response of the device. Read only"
+                                },
+                                "result_code": {
+                                    "type": "string",
+                                    "description": "Inidicates if the result send from the device is a success response or an error response. Read only"
+                                },
+                                "finished": {
+                                    "type": "boolean",
+                                    "description": "A boolean indicating whether the action is finished. Read only"
+                                },
+                                "changed_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Update was changed last. Read only"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Datetime at which the Update was created. Read only"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Update Detail",
+                "operationId": "Update Detail",
+                "description": "",
+                "tags": [
+                    "Firmware Updates"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Update instance",
+                        "required": true,
+                        "x-example": "23",
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Action": {},
+        "ActionList": {
+            "type": "array",
+            "items": {}
+        },
+        "Event": {},
+        "EventList": {
+            "type": "array",
+            "items": {}
+        },
+        "Device": {},
+        "DeviceList": {
+            "type": "array",
+            "items": {}
+        },
+        "Application": {},
+        "ApplicationList": {
+            "type": "array",
+            "items": {}
+        },
+        "Organisation": {},
+        "OrganisationList": {
+            "type": "array",
+            "items": {}
+        },
+        "Firmware": {},
+        "FirmwareList": {
+            "type": "array",
+            "items": {}
+        },
+        "Deployment": {},
+        "DeploymentList": {
+            "type": "array",
+            "items": {}
+        },
+        "Update": {},
+        "UpdateList": {
+            "type": "array",
+            "items": {}
+        },
+        "Token": {},
+        "TokenList": {
+            "type": "array",
+            "items": {}
+        },
+        "Authenticate": {},
+        "Entrypoint": {},
+        "Device Collection": {},
+        "Application Collection": {},
+        "Action Collection": {},
+        "Event Collection": {},
+        "Organisation Collection": {},
+        "Token Collection": {},
+        "Firmware Collection": {},
+        "Deployment Collection": {},
+        "Update Collection": {}
+    },
+    "securityDefinitions": {},
+    "tags": [
+        {
+            "name": "Authenticating",
+            "description": "The API uses JWT tokens to authorize requests to ressources. Your application can obtain an access token by posting an application token to the `/authenticate` endpoint (for creatinng application tokens refer to [Tokens](#tokens)). The access token is used for the requests to the API, but has a short validity period. When it expires, the application token must be used again to gain a new auth token. The access token is passed in the request's `Authorization` header.\n\n![authentication sequence](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgQXV0aGVudGljYXRpb24gU2VxdWVuY2UKCkFwcGwADwctPlNlcnZlcjogUE9TVCAvYQAqCmUoYQAeCl90b2tlbikKACgGLT4AOAs6IDIwMCAoYWNjZXNzLCByZWZyZXNoKQBQFkhlYWRlcjpBdXRob3JpegA6B0JlYXJlciA8AD4GPiAATRpPSwpub3RlIG92ZXIgAIE9CywAgT8IYXV0aACBJwYgZXhwaXJlZAA3UjQwMSBVbmEAgT0HAEoYAII-EwCCEwkAghwrVXNlcgCDHApSZXZva2UgAIMPCyAAgxUFAIMDUQCBUxEK&s=magazine \"Sequence\")"
+        },
+        {
+            "name": "Webhooks",
+            "description": "Embever IoT Core offers a webhook mechanism to inform other services about Events and changes in Action statuses.\n\n### Event Webhooks\n\nEvent Webhooks are triggered when an Event object is created. Event Webhooks are defined per device and live in the `device.webhooks` attribute. They have the structure:\n\n```\n{\n  \"type\": \"event_type\",\n  \"url\": \"https://mybackend.com/position/\",\n  \"payload_only\": false\n}\n```\n\nThe `type` indicates what Event type triggers the webhook. If an Event with `type=\"foo\"` is received from a device, the system will look look up all webhooks `type=\"foo\"` and process this hooks accordingly. The system will issue a POST request to the specified url. The body of that request contains the created Event instance (JSON encoded). The `\"payload_only\"` is a boolean attribute, is optional and defults to false. If `\"payload_only\"` is set to true, the body of POST contains only the value of `\"payload\"` attribute. Setting `\"payload_only\"` attribute may come handy when working with telemetry data.\n\n### <a name=\"action-webhooks\"></a> Action Webhooks\n\nAction Webhooks are triggered when the status of an Action instance changes. Action Webhooks are defined per action and live in the `action.webhooks` attribute. They have the structure:\n\n```\n[\n  {\n    \"url\": \"https://mybackend.com/status-update/\",\n    \"status\": \"action_sent\"\n  },\n  {\n    \"url\": \"https://mybackend.com/response/\",\n    \"status\": \"response_received\",\n    \"payload_only\": true\n  },\n  ......\n]\n```\n\nThe `\"status\"` indicates which status type triggers the webhook. If an Action reaches the `action_sent` status, the system will look look up all webhooks  with`status=\"action_sent\"` and process this hooks accordingly. The system will issue a POST request to the specified url. The body of that request contains the updated Action instance (JSON encoded). The `\"payload_only\"` is a boolean attribute, is optional and defults to false. If `\"payload_only\"` is set to true, the body of POST contains only the value of `\"result\"` attribute of an Action.\n\n:::warning\nCurrently only the webhooks for the stati `action_sent`  `action_delivered` `response_received`, `file_transfer_started`, `file_transfer_complete` and `file_transfer_failed` are triggered.\n:::\n\n### Headers of the request\n\nTo authenticate the request, the system will add the following headers to the request\n\n* `X-Org-Token`\n\n* `X-App-Token` if the corresponding device is attached to an application\n\n`X-Org-Token`and `X-App-Token` are JWTs that are signed with the `organisation.secret` and `application.secret` respectively. The payload of the tokens have the following attributes:\n\n* `organisation_id` or `application_id`\n\n* `iat` - datetime at which the token was created\n\n* `exp` - datetime at which the token expires. This is determined by the `max_token_lifespan_in_seconds` attribute."
+        },
+        {
+            "name": "Service Levels",
+            "description": "Embever IoT core supports three different Serivice Levels which determine the quality of service of the delivery of action to the device.\n\n### Service Level 0\n\nWhen actions are created with `service_level=0`, Embever Cloud makes sure the actions are sent to the device but these actions are not guranteed to be delivered or to be processed by the device.\n\n
+            
+            
+            ![Service Level 0](../service_level_0.png)\n\n
+            
+            ### Service Level 1\n\nWhen actions are created with `service_level=1`, Embever Cloud makes sure the actions are sent to the device and guranteed to be received by the device.  These actions are not guranteed to be processed by the device. Embever Cloud will lock these actions until the device sends the acknowledgement of receiving the action. If not acknowledged by the device, Embever Cloud will resend the action. The sending of the action can be can be cancelled by setting the property `cancelled` to `True`.\n\n
+            
+            ![Service Level 1](../service_level_1.png)\n\n
+            
+            ### Service Level 2\n\nActions created with `service_level=2` are guranteed to be processed by the device. Embever Cloud makes sure that these actions are sent to the device, received and processed. Embever cloud will lock these actions unitil it receives the acknowledgement that the actions has been processed.\n\n
+            
+            ![Service Level 2](../service_level_2.png)\n\n"
+        },
+        {
+            "name": "API Root"
+        },
+        {
+            "name": "Pagination",
+            "description": "Request that return multiple items will be paginated to 100 items by default. The api offers a way to easily navigate through the items using the `?limit` and `?offset` parameters. The `?limit` parameter limits the number of results and the `?offset` parameter skips the number of items before beginning to return the items. By default the the value of `?limit` and `?offset` is 100 and 0 respectively.\n\n```\ncurl 'https://api.embever.com/v2/actions/?limit=100&offset=300'\n```\n\n### Link Header\n\nThe link header provides the information on pagination.\n\n```\nLink:\n <https://api.embever.com/v2/actions/?limit=100>; rel=\"first\",\n <https://api.embever.com/v2/actions/?limit=100&offset=400>; rel=\"next\",\n <https://api.embever.com/v2/actions/?limit=100&offset=200>; rel=\"previous\",\n <https://api.embever.com/v2/actions/?limit=100&offset=578>; rel=\"last\"\n```\n\nThis `Link` response header contains one or more Hypermedia link relations.\nThe possible `rel` values are:\n\nName | Descirption\n---|---\n`first` | The link relation for the first page of result items.\n`next` | The link relation for the immediate next page of result items.\n`prev` | The link relation for the immediate immediate page of result items.\n`last` | The link relation for the last page of result items."
+        },
+        {
+            "name": "Devices",
+            "description": "This section describes available API services for managing Devices.\n\n### Description of Devices\n\nA Device instance is representation of a single physical IoT device. Each physical device that you want to connect to Embever IoT Core needs its own Device instance.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | String |The unique identifier of the object. | `\"a1b2c3\"`\nname | String  | The name of your device. Unique within your organisation. Required. | `\"device#1\"`\napplication | String | ID of an Application instance | `\"6dbeb7f9-2d34-4411-9e34-9c7ae361cb92\"`\nactivated | Boolean | indicating whether the device is activated at the Mobile Network Operator  | false\ntype | String | Type of the device. Either `\"cellular\"`, `\"other\"` | `\"other\"`\nconnectivity | Object | Object containing additional information about cellular devices, like IMSI etc |\nwebhooks | Array | Object containing webhooks that are triggered if a event of a specified type is received | `[{\"type\": \"temp\",\"url\": \"https://myotherbackend.com/temp/\"}]`\ncreated_at | String| Datetime at which the Application was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\n\nExample Device object:\n\n```\n{\n  \"url\": \"https://api.embever.com/v2/devices/a1b2c3\",\n  \"id\": \"a1b2c3\",\n  \"name\": \"yourdevicename\",\n  \"activated\": false,\n  \"application\": \"6dbeb7f9-2d34-4411-9e34-9c7ae361cb92\",\n  \"type\": \"other\",\n  \"connectivity\": {},\n  \"webhooks\": [\n    {\n      \"type\": \"position\",\n      \"url\": \"https://mybackend.com/position/\"\n    },\n    {\n      \"type\": \"temp\",\n      \"url\": \"https://mybackend.com/temp/\"\n    },\n    {\n      \"type\": \"temp\",\n      \"url\": \"https://myotherbackend.com/temp/\"\n    }\n  ],\n  \"created_at\": \"2018-02-26T16:02:13.978899Z\"\n}\n```\n\n### (Un-)Linking an Application\n\nA Device can be linked to an Application in order to allow the Application to create Actions for this device. This is done by setting the `\"application\"` attribute to the ID of the Application instance. To release a Device from an Application, set the attribute to `null`.\n\n### SIM-based Devices\n\nIf you want to connect SIM-based device, please contact us. SIM-based devices usually connect through a VPN to Embever IoT Core. SIM based devices have to be created by Embever.\n\n### Connecting Arbitrary Devices\n\nYou can also create devices by yourself. Upon creating a device instance, you receive a password that is needed to authenticate the device against our public Gateway.\n\n::: note\nStore that password in a safe place, since you will not be able to retrieve it a second time!\n:::\n\n### <a name=\"event-webhooks\"></a> Webhooks\n\nThe webhooks that are attached to a device are triggered when an Event with a matching type is received from the device. You can determine multiple hooks for the same type of event. After a webhook gets triggered, the created event object is send to the specified url using a POST request."
+        },
+        {
+            "name": "Applications",
+            "description": "This section available API operations to manage Applications.\n\n### Description of Applications\n\nAn Application represents a group of devices. Each device can be (but doesn't have to be) assigned to an Application. Each Application can manage [Actions](#actions) for Device instances that are assigned to this particular Action. You can create Application Token to authorize an Application against the API (Read the [Tokens section](#tokens) and [Authenticating section](#authenticating) for more info). This way you can restrict access for an Application or customer group to a specific set of devices.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | String |The unique identifier of the object. | `\"6dbeb7f9-2d34-4411-9e34-9c7ae361cb92\"`\nalias | String  | An alias for this application. Required. | `\"someapp\"`\ndescription | String | An additional description of the Application | `\"Customer XYZ - For testing only\"`\ncreated_at | String| Datetime at which the Application was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\n\nExample Application instance:\n\n```\n{\n  \"url\": \"https://api.embever.com/v2/devices/dbeb7f9-2d34-4411-9e34-9c7ae361cb92/\",\n  \"id\": \"6dbeb7f9-2d34-4411-9e34-9c7ae361cb92\",\n  \"alias\": \"testapp\",\n  \"description\": \"Some description\",\n  \"created_at\": \"2018-02-26T16:02:13.978899Z\"\n}\n```\n\n### Assigning Devices to Applications\n\nPlease refer to the [Devices section](#devices)."
+        },
+        {
+            "name": "Actions",
+            "description": "This section describes available API services for managing Action resources.\n\n### Description of Actions\n\nActions are atomic operations or instructions that are sent to the device upon wake up. Each Action object is of a specific *type* and might have additional information (*payload*) that shall be sent to the device, e.g. some settings or other information that is needed to process the action.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | Integer |The unique identifier of the object. | `62542`\ndevice | object  | Reference to the device by id or name. | `{\"id\":\"8112635472\"} or {\"name\": \"device_xyz\"}`\ntype | String | The type of the action that the device shall perform. Required | `\"setSettings\"`\npayload | Object| A payload that should be sent to the device along with the Action. See restrictions below | `{\"someData\":54}`\nwebhooks | Array| An array containing webhook objects. See below | `[{\"status\":\"action_sent\", \"url\":\"http://123.de\"}]`\nstatus | Object | An object containing information about the current and historic status of the action. | See below\nservice_level | Integer | An identifier for service levels. Only values 0, 1 and 2 are allowed. Default: 0 | 1\ncancelled | Boolean | Indicating wheather the sending of the action should be cancelled or not. Default: false | true\nfinished | Boolean| A boolean indicating whether the action is finished. See below | `true`\nresult | Object | An object that is set by the response of the device. | `{\"lon\":52.116, \"lat\":11.6245}`\ncreated_at | String| Datetime at which the Action was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\nresult_code | String| Indicates wheather the response of the device as given by `\"result\" ` attribute is a result message (indicated by `\"Success\"` value) or error message (indicated by `\"Failure\"` value). Can take one of three values `\"Success\"`, `\"Failure\"` or `null`. `null` value indicates there is no response has been received from the device for the given action. | `\"Success\"`\nexpiry_date | String| Datetime at which the Action expires then after the Action is not sent to the device. (ISO 8601 timestamp format)| `\"2020-01-14T12:46:13.978899Z\"`\nexpired | Boolean| Indicates wheather the Action has expired or not. | `\"false\"`\n\nExample Action object:\n\n```\n{\n  \"url\": \"https://api.embever.com/v2/actions/62542\",\n  \"id\": 62542,\n  \"device\": {\n    \"id\":\"8112635472\",\n    \"name\": \"XY2009\"\n  },\n  \"type\": \"setSettings\",\n  \"payload\": {\n    \"someSetting\": 54\n  },\n  \"webhooks\": [\n    {\n      \"status\": \"action_sent\",\n      \"url\": \"https://mybackend.com/action_sent/\"\n    },\n    {\n      \"status\": \"action_overridden\",\n      \"url\": \"https://mybackend.com/action_overridden/\"\n    },\n    {\n      \"status\": \"response_received\",\n      \"url\": \"https://mybackend.com/response/\"\n    }\n  ],\n  \"status\": {\n    \"action_sent\": \"2018-02-27T18:02:13.978899Z\"\n  },\n  \"service_level\": 0,\n  \"cancelled\": false,\n  \"finished\": true,\n  \"result\": {\n    \"success\":{\n      \"someSetting\":54\n    }\n  },\n  \"created_at\": \"2018-02-26T16:02:13.978899Z\",\n  \"result_code\": \"Success\",\n  \"expiry_date\": \"2018-03-26T17:02:13Z\",\n  \"expired\": false\n}\n```\n\n### Buffering Actions\n\nActions can be created at any time. However, they cannot be sent to sleeping devices. Therefore, Embever IoT Core keeps a set of Action objects in a buffer. Actions in the Buffer will be sent to the device upon its next wakeup. All of this magic happens automatically. You don't have to do anything special here. However, it is important to note, that at maximum one Action of a particular type is kept in the buffer.\n\n::: note\nIf you create an Action with a type that already exist in the buffer, that existing Action instance will be overridden. That is, the previously buffered Action will be replaced by the new Action. The `result` attribute of the replaced Action will be set to `{\"overridden_by\" : <action_id>}` and the `finished` attribute will be set to `true`.\n:::\n\n### Action types\n\nThe type attribute of an Action can principally be choosen by the user. It is the responsibility of the developer to implement the corresponding action handlers in the device's firmware. The value of the `type` attribute must not start with `\"_\"`, since these action types are private (can only be set by Embever IoT Core).\n\n:::note\nThe value of the type attribute must not begin with `_`, e.g. `\"type\":\"_fota\"`\n:::\n\nEmbever IoT Core has some predefined action types, of which some some are private, i.e. can not be created by the user.\n\n#### Public occupied types\n\n`type` | Description\n---|---\n`\"getFile\"` | Used to send a file to the device. Must contain a `\"file\"` attribute. The value of the file attribute must be a bas64 encoded file. Optionally a `\"kwargs\"` object can be sepcified that is sent to the device.\n\n:::warning\nThis list might not be complete yet. Additional types might be occupied by Embever IoT Core in the future.\n:::\nExample getFile Action request object:\n\n```\n{\n    \"device\": {\n      \"id\": \"SB8rywL\"\n    },\n    \"type\": \"getFile\",\n    \"payload\": {\n      \"file\": \"data:image/epd;base64,aGVsbG93b3JsZA==\"\n    }\n}\n```\n\nExample corresponding getFile Action response object:\n\n```\n{\n    \"url\": \"https://api.embever.com/v2/actions/28/\",\n    \"id\": 28,\n    \"device\": {\n        \"id\": \"SB8rywL\",\n        \"name\": \"dev_emb\"\n    },\n    \"type\": \"getFile\",\n    \"payload\": {\n        \"file\": \"rULZsHiM\"\n    },\n    \"webhooks\": null,\n    \"status\": null,\n    \"service_level\": 0,\n    \"cancelled\": false,\n    \"finished\": false,\n    \"result\": null,\n    \"created_at\": \"2020-01-15T12:38:39.277934Z\",\n    \"result_code\": null,\n    \"expiry_date\": null,\n    \"expired\": false\n}\n```\n\n:::note\nThe value of `\"file\"` attribute on getFile Action request should be a string and follow the format `\"data:<filetype>/<format>;base64,<base64encoded_string>\"`. In the reposnse object the `\"file\"` attribute contains the saved file's id.\n:::\n\n#### Private types\n\n`type` | Description\n--- | ---\n`\"_fota\"` | Used for firmware updates over the air. Is automatically created when the user creates a deployment Object\n\n### Action status\n\nThe status of an Action changes over its lifecycle. The status attribute of an Action is an object that can contain the following attributes\n\nStatus | Description\n---|---\n`action_overridden` | Time at which the Action was overriden by a new Action.\n`action_sent` | Time at which the Action was sent to the device.\n`action_delivered` | Time at which the Action was delivered to the device.\n`response_received` | Time at which a response was received.\n\nActions of `type:getFile` and `type:_fota` can have additional statuses\n\nStatus | Description\n---|---\n`file_transfer_started` | Time at which a file transfer started\n`file_transfer_complete` | Time at which a file transfer completed\n`file_transfer_failed` | Time at which the file transfer was terminated unsuccessfully\n\nThe value of each attribute of a status object is a string indicating the time that status was reached. Example\n\n```\n{\n  \"action_sent\": \"2018-02-26T18:02:03.978399Z\",\n  \"action_delivered\": \"2018-02-26T18:05:03.978399Z\",\n  \"response_received\": \"2018-02-26T18:07:03.128399Z\",\n}\n```\n\n### Responses\n\nIf a response message is received from the device, its corresponding action will be updated. That is, a\n1. Its attribute `finished` will be set to `true`\n2. The payload of the response message will be added to the result attribute of the Action\n3. The corresponding `response_received` webhook will be executed\n\n### The finished attribute\n\nWhether an Action instance is considered finished depends on status of the delivery of the action. If the achieved service level is equal to or higher than the service level indicated in `service_level` attribute, the action is considered to be finished. Service Level 0 is the lowest and Service Level 2 is the highest. For example, if the action with `service_level=0` reaches the service level 0 or 1 or 2, the action is considered to be finished.\n1. If the action is `overridden`\n\nThe `finished` attribute is set to `true` as soon as the action status `action_overridden` is reached.\n\n2. If `cancelled=true`\n\n    The `finished` attribute is set to `true` as soon as the  `cancelled` attribute is set to `true`.\n\n3. If the achieved `service_level` is equal to or higher than the action's `service_level` attribute.\n\n    For `service_level=0`, `finished` attribute is set to `true` as soon as the action status `action_sent` or `action_delivered` or `response_received`  is reached.\n\n    For `service_level=1`,  `finished` attribute is set to `true` as soon as the action status `action_delivered` or `response_received`  is reached.\n\n    For `service_level=2`,  `finished` attribute is set to `true` as soon as the action status `response_received`  is reached.\n\n### Webhooks\n\nThe webhooks that are attached to an action are triggered when the status of an Action is updated. The status attribute of the webhook specifies which statuses trigger the webhook. You can determine multiple hooks for the same status of the action. After a webhook gets triggered, the created updated status object is send to the specified url using a POST request.\n\n:::warning\nWebhooks for all the action status are not implemented yet. Please refer to [Action Webhooks](#action-webhooks) for more info.\n:::\n\n### The cancelled Attribute\n\nThis field is primarily used to stop the action from sending to the device. Infact, this is the only field you can update in an Action. Suppose you create an Action (with id 001)of type \"getTemp\" with service level 2. The action is sent but the response is not received.  For some reasons, if the action is not finished (response is not received) then it is sent again and again until the response is received. This action (with id 001) is a blocking action. No action of same type \"getTemp\" can be sent unless this action is finished. So if you want to send a new action (id 002) of the same type \"getTemp\", you won't be able to send it. To avoid this problem, one can update the `\"cancelled\"` attribute of Action (001) to `true`. This will allow the next action (002) to be sent to the device.\n\n### Expiry of Actions\n\nAn action can be set to expire by setting the `\"expiry_date\"` attribute. After the set timestamp is reached, the action cannot be send to the device and the `\"expired\"` attribute is set to `true`. If the action is sent before the `\"expiry_date\"` the `\"expired\"` attribute is set to `false`.\n\n### Result Code of Actions\n\n:::note\nApplies to devices using Embever IoT Protocol version 2.1 or higher.\n:::\nWhen a response message is received from the device, the result code of the corresponding action is set to either `Success` or `Failure`, indicating whether the Action could be executed without errors in the IoT device."
+        },
+        {
+            "name": "Events",
+            "description": "This section describes available API services for managing Event ressources.\n\n### Description of Events\n\nEvents are representations of data that was sent from a device to Embever IoT Core. An Event is not a response to an Action. Rather, some condition in the device triggered the transmission of that data. Each Event object is of a specific *type* and might have additional information (*payload*) that was sent by the device, e.g. some sensor value or other information.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | Integer |The unique identifier of the object. | `12`\ndevice | String  | The ID of the Device instance. | `\"8112635472\"`\ntype | String | The type of the event that was received. | `\"battery_report\"`\npayload | Object| A payload that was sent along with the Event.  | `{\"capacity\":73}`\ncreated_at | String| Datetime at which the Event was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\n\nExample Event object:\n\n```\n{\n  \"url\": \"https://api.embever.com/v2/events/12\",\n  \"id\": 12,\n  \"device\": \"8112635472\",\n  \"type\": \"battery_report\",\n  \"payload\": {\n    \"capacity\": 73\n  },\n  \"created_at\": \"2018-02-26T16:02:13.978899Z\"\n}\n```\n\n### Webhooks\n\nPlease refer to [Device's Webhooks section](#event-webhooks)"
+        },
+        {
+            "name": "Organisation",
+            "description": "This section describes available API services for managing Organisation ressources.\n\n### Description of Organisation\n\nAn Organisation represents the parent entity which owns applications, devices and firmwares.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | String |The unique identifier of the object. | `\"59662055-8395-4242-92fc-6809d2de7159\"`\nname | String  | Name of the Oganisation. | `\"Embever Gmbh\"`\nstreet | String  | Street address where the organisation is located. | `\"Carl-Miller str.\"`\nstreet_number | String  | Street number (address) where the organisation is located. | `\"6\"`\npostal_code | String | Postal code of the address of the Organsiation. | `\"39112\"`\ncity | String | City address of the Organsiation. | `\"Magdeburg\"`\ncountry | String | Country where the Organsiation is located. | `\"Germany\"`\nmax_token_lifespan_in_seconds | number| Time after which the Symmetric organistaion token expires.  | `300`\ncreated_at | String| Datetime at which the Organisation was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\nsecret | String | Secret key for the Symmetric organisation token. | `\"secret-key\"`\n\nExample Organisation object:\n\n```\n{\n    \"url\": \"https://api.embever.com/v2/organisations/59662055-8395-4242-92fc-6809d2de7159\",\n    \"id\": \"59662055-8395-4242-92fc-6809d2de7159\",\n    \"name\": \"Embever\",\n    \"street\": \"Carl-Miller Str.\",\n    \"street_number\": \"6\",\n    \"postal_code\": \"39112\",\n    \"city\": \"Magdeburg\",\n    \"country\": \"DE\",\n    \"max_token_lifespan_in_seconds\": 300,\n    \"created_at\": \"2019-09-16T12:49:44.152794Z\"\n}\n```\n\n::: warning\nCurrently the use of symmetric organisation token is deprecated and users are strongly adviced to use JWT Auth tokens instead.\n:::"
+        },
+        {
+            "name": "Tokens",
+            "description": "This section describes available API services for managing Token ressources.\n\n### Description of Token\n\nA Token is a unique string which contains credentials to identify the user. This  vlaue of `token` attribute of a token object is used to generate access token from `/authenticate` endpoint point. The attribute `token` is retrieved only during token creation and has to be kept secret.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | Integer |The unique identifier of the object. | `59`\nalias | String  | Name of the token. | `\"Embever Org Token\"`\nexpiry_date | String  | Datetime at which the token  expires.  | `\"2020-02-26T16:02:13.00Z\"`\ntoken | String  | Token used to generate access token. | `\"eyJ0eXAiOiJKV1QiLCJhb....\"`\nscope | Object | Scope of the organisation. See below.  | See below.\ncreated_at | String| Datetime at which the Token was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\n\nExample Token object:\n\n```\n{\n    \"id\": 37,\n    \"url\": \"https://api.embever.com/v2/tokens/37/\",\n    \"alias\": \"org_userf\",\n    \"activated\": true,\n    \"expiry_date\": null,\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhbGlhcyI6Im9yZ191c2VyZiIsInVzZXJfaWQiOjN9.dytQivqGZwNhtHvNFjziR0fzeBsWvHtQJgoQwhvZxHh2y4H_gww-KBTr8PHOd6jrJjiBV27GZcxGmJ-0QKzs5A\",\n    \"scope\": {\n        \"organisation\": \"59662055-8395-4242-92fc-6809d2de7159\",\n        \"application\": null,\n        \"user\": 3\n    },\n    \"created_at\": \"2020-02-05T12:58:18.202698Z\"\n}\n```\n\n### Scope of Token\n\nThe scope object shows the extend to which the token is confined to access the resources in the api. The scope attribute contains the following attributes\nStatus | Description\n---|---\n`organisation` | Organisation id of the organisation to whtich the token belongs.\n`application` | Application id of the application to which the token belongs.\n`user` | Id of the user to whom the token belongs."
+        },
+        {
+            "name": "Firmware",
+            "description": "### Description of Firmware\n\nA Firmware object represents the firmware used in the device.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the resource.|\nid | String |The unique identifier of the object. | `\"UBNY6l\"`\nversion | String  |Firmware version. | `\"v1.0.0\"`\nalias | String  | Alias of the firmware  | `\"APP_FW_V1\"`\ndest | String  | Destination of the Firmware. \"EBV\" for Firmware of Embever Micocontroller, \"APP\" for Firmware of Application Microcontroller. | `\"APP\"`\ndescription | String | Additional info on firmware.  | \"App fw with GNSS support\"\npredecessor | String | ID of a firmware instance. Indicating the predecessor. | \"au8auS\"\ncreated_at | String| Datetime at which the Firmware was created.  (ISO 8601 timestamp format)| `\"2019-02-26T16:02:13.978899Z\"`\n\nExample Firmware object:\n\n```\n{\n    \"url\": \"https://api.embever.com/v2/firmwares/UBNY6l/\",\n    \"id\": \"UBNY6l\",\n    \"version\": \"v1.0.0\",\n    \"alias\": \"hg\",\n    \"dest\": \"APP\",\n    \"description\": \"\",\n    \"predecessor\": null,\n    \"created_at\": \"2019-11-01T08:51:04.756688Z\"\n}\n```"
+        },
+        {
+            "name": "Firmware Updates",
+            "description": "This section describes tha API operations to conduct firmware updates.\n\n### How Firmware Updates Work\n\nEmbever IoT Core offers the ability to easily update your device's firmware over the air. To initialize a firmware update you need to create a Deployment instance, referencing:\n1. the Firmware instance that should be deployed (refer to the [Firmware section](#firmware))\n2. the devices which should update to the new firmware.\n\nThis way, You can initialize firmware updates for several devices at once. We highly recommend to start with a test Deployment. That is, referencing some devices that you have physical control of to check whether the new firmware does work properly.\n\n::: note\nTest your firmware update by creating a deplyoment for a set of test devices!\n:::\n\nAfter you created the deployment, Embever IoT Core will automatically generate an `_fota`-type Action instance for each of your devices (please refer to the [Actions section](#actions) for more info about Actions). This Action will then be scheduled for delivery. Upon the device's next wakeup it will receive this Action and proceed to download the correct firmware binary using our [File Transfer Service](#file-transfer). After the Update is complete, the device will send a response message and the corresponding Action, Update andDeployment instances will be updated accordingly.\n\n::: note\nWhen creating a new Deployment, Embever IoT Core checks whether unfinished Updates exist for referenced Devices. If this is the case, the creation of the Deployment instance will fail.\n:::\n\n### Description of Deployments\n\nA Deployment is an aggregation of firmware update operations.\n\nAttribute | Type | Description | Example\n---|---|---|---\nurl| String | URI of the ressource.|\nid | Integer |The unique identifier of the object. | `15`\ndevices | Array (Device IDs)  | Array of device IDs, referencing devices that shall perform the update. Required. | `[\"8112635472\", \"8112635473\", \"8112635474\", \"8112635475\"]`\nsuccessful | Array (Device IDs)  | Array of device IDs, referencing devices that have successfully completed the update. | `[\"8112635472\", \"8112635473\"]`\npending | Array (Device IDs)  | Array of device IDs, referencing devices that have  the update still in progress. | `[\"8112635474\"]`\nfailed | Array (Device IDs)  | Array of device IDs, referencing devices that the update failed. | `[\"8112635475\"]`\nfirmware | String | ID of the firmware instance. Required | `\"UBNY6l\"`\nfinished | Boolean| A boolean indicating whether the action is finished. | `true`\ncreated_at | String| Datetime at which the Deployment was created.  (ISO 8601 timestamp format)| `\"2018-02-26T16:02:13.978899Z\"`\n\nExample Deployment:\n\n```\n{\n  \"url\": \"https://api.embever.com/v2/deployments/15/\",\n  \"id\": 15,\n  \"devices\": [\n    \"m8uGz\",\n    \"a1b2c3\"\n  ],\n  \"successful\":[\"m8uGz\"],\n  \"pending\": [\"a1b2c3\"],\n  \"failed\": [],\n  \"firmware\": \"UBNY6l\",\n  \"finished\": false,\n  \"created_at\": \"2018-02-26T16:02:13.978899Z\"\n}\n```"
+        },
+        {
+            "name": "User Management"
+        },
+        {
+            "name": "File Transfer"
+        }
+    ]
+}
