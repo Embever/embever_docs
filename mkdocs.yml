@@ -40,30 +40,35 @@ nav:
       - Guides: cloud/api.md
       - API Reference: cloud/api_reference.md
   - Firmware:
-      - CaaM Application Framework: 
+      - Overview: firmware/index.md
+      - Embever IoT Core for Embedded: firmware/ebv_conn_lib.md
+      - CaaM Application Framework:
         - Overview: firmware/caam-app-framework/index.md
-        - ESP:
-          - Overview: firmware/caam-app-framework/esp/esp-overview.md
-          - EBV IoT Library:
-              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/index.md
-              - Getting Started: firmware/caam-app-framework/esp/embever-iot-library/getting-started.md
-              - Installation: firmware/caam-app-framework/esp/embever-iot-library/installation.md
-              - API documentation: 
-                - Introduction: firmware/caam-app-framework/esp/embever-iot-library/api/index.md
-                - Embever IoT Messaging: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_iot_msg.md
-                - Embever GNSS: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_esp_gnss.md
-                - Embever Serial Protocol Driver: firmware/caam-app-framework/esp/embever-iot-library/api/esp_drv.md
-                - The Integration Layer: firmware/caam-app-framework/esp/embever-iot-library/api/integration_layer.md
-                - Logging Module: firmware/caam-app-framework/esp/embever-iot-library/api/logging.md
-              - Integration Guide: firmware/caam-app-framework/esp/embever-iot-library/integration_guide.md
-              - Sample Applications:
-                - Introduction: firmware/caam-app-framework/esp/embever-iot-library/samples/index.md 
-                - Hello Cloud: firmware/caam-app-framework/esp/embever-iot-library/samples/hello_cloud.md
-                - Dash Button: firmware/caam-app-framework/esp/embever-iot-library/samples/dash_btn.md
-                - IoT Blinky: firmware/caam-app-framework/esp/embever-iot-library/samples/cloud_blinky.md
-                - GNSS Simple: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_simple.md
-                - GNSS Report: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_report.md
-                - Power Down Mode: firmware/caam-app-framework/esp/embever-iot-library/samples/pwr_down.md
+        - Application Development: firmware/caam-app-framework/app-development.md
+        - API Documentation: firmware/caam-app-framework/api/index.md
+      - Embever Serial Protocol:
+        - Overview: firmware/caam-app-framework/esp/index.md
+        - Embever Serial Peripheral: firmware/caam-app-framework/esp/esp_peripheral.md
+        - EBV IoT Library:
+            - Introduction: firmware/caam-app-framework/esp/embever-iot-library/index.md
+            - Getting Started: firmware/caam-app-framework/esp/embever-iot-library/getting-started.md
+            - Installation: firmware/caam-app-framework/esp/embever-iot-library/installation.md
+            - API documentation: 
+              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/api/index.md
+              - Embever IoT Messaging: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_iot_msg.md
+              - Embever GNSS: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_esp_gnss.md
+              - Embever Serial Protocol Driver: firmware/caam-app-framework/esp/embever-iot-library/api/esp_drv.md
+              - The Integration Layer: firmware/caam-app-framework/esp/embever-iot-library/api/integration_layer.md
+              - Logging Module: firmware/caam-app-framework/esp/embever-iot-library/api/logging.md
+            - Integration Guide: firmware/caam-app-framework/esp/embever-iot-library/integration_guide.md
+            - Sample Applications:
+              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/samples/index.md 
+              - Hello Cloud: firmware/caam-app-framework/esp/embever-iot-library/samples/hello_cloud.md
+              - Dash Button: firmware/caam-app-framework/esp/embever-iot-library/samples/dash_btn.md
+              - IoT Blinky: firmware/caam-app-framework/esp/embever-iot-library/samples/cloud_blinky.md
+              - GNSS Simple: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_simple.md
+              - GNSS Report: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_report.md
+              - Power Down Mode: firmware/caam-app-framework/esp/embever-iot-library/samples/pwr_down.md
         - Custom Application Framework: firmware/caam-app-framework/custom-app-framework/index.md
   - Hardware:
     - Development Board (Caam Mini): hardware/dev-board/index.md
