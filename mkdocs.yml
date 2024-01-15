@@ -1,4 +1,4 @@
-site_name: Embever IoT Core Docs
+site_name: Cloud-as-a-Module Documentation
 theme:
   favicon: images/favicon.png
   logo: images/logo.png
@@ -23,17 +23,60 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - content.code.copy
 
 # Navigation
 nav:
-  - CAAM:
-    - Introduction: caam/index.md
-    - Getting started: caam/getting-started.md    
-    - Embever IoT Library:
-      - Introduction: caam/embever-iot-library/index.md
-    # - Embever IoT Core:  
-    - User Application Framework: caam/UAF/index.md
-  - API Docs: api/index.md
+  - Home: index.md
+  - Getting Started: 
+      - Overview: getting_started/overview.md
+      - Hardware: getting_started/hardware.md
+      - Firmware: getting_started/firmware.md
+      - Cloud: getting_started/cloud.md
+  # - Getting Started: getting-started.md
+  - Embever Cloud:
+      - Introduction: cloud/index.md
+      - Console: cloud/console.md
+      - Guides: cloud/api.md
+      - API Reference: cloud/api_reference.md
+  - Firmware:
+      - CaaM Application Framework: 
+        - Overview: firmware/caam-app-framework/index.md
+        - ESP:
+          - Overview: firmware/caam-app-framework/esp/esp-overview.md
+          - EBV IoT Library:
+              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/index.md
+              - Getting Started: firmware/caam-app-framework/esp/embever-iot-library/getting-started.md
+              - Installation: firmware/caam-app-framework/esp/embever-iot-library/installation.md
+              - API documentation: 
+                - Introduction: firmware/caam-app-framework/esp/embever-iot-library/api/index.md
+                - Embever IoT Messaging: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_iot_msg.md
+                - Embever GNSS: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_esp_gnss.md
+                - Embever Serial Protocol Driver: firmware/caam-app-framework/esp/embever-iot-library/api/esp_drv.md
+                - The Integration Layer: firmware/caam-app-framework/esp/embever-iot-library/api/integration_layer.md
+                - Logging Module: firmware/caam-app-framework/esp/embever-iot-library/api/logging.md
+              - Integration Guide: firmware/caam-app-framework/esp/embever-iot-library/integration_guide.md
+              - Sample Applications:
+                - Introduction: firmware/caam-app-framework/esp/embever-iot-library/samples/index.md 
+                - Hello Cloud: firmware/caam-app-framework/esp/embever-iot-library/samples/hello_cloud.md
+                - Dash Button: firmware/caam-app-framework/esp/embever-iot-library/samples/dash_btn.md
+                - IoT Blinky: firmware/caam-app-framework/esp/embever-iot-library/samples/cloud_blinky.md
+                - GNSS Simple: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_simple.md
+                - GNSS Report: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_report.md
+                - Power Down Mode: firmware/caam-app-framework/esp/embever-iot-library/samples/pwr_down.md
+        - Custom Application Framework: firmware/caam-app-framework/custom-app-framework/index.md
+  - Hardware:
+    - Development Board (Caam Mini): hardware/dev-board/index.md
+    - Customization and Integration:
+      - Introduction: hardware/customization/index.md
+      - Schematics: hardware/customization/schematics.md
+      - BOMs: hardware/customization/boms.md
+  - Tutorials:
+    - tutorials/index.md
+  # - References:
+  #   - references/index.md
+  - FAQ/Support/Troubleshooting:
+    - faqs/index.md
 
 extra:
   consent:
@@ -46,6 +89,17 @@ extra:
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
+  EIOT: Embever IoT library
+  I2C: I<sup>2</sup>C
+  ESP: Embever Serial Protocol
+  RELEASE: v1.0
+  INT_LAYER: Integration Layer
+  LOG_MOD: Logging module
+  DELAY_FUNC: Embever Delay Function
+  GPIO_DRV: Embever GPIO Driver
+  master: leader
+  slave: follower
+  CaaM: Cloud as a Module
 
 copyright: >
   Copyright &copy; 2023 Embever GmbH –
@@ -53,6 +107,22 @@ copyright: >
 
 plugins:
   - render_swagger
+  - search
+  - macros:
+      module_name: main
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - md_in_html
+
+extra_css:
+  - stylesheets/extra-styles.css
+
+  
+
 
 
 
