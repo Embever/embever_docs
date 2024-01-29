@@ -1,4 +1,5 @@
 # Embever Console
+Embever console is the web based interface that allows users to interact and manage their resources in Embever cloud. Using the embever console the user can manage accounts, organisatoin details and also manage integration with exteranal systems. It is reachable under this link [https://console.embever.com](https://console.embever.com).
 
 ## Organisation Details
 
