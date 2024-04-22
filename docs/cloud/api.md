@@ -50,6 +50,10 @@ Many endpoints on the REST API require authentication. The API uses JWT tokens t
 
 #### Geting the application token
 
+!!! Note
+
+    This application should be kept seceretly. We recommend the application token to have an expiry date and change the application token time to time.
+
 #### Getting the access and refresh token
 
 #### Using the access token
