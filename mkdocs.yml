@@ -37,7 +37,7 @@ nav:
   - Embever Cloud:
       - Introduction: cloud/index.md
       - Console: cloud/console.md
-      - Guides: cloud/api.md
+      - REST API: cloud/api.md
       - API Reference: cloud/api_reference.md
   - Firmware:
       - Overview: firmware/index.md
