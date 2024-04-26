@@ -37,6 +37,8 @@ nav:
   - Embever Cloud:
       - Introduction: cloud/index.md
       - Console: cloud/console.md
+      -  Integration with External Applications: 
+          - Salesforce: cloud/salesforce.md
       - REST API: cloud/api.md
       - API Reference: cloud/api_reference.md
   - Firmware:
