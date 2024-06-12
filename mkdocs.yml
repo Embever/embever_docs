@@ -27,86 +27,109 @@ theme:
 
 # Navigation
 nav:
-  - Home: index.md
-  - Getting Started: 
-      - Overview: getting_started/overview.md
-      - Hardware: getting_started/hardware.md
-      - Firmware: getting_started/firmware.md
-      - Cloud: getting_started/cloud.md
-  # - Getting Started: getting-started.md
-  - Embever Cloud:
-      - Introduction: cloud/index.md
-      - Console: cloud/console.md
-      -  Integration with External Applications: 
-          - Salesforce: cloud/salesforce.md
-      - REST API: cloud/api.md
-      - API Reference: cloud/api_reference.md
-  - Firmware:
-      - Overview: firmware/index.md
-      - Embever IoT Core for Embedded: firmware/ebv_conn_lib.md
-      - CaaM Application Framework:
-        - Overview: firmware/caam-app-framework/index.md
-        - Application Development: firmware/caam-app-framework/app-development.md
-        - API Documentation: firmware/caam-app-framework/api/index.md
-      - Embever Serial Protocol:
-        - Overview: firmware/caam-app-framework/esp/index.md
-        - Embever Serial Peripheral: firmware/caam-app-framework/esp/esp_peripheral.md
-        - EBV IoT Library:
-            - Introduction: firmware/caam-app-framework/esp/embever-iot-library/index.md
-            - Getting Started: firmware/caam-app-framework/esp/embever-iot-library/getting-started.md
-            - Installation: firmware/caam-app-framework/esp/embever-iot-library/installation.md
-            - API documentation: 
-              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/api/index.md
-              - Embever IoT Messaging: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_iot_msg.md
-              - Embever GNSS: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_esp_gnss.md
-              - Embever Serial Protocol Driver: firmware/caam-app-framework/esp/embever-iot-library/api/esp_drv.md
-              - The Integration Layer: firmware/caam-app-framework/esp/embever-iot-library/api/integration_layer.md
-              - Logging Module: firmware/caam-app-framework/esp/embever-iot-library/api/logging.md
-            - Integration Guide: firmware/caam-app-framework/esp/embever-iot-library/integration_guide.md
-            - Sample Applications:
-              - Introduction: firmware/caam-app-framework/esp/embever-iot-library/samples/index.md 
-              - Hello Cloud: firmware/caam-app-framework/esp/embever-iot-library/samples/hello_cloud.md
-              - Dash Button: firmware/caam-app-framework/esp/embever-iot-library/samples/dash_btn.md
-              - IoT Blinky: firmware/caam-app-framework/esp/embever-iot-library/samples/cloud_blinky.md
-              - GNSS Simple: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_simple.md
-              - GNSS Report: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_report.md
-              - Power Down Mode: firmware/caam-app-framework/esp/embever-iot-library/samples/pwr_down.md
-        - Custom Application Framework: firmware/caam-app-framework/custom-app-framework/index.md
-  - Hardware:
-    - Development Board (Caam Mini): hardware/dev-board/index.md
-    - Customization and Integration:
-      - Introduction: hardware/customization/index.md
-      - Schematics: hardware/customization/schematics.md
-      - BOMs: hardware/customization/boms.md
-  - Tutorials:
-    - tutorials/index.md
-  # - References:
-  #   - references/index.md
-  - FAQ/Support/Troubleshooting:
-    - faqs/index.md
+  - Overview: index.md
+  - Getting Started: getting_started/index.md
+  - Concepts: 
+      - Account Management: concepts/account_management.md
+      - Devices: concepts/devices.md
+      - Telemetry Data Transfer: concepts/telemetry.md
+      - Firmware Deployment: concepts/deployment.md
+      - File Transfer: concepts/file_transfer.md
+      - Remote Procedure Call: concepts/rpc.md
+      # - Device Properties:
+      - Security: concepts/security.md
+      - Integrations: concepts/integrations.md
 
-extra:
-  consent:
-    title: Cookie consent
-    actions: 
-      - accept
-      - reject
-    description: >- 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
-  EIOT: Embever IoT library
-  I2C: I<sup>2</sup>C
-  ESP: Embever Serial Protocol
-  RELEASE: v1.0
-  INT_LAYER: Integration Layer
-  LOG_MOD: Logging module
-  DELAY_FUNC: Embever Delay Function
-  GPIO_DRV: Embever GPIO Driver
-  master: leader
-  slave: follower
-  CaaM: Cloud as a Module
+  - Tutorials: 
+      - Application Framework: 
+        - Setting up Application Framework: tutorials/application_framework/application_framework.md
+      - Data transfer: 
+        - Send telemetry data from Device: tutorials/data_transfer/telemetry.md
+        - Upload a file from Device: tutorials/data_transfer/file_upload.md
+        - Download a file to Device: tutorials/data_transfer/file_download.md
+      - Send command to Device: tutorials/index.md
+      - Firmware Deployments:
+        - Update Application Framework: tutorials/firmware/update_application_framework.md
+        - Update Application Framework: tutorials/firmware/update_application_firmware.md
+      - Integrations:
+        - Send data to your server: tutorials/integrations/webhooks.md
+        - Salesforce: tutorials/integrations/salesforce.md
+        - Azure IoT Hub: tutorials/integrations/azure_iot_hub.md
+  - Best Practices: best_practices/index.md
+  - References: references/index.md
+#   - Embever Cloud:
+#       - Introduction: cloud/index.md
+#       - Console: cloud/console.md
+#       -  Integration with External Applications: 
+#           - Salesforce: cloud/salesforce.md
+#       - REST API: cloud/api.md
+#       - API Reference: cloud/api_reference.md
+#   - Firmware:
+#       - Overview: firmware/index.md
+#       - Embever IoT Core for Embedded: firmware/ebv_conn_lib.md
+#       - CaaM Application Framework:
+#         - Overview: firmware/caam-app-framework/index.md
+#         - Application Development: firmware/caam-app-framework/app-development.md
+#         - API Documentation: firmware/caam-app-framework/api/index.md
+#       - Embever Serial Protocol:
+#         - Overview: firmware/caam-app-framework/esp/index.md
+#         - Embever Serial Peripheral: firmware/caam-app-framework/esp/esp_peripheral.md
+#         - EBV IoT Library:
+#             - Introduction: firmware/caam-app-framework/esp/embever-iot-library/index.md
+#             - Getting Started: firmware/caam-app-framework/esp/embever-iot-library/getting-started.md
+#             - Installation: firmware/caam-app-framework/esp/embever-iot-library/installation.md
+#             - API documentation: 
+#               - Introduction: firmware/caam-app-framework/esp/embever-iot-library/api/index.md
+#               - Embever IoT Messaging: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_iot_msg.md
+#               - Embever GNSS: firmware/caam-app-framework/esp/embever-iot-library/api/ebv_esp_gnss.md
+#               - Embever Serial Protocol Driver: firmware/caam-app-framework/esp/embever-iot-library/api/esp_drv.md
+#               - The Integration Layer: firmware/caam-app-framework/esp/embever-iot-library/api/integration_layer.md
+#               - Logging Module: firmware/caam-app-framework/esp/embever-iot-library/api/logging.md
+#             - Integration Guide: firmware/caam-app-framework/esp/embever-iot-library/integration_guide.md
+#             - Sample Applications:
+#               - Introduction: firmware/caam-app-framework/esp/embever-iot-library/samples/index.md 
+#               - Hello Cloud: firmware/caam-app-framework/esp/embever-iot-library/samples/hello_cloud.md
+#               - Dash Button: firmware/caam-app-framework/esp/embever-iot-library/samples/dash_btn.md
+#               - IoT Blinky: firmware/caam-app-framework/esp/embever-iot-library/samples/cloud_blinky.md
+#               - GNSS Simple: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_simple.md
+#               - GNSS Report: firmware/caam-app-framework/esp/embever-iot-library/samples/gnss_report.md
+#               - Power Down Mode: firmware/caam-app-framework/esp/embever-iot-library/samples/pwr_down.md
+#         - Custom Application Framework: firmware/caam-app-framework/custom-app-framework/index.md
+#   - Hardware:
+#     - Development Board (Caam Mini): hardware/dev-board/index.md
+#     - Customization and Integration:
+#       - Introduction: hardware/customization/index.md
+#       - Schematics: hardware/customization/schematics.md
+#       - BOMs: hardware/customization/boms.md
+#   - Tutorials:
+#     - tutorials/index.md
+#   # - References:
+#   #   - references/index.md
+#   - FAQ/Support/Troubleshooting:
+#     - faqs/index.md
+
+# extra:
+#   consent:
+#     title: Cookie consent
+#     actions: 
+#       - accept
+#       - reject
+#     description: >- 
+#       We use cookies to recognize your repeated visits and preferences, as well
+#       as to measure the effectiveness of our documentation and whether users
+#       find what they're searching for. With your consent, you're helping us to
+#       make our documentation better.
+#   EIOT: Embever IoT library
+#   I2C: I<sup>2</sup>C
+#   ESP: Embever Serial Protocol
+#   RELEASE: v1.0
+#   INT_LAYER: Integration Layer
+#   LOG_MOD: Logging module
+#   DELAY_FUNC: Embever Delay Function
+#   GPIO_DRV: Embever GPIO Driver
+#   master: leader
+#   slave: follower
+#   CaaM: Cloud as a Module
 
 copyright: >
   Copyright &copy; 2023 Embever GmbH –
