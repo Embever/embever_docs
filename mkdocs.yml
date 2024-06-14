@@ -32,6 +32,7 @@ nav:
   - Concepts: 
       - Account Management: concepts/account_management.md
       - Devices: concepts/devices.md
+      - Application Framework: concepts/app_framework.md
       - Telemetry Data Transfer: concepts/telemetry.md
       - Firmware Deployment: concepts/deployment.md
       - File Transfer: concepts/file_transfer.md
@@ -141,6 +142,10 @@ plugins:
   - macros:
       module_name: main
 
+
+extra:
+  platform: Embever IoT Integration Platform
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -151,7 +156,8 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra-styles.css
 
-  
+extra_javascript:
+  - js/extra.js
 
 
 

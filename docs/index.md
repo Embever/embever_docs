@@ -4,5 +4,6 @@
 # Architecture
 <!-- ![](images/caam.jpg) -->
 
-<!-- List features -->
-<!-- Customer Testimonials -->
+<!-- Explain General Terms used in the documentation Maybe that can go into Glossary section -->
+<!-- For e.g. what Embever IoT Core is ,  -->
+
