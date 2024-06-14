@@ -7,6 +7,7 @@ This tutorial will guide trough the process to set up the development environmen
 To set up the nRF Connect SDK, follow the official guide written by Nordic Semiconductor team [here](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started/assistant.html).
 Choose the nRF Connect SDK version 2.2.0 from the Toolchain Manager.
 
+
 !!! note
 
     If this version is not listed on the Toolchain Manager, change the setting of the application based on the screenshot below.
