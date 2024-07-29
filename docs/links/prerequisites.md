@@ -1,0 +1,5 @@
+# Prerequisites 
+- Make sure you have an Embever IoT Core account before you begin.
+see [Creating Embever IoT Core Account](/tutorials/console/account_mgmt)
+- System on Chip supported by {{platform}} with SIM card provided by Embever. Currently {{platform}} supports nRF9160 only. You will need a SIM card in the form of e-SIM or simply an external sim provided by Embever to connect to the Embever IoT Core Cloud services. The easiest way to get started is to get Cloud as a Module Development Kit from [here](https://www.embever.com/cloud-as-a-module) which comes up with the supported SoC, embeded sim card and extra pheripherials. Alternatively you can use Development kit like [nRF9160 DK](https://www.nordicsemi.com/Products/Development-hardware/nrf9160-dk).
+- Visual Studio code installed in your development machine.

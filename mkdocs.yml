@@ -27,37 +27,42 @@ theme:
 
 # Navigation
 nav:
-  - Overview: index.md
-  - Getting Started: getting_started/index.md
-  - Concepts: 
-      - Account Management: concepts/account_management.md
-      - Devices: concepts/devices.md
-      - Application Framework: concepts/app_framework.md
-      - Telemetry Data Transfer: concepts/telemetry.md
-      - Firmware Deployment: concepts/deployment.md
-      - File Transfer: concepts/file_transfer.md
-      - Remote Procedure Call: concepts/rpc.md
-      # - Device Properties:
-      - Security: concepts/security.md
-      - Integrations: concepts/integrations.md
+  # - Overview: index.md
+  - Getting Started: 
+      - getting_started/index.md
+      - getting_started/esp.md
+      - getting_started/uaf.md
+      
+  # - Concepts: 
+  #     - Account Management: concepts/account_management.md
+  #     - Devices: concepts/devices.md
+  #     - Application Framework: concepts/app_framework.md
+  #     - Telemetry Data Transfer: concepts/telemetry.md
+  #     - Firmware Deployment: concepts/deployment.md
+  #     - File Transfer: concepts/file_transfer.md
+  #     - Remote Procedure Call: concepts/rpc.md
+  #     # - Device Properties:
+  #     - Security: concepts/security.md
+  #     - Integrations: concepts/integrations.md
 
-  - Tutorials: 
-      - Application Framework: 
-        - Setting up Application Framework: tutorials/application_framework/application_framework.md
-      - Data transfer: 
-        - Send telemetry data from Device: tutorials/data_transfer/telemetry.md
-        - Upload a file from Device: tutorials/data_transfer/file_upload.md
-        - Download a file to Device: tutorials/data_transfer/file_download.md
-      - Send command to Device: tutorials/index.md
-      - Firmware Deployments:
-        - Update Application Framework: tutorials/firmware/update_application_framework.md
-        - Update Application Framework: tutorials/firmware/update_application_firmware.md
-      - Integrations:
-        - Send data to your server: tutorials/integrations/webhooks.md
-        - Salesforce: tutorials/integrations/salesforce.md
-        - Azure IoT Hub: tutorials/integrations/azure_iot_hub.md
-  - Best Practices: best_practices/index.md
-  - References: references/index.md
+  # - Tutorials: 
+  #     - Application Framework: 
+  #       - Setting up Application Framework: tutorials/application_framework/application_framework.md
+  #     - Data transfer: 
+  #       - Send telemetry data from Device: tutorials/data_transfer/telemetry.md
+  #       - Upload a file from Device: tutorials/data_transfer/file_upload.md
+  #       - Download a file to Device: tutorials/data_transfer/file_download.md
+  #     - Send command to Device: tutorials/index.md
+  #     - Firmware Deployments:
+  #       - Update Application Framework: tutorials/firmware/update_application_framework.md
+  #       - Update Application Framework: tutorials/firmware/update_application_firmware.md
+  #     - Integrations:
+  #       - Send data to your server: tutorials/integrations/webhooks.md
+  #       - Salesforce: tutorials/integrations/salesforce.md
+  #       - Azure IoT Hub: tutorials/integrations/azure_iot_hub.md
+  # - Best Practices: best_practices/index.md
+  - Links: 
+      - links/prerequisites.md
 #   - Embever Cloud:
 #       - Introduction: cloud/index.md
 #       - Console: cloud/console.md
@@ -106,8 +111,8 @@ nav:
 #     - tutorials/index.md
 #   # - References:
 #   #   - references/index.md
-#   - FAQ/Support/Troubleshooting:
-#     - faqs/index.md
+  - FAQs:
+    - faqs/index.md
 
 # extra:
 #   consent:
