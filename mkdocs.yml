@@ -149,7 +149,7 @@ plugins:
 
 
 extra:
-  platform: Embever IoT Integration Platform
+  UAF : User Application Framework  
 
 markdown_extensions:
   - admonition

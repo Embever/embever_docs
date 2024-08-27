@@ -1,16 +1,17 @@
-# CaaM Application Framework
-The CaaM OS allows to integrate custom application logic with the Embever IoT Core. This means, that no other programable unit is required to deploy an IoT enabled application. Using a rich set of APIs and standard embedded development tools, building IoT applications was never that easy. To get started, take a look at the [User Application Framework](../firmware/caam-app-framework/custom-app-framework/index.md) topic.
+# User Application Framework
+User Application Framework commonly refered as UAF is a framework which provides a rich set of APIs to rapidly build your IoT applications with out of box connectivity to [Embever IoT Core](../links/embever_iot_core.md). For example, you can simply use the API provided by UAF to send the telemetry data from your application to the cloud with just a few lines of code without thinking about the implementation of different protocols for connectivity, secure communication,etc which is provided out of box.
 
+To know more about the User Application Framework API refer to [UAF API Documentation](../links/uaf_api.md)
 
+## Send telemetry data to the cloud using UAF
+In this quickstart, you will use an example application to send device telemetry to the cloud. You will use the [Embever IoT Core Browsable API](../links/iot_core_browsable_api.md) to see the telemetry data. This article shows the basics of how you can make use of UAF to build an IoT application with the cloud connectivity.
 
-# Quick Start: Send telemetry data to the cloud using {{platform}}
+### Prerequisites
+Befor you begin make sure that you have the following prerequisites fulfilled.
 
-{{platform}} enables you to build IoT applications with the focus solely on the application logic by providing the secured managed connectivity out of box. In this quickstart, you will use an example application to send device telemetry to the cloud. You will use the Embever IoT Core Browsable API to see the telemetry data. This article shows the basics of how you can make use of {{platform}} to build an IoT application with the cloud connectivity.
-
-## Prerequisites
 - Make sure you have an Embever IoT Core account before you begin.
-see [Creating Embever IoT Core Account](/tutorials/console/account_mgmt)
-- System on Chip supported by {{platform}} with SIM card provided by Embever. Currently {{platform}} supports nRF9160 only. You will need a SIM card in the form of e-SIM or simply an external sim provided by Embever to connect to the Embever IoT Core Cloud services. The easiest way to get started is to get Cloud as a Module Development Kit from [here](https://www.embever.com/cloud-as-a-module) which comes up with the supported SoC, embeded sim card and extra pheripherials. Alternatively you can use Development kit like [nRF9160 DK](https://www.nordicsemi.com/Products/Development-hardware/nrf9160-dk).
+See [Creating Embever IoT Core account](../links/embever_iot_core.md#creating-embever-iot-core-account) for details.
+- System on Chip supported by {{UAF}} with SIM card provided by Embever. Currently {{UAF}} supports nRF9160 only. You will need a SIM card in the form of e-SIM or simply an external sim provided by Embever to connect to the Embever IoT Core Cloud services. The easiest way to get started is to get Cloud as a Module Development Kit from [here](https://www.embever.com/cloud-as-a-module) which comes up with the supported SoC, embeded sim card and extra pheripherials. Alternatively you can use Development kit like [nRF9160 DK](https://www.nordicsemi.com/Products/Development-hardware/nrf9160-dk).
 - Visual Studio code installed in your development machine.
 
 ## Sign in to Embever IoT Core Browsable API
@@ -61,7 +62,7 @@ Replace `<your_device_name>` with a unique name, the name of the Device should b
 Now that you have the representatin of your real physical Device in Embever IoT Core you can now proceed with running a smple applicaiton on your IoT Device to send some telemetry data.
 
 ## Run Sample Application on your IoT Device
-{{platform}} offers an Application Framework designed to simplify and speed up IoT application development. This framework delivers essential IoT functionalities out of the box, eliminating the need for developers to implement them from scratch. With built-in support for telemetry data transfer, file transfers, firmware updates, and more, the framework handles complex connectivity, protocol management, and security implementations, allowing developers to focus on creating their applications.
+{{UAF}} offers an Application Framework designed to simplify and speed up IoT application development. This framework delivers essential IoT functionalities out of the box, eliminating the need for developers to implement them from scratch. With built-in support for telemetry data transfer, file transfers, firmware updates, and more, the framework handles complex connectivity, protocol management, and security implementations, allowing developers to focus on creating their applications.
 Read more about Application Framework [here](/concepts/app_framework).
 
 We will now see how to use the Application framework to build a sample IoT applicaiton which sends telemetry data to the cloud.
@@ -164,7 +165,7 @@ To build the application, use the Build Configuration button or use one of the b
 
 
 ## View sent telemetry data in Embever IoT Core Browsable API
-Embever IoT Core REST API lets you interact with the devices on the {{platform}}. We will use the Browsable API to see the telemetry data sent by the device.
+Embever IoT Core REST API lets you interact with the devices on the {{UAF}}. We will use the Browsable API to see the telemetry data sent by the device.
 On your browser go to `https://api.embever.com/v2/events/?device=<your_device_id>`. Replace `your_device_id` with the id of your Device in the API. Events are the representation of data that is sent from the device to Embever IoT Core. Event object contains a type which denotes an specition occurence in the device and the payload contains the additional information of this occurence. In our case the telemetry data is sent as the payload of occurence of the event "<type>".
 Now you should see the telemetry data un like this.
 <!-- 
@@ -185,8 +186,8 @@ We can be creative on what type of sample application we have, something that is
     ]
 ```
 
-Furthermore, {{platform}} provides and easy way to automatically send these telemetry data to any cloud application. See [How to send data from Embever IoT Core to you application](/tutorials/integrations/webhooks)
-{{platform}} also provides an integration with Salesforce and Azure IoT Hub so that the data sent by the Devices can be used on your Business applicaitons. See [Integration with Salesforce](/tutorials/integrations/salesforce) and [Integration with Azure IoT Hub](/tutorials/integrations/azure_iot_hub) for more details.
+Furthermore, {{UAF}} provides and easy way to automatically send these telemetry data to any cloud application. See [How to send data from Embever IoT Core to you application](/tutorials/integrations/webhooks)
+{{UAF}} also provides an integration with Salesforce and Azure IoT Hub so that the data sent by the Devices can be used on your Business applicaitons. See [Integration with Salesforce](/tutorials/integrations/salesforce) and [Integration with Azure IoT Hub](/tutorials/integrations/azure_iot_hub) for more details.
 
 ## Next Steps
 .....

@@ -1,4 +1,4 @@
-# Building with Embever Serial Protocol
+# Embever Serial Protocol
 
 
 ## Prerequisites
