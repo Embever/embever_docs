@@ -1,38 +1,39 @@
-# User Application Framework
-User Application Framework commonly refered as UAF is a framework which provides a rich set of APIs to rapidly build your IoT applications with out of box connectivity to [Embever IoT Core](../links/embever_iot_core.md). For example, you can simply use the API provided by UAF to send the telemetry data from your application to the cloud with just a few lines of code without thinking about the implementation of different protocols for connectivity, secure communication,etc which is provided out of box.
-
+# CaaM Application Framework
+The CaaM Application Framework (UAF) is a framework which provides a rich set of APIs to rapidly build IoT applications with out of the box connectivity to the [Embever IoT Core](../links/embever_iot_core.md).
+It offers a simple to use API, provided by UAF to send for example telemetry data to the cloud with just a few lines of code without thinking about the implementation of different protocols for connectivity, secure communication and other changing tasks of IoT applications.
 To know more about the User Application Framework API refer to [UAF API Documentation](../links/uaf_api.md)
 
-## Send telemetry data to the cloud using UAF
-In this quickstart, you will use an example application to send device telemetry to the cloud. You will use the [Embever IoT Core Browsable API](../links/iot_core_browsable_api.md) to see the telemetry data. This article shows the basics of how you can make use of UAF to build an IoT application with the cloud connectivity.
+## Sending telemetry data to the cloud using the UAF
+In the scope of this quick start guide, an example application will demonstrate how to send device telemetry to the cloud. To see the telemetry data the [Embever IoT Core Browsable API](../links/iot_core_browsable_api.md) shall be used.
 
 ### Prerequisites
-Befor you begin make sure that you have the following prerequisites fulfilled.
 
-- Make sure you have an Embever IoT Core account before you begin.
-See [Creating Embever IoT Core account](../links/embever_iot_core.md#creating-embever-iot-core-account) for details.
-- System on Chip supported by {{UAF}} with SIM card provided by Embever. Currently {{UAF}} supports nRF9160 only. You will need a SIM card in the form of e-SIM or simply an external sim provided by Embever to connect to the Embever IoT Core Cloud services. The easiest way to get started is to get Cloud as a Module Development Kit from [here](https://www.embever.com/cloud-as-a-module) which comes up with the supported SoC, embeded sim card and extra pheripherials. Alternatively you can use Development kit like [nRF9160 DK](https://www.nordicsemi.com/Products/Development-hardware/nrf9160-dk).
-- Visual Studio code installed in your development machine.
+This guide will require the following things to fully complete it:
+
+- An active account for the Embever IoT Core, see [Creating Embever IoT Core Account](/tutorials/console/account_mgmt)
+- A supported hardware device with SIM card provided by Embever, see [Supported hardware devices](./supported_hardware)
+- Visual Studio Code installed in your development machine (optional but recommended)
 
 ## Sign in to Embever IoT Core Browsable API
-Sign in to [Embever IoT Core Browsable API](https://api.embever.com/).
-Keep the portal open in your borwser. You use it in this quickstart.
+Sign in to the [Embever IoT Core Browsable API](https://api.embever.com/).
+Keep the portal open during processing the this guide.
 
-## Make sure you have a sim card allocated to your organisation
-You can see the list of available sim cards in the Browsable API under the [SIM resource](https://api.embever.com/v2/sims/).
-Make sure the sim that you want to use is in the list of sims and is activated. You can check the `iccid` attribute  of the SIM resource with the ICCID of the sim card that you have with you. 
+## Make sure the  a SIM card is allocated to the right organization
+To list the available SIM cards, got to the [SIM resource](https://api.embever.com/v2/sims/) endpoint.
+Make sure that the SIM that the CaaM device is using is in the list of and it is activated. The easiest way to achieve that is to check the `iccid` attribute of the SIM resource with the ICCID of the physical SIM card that the CaaM device is using. 
 
-## Create a Device in Embever IoT Core
-A Device instance in Embever IoT Core is the representation of a single physical IoT device. 
+## Create a Device in the Embever IoT Core
+A Device instance in the Embever IoT Core is the representation of a single physical IoT device.
+
 !!! Note
 
-    If you are working with CaaM Development Kit provided by Embever, you can skip this section. Embever already created a device for you which you can see it in the list of your devices under [https://api.embever.com/v2/devices/](https://api.embever.com/v2/devices/)
+    If the CaaM Development Kit had provided by Embever, there is a good chance that the device is already created in the Embever IoT Core. To list the available devices, go to the [https://api.embever.com/v2/devices/](https://api.embever.com/v2/devices/) endpoint. This means the content of this section can be skipped.
     <a href="https://api.embever.com/v2/devices/">Devices API Endpoint </a>
 
-You can create a Device instance using the Browsable API or from any other tools like Postman or curl or from your own custom script. In this quickstart we will create a Device instance that represents your IoT Device using the Embever Browsable API.
+The simples way to create a device is to use the Browsable API. However, any other tool can be used like Postman or curl. In this guide the Browsable API will be used the perform the task.
 
-- On your browser open [https://api.embever.com/v2/devices/]([https://api.embever.com/v2/devices/]). Make sure you are logged in with your account credentials.
-- Goto the End of the page, you should see a form to save device data. You can use either HTML form or Raw Data to make a post request to create a device. We will use Raw Data for this example.
+- Visit the [https://api.embever.com/v2/devices/]([https://api.embever.com/v2/devices/]) endpoint. Make sure to log in with the right account credentials.
+- Goto the bottom of the page, until reaching a form to input device data. Both HTML and raw input formats are available to initiate a post request which will create a new device. The raw data format is used for this example.
 - On the Raw Data set the Media type field to application/json.
 - On the content field. Put the  following.
 ```
@@ -42,9 +43,9 @@ You can create a Device instance using the Browsable API or from any other tools
     "sims": ["<iccid_of_sim>"]
 }
 ```
-For this example we will set the basic required fields only. You can follow the [Embever IoT Core REST API documentation](/references/rest_api) for further details.
-Replace `<your_device_name>` with a unique name, the name of the Device should be unique within your organisation. Replace `<iccid_of_sim>` with the ICCID of the SIM card that you have on your Device at hand.
-- Click the POST button. This will create a Device in Embever IoT Core. You should see somthing like this after the Device is scuccessfully created.
+For this example only the required fields are set. For further details, see the [Embever IoT Core REST API documentation](/references/rest_api).
+Replace `<your_device_name>` with a unique name, the name of the Device should be unique within the organization. Replace `<iccid_of_sim>` with the ICCID of the SIM card that the CaaM device is using.
+- Click the POST button. This will create a device in the Embever IoT Core. As a result, a similar object will be returned.
 ```
 {
     "url": "https://api.embever.com/v2/devices/4w4QD/",
@@ -59,41 +60,17 @@ Replace `<your_device_name>` with a unique name, the name of the Device should b
     "created_at": "2024-06-14T07:37:23.361080Z"
 }
 ```
-Now that you have the representatin of your real physical Device in Embever IoT Core you can now proceed with running a smple applicaiton on your IoT Device to send some telemetry data.
+With that done, the device had been created and it is ready to receive the telemetry data from the CaaM device.
 
-## Run Sample Application on your IoT Device
-{{UAF}} offers an Application Framework designed to simplify and speed up IoT application development. This framework delivers essential IoT functionalities out of the box, eliminating the need for developers to implement them from scratch. With built-in support for telemetry data transfer, file transfers, firmware updates, and more, the framework handles complex connectivity, protocol management, and security implementations, allowing developers to focus on creating their applications.
-Read more about Application Framework [here](/concepts/app_framework).
+## Run the Sample Application
 
-We will now see how to use the Application framework to build a sample IoT applicaiton which sends telemetry data to the cloud.
+The CaaM Application Framework is designed to simplify and speed up IoT product development. This framework delivers essential IoT functionalities out of the box, eliminating the need for developers to implement them from scratch. With built-in support for telemetry data transfer, file transfers, firmware updates, and more, the framework handles complex connectivity, protocol management, and security implementations, allowing to be focused on creating applications.
+To read more about the CaaM Application Framework, see [CaaM Application Framework](/concepts/app_framework).
+To see the toolkit in action, a sample application will demonstrate the use of the CaaM Application Framework.
 
-### Step 1: Setup the environment Nordic Connect SDK.
-To set up the nRF Connect SDK, follow the official guide written by Nordic Semiconductor team [here](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started/assistant.html).
-Choose the nRF Connect SDK version 2.2.0 from the Toolchain Manager.
+### Step 1: Setting Up the Software Development Environment
 
-<!-- TODO: update the nordic links, as they will migrate to docs.nordicsemi.com -->
-
-!!! note
-
-    If this version is not listed on the Toolchain Manager, change the setting of the application based on the screenshot below.
-
-![Nrf Connect Desktop Toolchain Manager Settings](./resources/nrf_toolchain_mgr_settings.png)
-
-!!! note
-
-    If the mentioned SDK version is not listed, turn off the “Show only 3 newest minor version” option on the Toolchain Manager settings page.
-
-To exploit all the possibilities of the development experience, review [this](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started.html) page as well.
-To verify the local development environment, try to compile and upload one of the nordic sample application.
-
-![nRF Connect SDK version 2.2.0](./resources/nrf_toolchain_mgr_sdk_version_2_2.png)
-
-
-
-    https://github.com/Embever/embever_docs/blob/hardware/docs/tutorials/embedded/uaf/uaf_env_setup_guide.md
-
-- Clone Application Framework repository from Embever 
-https://github.com/Embever/ebv_UAF_template
+{% include 'fragments/ncs_setup_uaf.md' %}
 
 ### Step 2: Get a local copy of the Embever User Application Framework Template
 
@@ -107,53 +84,23 @@ Use the following command to make sure that the submodules are downloaded as wel
 
 `git clone --recurse-submodules git@github.com:Embever/ebv_UAF_template.git`
 
-![Cloning the CaaM User Application Framework template](./resources/ebv_uaf_template_git_clone.png)
+![Cloning the CaaM User Application Framework Template](./resources/ebv_uaf_template_git_clone.png)
 
-The Application Framework repository already contains some sameple applications to get you started. You can find the sample applicaitons under the folder `/samples`. In this quickstart we will work with
+The CaaM Application Framework Template contains sample applications under the `./samples` folder. In this quickstart we will work with
 `<application name>`. This application sends sample telemetry data from your Device to the cloud.
 <!-- TODO: Update info sample applicaiton -->
 
 ### Step 3: Working with the UAF template
-<!-- TODO: Change this section to RUN sample application -->
 
-To start working with the UAF template, open the nRF Connect SDK IDE, which is the Visual Studio Code with the Nordic nRF Connect SDK plugin.
-To do that, click on the "Open VS Code" button in the nRF Connect Desktop Toolchain Manager.
-Importing the UAF template is as simple as clicking to the Open Application button after selecting the nRF Connect extension tab on the sidebar in VS Code.
-
-![Opening the UAF template as an existing application](./resources/vscode_nrf_extension_open_application.png)
-
-Opening the UAF template as and existing application by the Open Application button
-As the application opened successfully, the next step is to define a build target
-
-![Defining a build target to the UAF Template application](./resources/build_config_vscode_nrf_extension.png)
-
-![Build configuration added, SDK and toolchain version set to 2.2.0](./resources/vscode_nrf_connect_plugin_uaf_temple.png)
-
-!!! note ""
-    Build configuration successfully defined, SDK and toolchain version set to 2.2.0
+{% include 'fragments/vscode_ncs_uaf_template_import.md' %}
 
 ### Step 5: Crypto keys for binary encryption
 
-To embed secure firmware update into the deployment process, the firmware binary has to be signed with a unique key. Ignoring this option and using the default keys of the SDK is not forbidden for internal development, but as soon as the firmware pass the development stage, it is recommended to use a custom keys to maintain security.
-!!! note 
-    To use the default keys to sign the firmware binaries, remove ( or make the line begin with the `#` sign to disable it) the following line in the `mcuboot.conf` file.
-
-```c
-CONFIG_BOOT_SIGNATURE_KEY_FILE="fota-keys/nRF9160/dev/mcuboot-ec-p256.pem"
-```
-
-To generate a custom signing keys, follow [this](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/app_dev/bootloaders_and_dfu/fw_update.html#signature-keys) guide written by the Nordic Semiconductor team.
-The newly generated keys can be places to any location and they can be referenced with they absolute path. Using a relative path is also possible ( like the default value of the `CONFIG_BOOT_SIGNATURE_KEY_FILE` ). In this case the base directory of this relative path is the following location:
-
-`<nrf_sdk_base>/<version_number>/bootloader/mcuboot`
-
-*As an example, the absolute location of the signing key is : `/opt/nordic/ncs/v2.2.0/bootloader/mcuboot/fota-keys/nRF9160/dev/mcuboot-ec-p256.pem`*
+{% include 'fragments/mcuboot_pem_keys.md' %}
 
 ### Step 6: Build and Flash
 
-To build the application, use the Build Configuration button or use one of the built-in build tasks of the nRF Connect extension.
-
-![Building has been successfully completed](./resources/vscode_nrf_ext_uaf_template_build_done.png)
+{% include 'fragments/vscode_ncs_compile_flash.md' %}
 
 <!-- TODO: Tutorial/Guide: 
     How to flash the binary to CaaM Mini.

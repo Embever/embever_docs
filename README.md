@@ -1,6 +1,6 @@
 # Embever Docs
 This repository serves as single point to update the documents regarding the CAAM and the whole IoT Core.
-The documents are organised in various levels.
+The documents are organized in various levels.
 
 ## Installing the requirements file
 `pip install -r requirements.txt`
