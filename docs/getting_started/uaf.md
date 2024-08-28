@@ -1,160 +1,182 @@
 # CaaM Application Framework
-The CaaM Application Framework (UAF) is a framework which provides a rich set of APIs to rapidly build IoT applications with out of the box connectivity to the [Embever IoT Core](../links/embever_iot_core.md).
-It offers a simple to use API, provided by UAF to send for example telemetry data to the cloud with just a few lines of code without thinking about the implementation of different protocols for connectivity, secure communication and other changing tasks of IoT applications.
-To know more about the User Application Framework API refer to [UAF API Documentation](../links/uaf_api.md)
 
-## Sending telemetry data to the cloud using the UAF
-In the scope of this quick start guide, an example application will demonstrate how to send device telemetry to the cloud. To see the telemetry data the [Embever IoT Core Browsable API](../links/iot_core_browsable_api.md) shall be used.
+The CaaM Application Framework (UAF) provides a comprehensive set of APIs to accelerate the development of IoT applications, with built-in connectivity to the [Embever IoT Core](../links/embever_iot_core.md). This framework simplifies sending telemetry data to the cloud by offering easy-to-use APIs, reducing the complexity of implementing connectivity, secure communication, and other critical IoT tasks.
+
+To learn more about the User Application Framework API, refer to the [UAF API Documentation](../links/uaf_api.md).
+
+## Sending Telemetry Data to the Cloud Using UAF
+
+This quick start guide demonstrates how to send device telemetry to the cloud. The [Embever IoT Core Browsable API](../links/iot_core_browsable_api.md) will be used to view the telemetry data.
 
 ### Prerequisites
 
-This guide will require the following things to fully complete it:
+Ensure the following requirements are met to complete this guide:
 
-- An active account for the Embever IoT Core, see [Creating Embever IoT Core Account](/tutorials/console/account_mgmt)
-- A supported hardware device with SIM card provided by Embever, see [Supported hardware devices](./supported_hardware)
-<!-- TODO : Supported hardware devices page -->
-- Visual Studio Code installed in your development machine (optional but recommended)
+- An activated account for the Embever IoT Core. See [Creating an Embever IoT Core Account](/tutorials/console/account_mgmt).
+- A supported hardware device with an Embever-provided SIM card. See [Supported hardware devices](./supported_hardware).
+<!-- TODO: Supported hardware devices page -->
+- Visual Studio Code installed on the development machine (optional but recommended).
 
-## Sign in to Embever IoT Core Browsable API
-Sign in to the [Embever IoT Core Browsable API](https://api.embever.com/).
-Keep the portal open during processing the this guide.
+## Sign In to Embever IoT Core Browsable API
 
-## Make sure the  a SIM card is allocated to the right organization
-To list the available SIM cards, got to the [SIM resource](https://api.embever.com/v2/sims/) endpoint.
-Make sure that the SIM that the CaaM device is using is in the list of and it is activated. The easiest way to achieve that is to check the `iccid` attribute of the SIM resource with the ICCID of the physical SIM card that the CaaM device is using. 
+Sign in to the [Embever IoT Core Browsable API](https://api.embever.com/). Keep the portal open while following this guide.
+
+## Ensure the SIM Card Is Allocated to the Correct Organization
+
+To list available SIM cards, go to the [SIM resource](https://api.embever.com/v2/sims/) endpoint. Verify that the SIM card used by the CaaM device is listed and activated. The `iccid` attribute of the SIM resource should match the ICCID of the physical SIM card in the CaaM device.
 
 ## Create a Device in the Embever IoT Core
-A Device instance in the Embever IoT Core is the representation of a single physical IoT device.
+
+A device instance in the Embever IoT Core represents a single physical IoT device.
 
 !!! Note
 
-    If the CaaM Development Kit had provided by Embever, there is a good chance that the device is already created in the Embever IoT Core. To list the available devices, go to the [https://api.embever.com/v2/devices/](https://api.embever.com/v2/devices/) endpoint. This means the content of this section can be skipped.
-    <a href="https://api.embever.com/v2/devices/">Devices API Endpoint </a>
+    If the CaaM Development Kit was provided by Embever, the device may already be created in the Embever IoT Core. To check available devices, go to the [Devices API Endpoint](https://api.embever.com/v2/devices/). If the device is listed, skip this section.
 
-The simples way to create a device is to use the Browsable API. However, any other tool can be used like Postman or curl. In this guide the Browsable API will be used the perform the task.
+The simplest way to create a device is by using the Browsable API, though other tools like Postman or curl can also be used. This guide will use the Browsable API to perform the task.
 
-- Visit the [https://api.embever.com/v2/devices/]([https://api.embever.com/v2/devices/]) endpoint. Make sure to log in with the right account credentials.
-- Goto the bottom of the page, until reaching a form to input device data. Both HTML and raw input formats are available to initiate a post request which will create a new device. The raw data format is used for this example.
-- On the Raw Data set the Media type field to application/json.
-- On the content field. Put the  following.
-```
-{
-    "name": "<your_device_name>",
-    "activated": true,
-    "sims": ["<iccid_of_sim>"]
-}
-```
-For this example only the required fields are set. For further details, see the [Embever IoT Core REST API documentation](/references/rest_api).
-Replace `<your_device_name>` with a unique name, the name of the Device should be unique within the organization. Replace `<iccid_of_sim>` with the ICCID of the SIM card that the CaaM device is using.
-- Click the POST button. This will create a device in the Embever IoT Core. As a result, a similar object will be returned.
-```
-{
-    "url": "https://api.embever.com/v2/devices/4w4QD/",
-    "id": "4w4QD",
-    "name": "<your_deivce_name>",
-    "password": "**********************",
-    "activated": true,
-    "application": null,
-    "webhooks": null,
-    "meta": null,
-    "sims": ["<iccid_of_sim>"],
-    "created_at": "2024-06-14T07:37:23.361080Z"
-}
-```
-With that done, the device had been created and it is ready to receive the telemetry data from the CaaM device.
+1. Visit the [Devices API Endpoint](https://api.embever.com/v2/devices/). Ensure that the correct account credentials are used.
+2. Scroll to the bottom of the page to find a form for inputting device data. Both HTML and raw input formats are available for initiating a POST request to create a new device. The raw data format will be used in this example.
+3. Set the media type field to `application/json`.
+4. In the content field, input the following data:
+
+    ```json
+    {
+        "name": "<your_device_name>",
+        "activated": true,
+        "sims": ["<iccid_of_sim>"]
+    }
+    ```
+
+    Replace `<your_device_name>` with a unique name for the device (names should be unique within the organization). Replace `<iccid_of_sim>` with the ICCID of the SIM card used by the CaaM device.
+
+5. Click the `POST` button. This will create a device in the Embever IoT Core. A similar object will be returned:
+
+    ```json
+    {
+        "url": "https://api.embever.com/v2/devices/4w4QD/",
+        "id": "4w4QD",
+        "name": "<your_device_name>",
+        "password": "**********************",
+        "activated": true,
+        "application": null,
+        "webhooks": null,
+        "meta": null,
+        "sims": ["<iccid_of_sim>"],
+        "created_at": "2024-06-14T07:37:23.361080Z"
+    }
+    ```
+
+Once the device is created, it is ready to receive telemetry data from the CaaM device.
 
 ## Run the Sample Application
 
-The CaaM Application Framework is designed to simplify and speed up IoT product development. This framework delivers essential IoT functionalities out of the box, eliminating the need for developers to implement them from scratch. With built-in support for telemetry data transfer, file transfers, firmware updates, and more, the framework handles complex connectivity, protocol management, and security implementations, allowing to be focused on creating applications.
-To read more about the CaaM Application Framework, see [CaaM Application Framework](/concepts/app_framework).
-
+The CaaM Application Framework simplifies and accelerates IoT product development by providing essential IoT functionalities out of the box. These include telemetry data transfer, file transfers, firmware updates, and more. The framework handles complex connectivity, protocol management, and security implementations, allowing the focus to remain on building the application. For more details, refer to the [CaaM Application Framework](../concepts/app_framework).
 
 ### Step 1: Setting Up the Software Development Environment
 
 {% include 'fragments/ncs_setup_uaf.md' %}
 
-### Step 2: Get a local copy of the Embever User Application Framework Template
+### Step 2: Get a Local Copy of the Embever User Application Framework Template
 
-To get a local copy of the of the CaaM User Application Framework template, clone the repository listed below, or use the distributed archive.
+To obtain a local copy of the CaaM User Application Framework template, clone the repository or download the distributed archive.
 
-!!! note
+> **Note**  
+> This repository contains submodules necessary for its operation.
 
-    Note, this repository contain submodules which are necessary for its operation.
+Use the following command to ensure that the submodules are downloaded:
 
-Use the following command to make sure that the submodules are downloaded as well.
-
-`git clone --recurse-submodules git@github.com:Embever/ebv_UAF_template.git`
+```bash
+git clone --recurse-submodules git@github.com:Embever/ebv_UAF_template.git
+```
 
 ![Cloning the CaaM User Application Framework Template](./resources/ebv_uaf_template_git_clone.png)
 
-### Step 3: Working with the UAF template
+### Step 3: Working with the UAF Template
+
+To work with the UAF template, follow these steps to set up the environment and prepare the application for development:
+
+1. **Open Visual Studio Code**: Once the repository is cloned, open Visual Studio Code.
+2. **Import the UAF Template**: Import the cloned UAF template into the workspace.
 
 {% include 'fragments/vscode_ncs_uaf_template_import.md' %}
 
-### Step 5: Crypto keys for binary encryption
+### Step 4: Crypto Keys for Binary Encryption
+
+To secure firmware, generate cryptographic keys for binary encryption. Follow the steps below to set up the necessary keys:
 
 {% include 'fragments/mcuboot_pem_keys.md' %}
 
-### Step 6: Compiling and Flashing
+### Step 5: Compiling and Flashing
 
-{% include 'fragments/vscode_ncs_compile_flash.md' %}
+Once the crypto keys are set up, proceed with compiling and flashing the firmware onto the CaaM device:
 
-To flash the firmware binaries to the CaaM device, select the Flash option on the sidebar.
-Uploading the firmware binaries may require different setup depending on the CaaM device, for example the CaaM Mini has no build in programmer so an external programming tool must be used.
-To find more details, see the [CaaM-OS hardware compatibility](/concepts/caam_hardware_compatibility)].
+1. **Compiling**: Use the build tools in Visual Studio Code to compile the project.
+2. **Flashing**: After the compilation is complete, the firmware binaries are ready to be flashed to the CaaM device. This can be done by selecting the "Flash" option in the sidebar.
 
-<!-- TODO : CaaM-OS hardware compatibility page -->
+> **Note**: Depending on the specific CaaM device being used, the flashing process may differ. For example, the CaaM Mini does not have a built-in programmer, so an external programming tool must be used. For more details, see the [CaaM-OS Hardware Compatibility](/concepts/caam_hardware_compatibility) page.
 
-### Step 7: The dash button sample application
+<!-- TODO: Create the CaaM-OS hardware compatibility page -->
 
-The CaaM Application Framework Template contains several sample applications under the `./samples` folder. The dash button sample application will be used in this guide for demonstration. This application sends  simple telemetry data to the cloud. Edit the existing or add a new build configuration for the project as the screenshot shows:
+### Step 6: The Dash Button Sample Application
 
-![CaaM Dash Button Sample Build Configuration](./resources/vscode_ncs_dash_btn_add_build_config.png#only-light)
-![CaaM Dash Button Sample Build Configuration](./resources/vscode_ncs_dash_btn_add_build_config_drk.png#only-dark)
+The UAF template includes several sample applications located in the `./samples` folder. The dash button sample application will be used to demonstrate sending telemetry data to the cloud.
 
-The extra argument for the CMake tool, which selects the Dash Buttom sample application, is the following:
+1. **Add a Build Configuration**: Edit the existing build configuration or create a new one, as shown in the screenshots below:
 
+    ![CaaM Dash Button Sample Build Configuration](./resources/vscode_ncs_dash_btn_add_build_config.png#only-light)
+    ![CaaM Dash Button Sample Build Configuration](./resources/vscode_ncs_dash_btn_add_build_config_drk.png#only-dark)
+
+2. **Select the Dash Button Application**: Add the following CMake argument to select the Dash Button sample application:
+
+    ```bash
+    -DUSER_APPLICATION="dash_button"
+    ```
+
+3. **Build and Flash**: After configuring, build the project and flash the application binary. Once flashed, the status LED on the device should turn on, indicating that the application is running. For development purposes, it is recommended to view the logs generated by CaaM-OS. To learn more about accessing the log messages, refer to the [CaaM-OS Logs](/concepts/caam_logs) section.
+
+The CaaM-OS will complete the telemetry data transfer when the status LED begins blinking. For further explanation of the Dash Button sample application, refer to the [Dash Button Sample Application for the CaaM Application Framework](/samples/dash_button) article.
+
+<!-- TODO: Create the CaaM-OS logs page -->
+
+### Step 7: Viewing Telemetry Data in the Embever IoT Core Browsable API
+
+After the CaaM device sends telemetry data, the data can be viewed in the Embever IoT Core using the Browsable API. Follow these steps:
+
+1. **Open the Browsable API**: Visit `https://api.embever.com/v2/events/?device=<your_device_id>` to access the telemetry data.
+2. **Replace `<your_device_id>`**: Substitute `<your_device_id>` with the actual ID of the CaaM device.
+
+Telemetry data is represented as events. Each event object contains a type, which denotes a specific occurrence on the device, and a payload, which includes additional details about that occurrence. Below is an example of telemetry data sent by a device:
+
+```json
+[
+    {
+        "url": "https://api.embever.com/v2/events/123456/",
+        "id": 123456,
+        "device": "my-test-dev",
+        "sim": "8988XXXXXXXXXXX",
+        "type": "samples",
+        "payload": {
+            "temp": 20
+        },
+        "created_at": "2024-06-05T14:44:38.497395Z"
+    }
+]
 ```
--DUSER_APPLICATION="dash_button"
-```
 
-Whit that done, the sample application can be compiled by clicking the Build Configuration button. Shortly after flashing the application binary, the status LED should be turned on, indicating that the application is running. For development, it is recommended to look into the logs that the CaaM-OS prints to the serial terminal. To find out how to access the log messages, see the [CaaM-OS logs](/concepts/caam_logs) section. The CaaM-OS is done performing the telemetry data transfer when the status LED is switched to a blinking pattern.
+The Embever IoT Core makes it easy to forward telemetry data to other cloud applications. For more details, refer to the following guides:
 
-<!-- TODO: CaaM-OS logs page -->
+- [How to send data from the Embever IoT Core to other applications](/tutorials/integrations/webhooks),
+- [Integration with Salesforce](/tutorials/integrations/salesforce),
+- [Integration with Azure IoT Hub](/tutorials/integrations/azure_iot_hub)
 
-## Find the recent telemetry data in Embever IoT Core Browsable API
-
-The Embever IoT Core REST API provides access to the telemetry data sent by the CaaM device.
-In this example, the Browsable API will be used to examine this data by visiting the `https://api.embever.com/v2/events/?device=<your_device_id>`.
-Replace `your_device_id` with the device id of the CaaM device.
-Events are the representation of data that is sent from the device to Embever IoT Core.
-Event object contains a type which denotes an speciation occurrence in the device and the payload contains the additional information of this occurrence.
-In this case the telemetry data is sent as the payload of occurrence of the event "<type>".
-As soon as the device finished sending the telemetry data, it will show up in the Embever cloud. The IoT event will be similar to the following:
-
-```
-    [
-        {
-            "url": "https://api.embever.com/v2/events/123456/",
-            "id": 123456,
-            "device": "my-test-dev",
-            "sim": "8988XXXXXXXXXXX",
-            "type": "samples",
-            "payload": {
-                "temp": 20
-            },
-            "created_at": "2024-06-05T14:44:38.497395Z"
-        }
-    ]
-```
-
-The Embever IoT Core provides an easy way to automatically forward these telemetry data to any cloud application, for more information see this guide: [How to send data from Embever IoT Core to you application](/tutorials/integrations/webhooks)
-The Embever IoT Core also provides an integration with Salesforce and Azure IoT Hub, the data sent by the devices can be used on any business applications. See [Integration with Salesforce](/tutorials/integrations/salesforce) and [Integration with Azure IoT Hub](/tutorials/integrations/azure_iot_hub) for more details.
 
 ## Next Steps
-.....
 
-
+- [Sample Applications of the CaaM Application Firmware]()
+- [CaaM Application Framework API]()
+- [Best Practices for developing IoT applications with the CaaM Application Firmware]()
+    
 
 <!-- ## Have your hardware/simcard ready
 - sim card

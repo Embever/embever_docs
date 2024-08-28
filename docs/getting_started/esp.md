@@ -28,27 +28,21 @@ To read more about the Embever Serial Client Application, see the [Embever Seria
 
 ## Prerequisites
 
-This guide will require the following things to fully complete it:
+Ensure the following prerequisites are met before proceeding with this guide:
 
- - An active account for the Embever IoT Core, see [Creating Embever IoT Core Account](/tutorials/console/account_mgmt)
-
- - A supported hardware device with SIM card provided by Embever, see [Supported hardware devices](./supported_hardware)
-
+- An activated account for the Embever IoT Core. For more information, see [Creating an Embever IoT Core Account](/tutorials/console/account_mgmt).
+- A supported hardware device with a SIM card provided by Embever. For details, refer to [Supported hardware devices](./supported_hardware).
 
 ## Introduction
 
-The Embever Serial Protocol (ESP) is a lightweight protocol designed to establish communication between the CaaM embedded operating system (CaaM-OS) and an external device. It can be used to connect any devices with the Embever Cloud. The communication of the embedded devices are based on common serial buses with additional flow control. The ESP implements a simple request-response model where the external device sends requests to the CaaM-OS and the CaaM-OS send back responses to the external device.To read more about the Embever Serial Protocol, please refer to the [Embever Serial Protocol Specification](./links/EmbeverSerialProtocol.pdf).
+The Embever Serial Protocol (ESP) is a lightweight communication protocol designed to facilitate interaction between the CaaM embedded operating system (CaaM-OS) and external devices. It enables seamless connectivity to the Embever Cloud. Communication between devices is based on common serial buses like I2C, SPI, and UART with additional flow control mechanisms. ESP implements a simple request-response model, where external devices send requests to CaaM-OS, and CaaM-OS responds accordingly. For more details, refer to the [Embever Serial Protocol Specification](./links/EmbeverSerialProtocol.pdf).
 
-## Verify the firmware of the CaaM hardware device
+## Verify the Firmware of the CaaM Hardware Device
+
+The appropriate CaaM-OS firmware for the Embever Serial Protocol must be active on the CaaM hardware device. This application firmware is maintained and provided by Embever for [supported hardware devices](./supported_hardware). Standard CaaM hardware devices come preloaded with the ESP application firmware. However, it is possible to build the same application firmware for other hardware devices by compiling CaaM-OS with the ESP application. For more information, refer to the [Embever Serial Protocol Peripheral Application](../firmware/caam-app-framework/esp/esp_peripheral.md).
 <!-- TODO: References to read more about the mentioned topics  -->
-The required CaaM-OS firmware for the Embever Serial Protocol shall be active on the CaaM hardware device. [This]() application image is maintained and proved by Embever for the [supported hardware devices](./supported_hardware).
-Any standard CaaM hardware device comes with the ESP application image.
-However, it is possible to build the same application image for other hardware devices by compiling the CaaM OS with the ESP application, see [Embever Serial Protocol Peripheral Application](../firmware/caam-app-framework/esp/esp_peripheral.md).
-
 ## The Embever IoT Library
 
-The Embever IoT library is a software library created and maintained by Embever which aiming to provide a simple and effortless way to integrate the ESP 
-into any existing application. The Embever IoT library is implements the initiator role of the ESP which send commands to the CaaM hardware device to perform various tasks.
-The Embever IoT library is written in C and it is available in the following link: [Embever IoT library](https://github.com/Embever/embever-iot-library).
+The Embever IoT library is a software library developed and maintained by Embever to provide an easy and efficient way to integrate the ESP into existing applications. The library implements the initiator role of the ESP which is reposible for sending commands to the CaaM hardware device to perform various tasks. Since the Embever IoT library is written in C and includes a dedicated integration layer, it can be ported to many different platforms. The Embever IoT library is available at the following repository: [Embever IoT Library](https://github.com/Embever/embever-iot-library).
 
-<!-- Continue from this point would assume a preset hardware setup, maybe leaving some links for tutorials for different environments could end this guide -->
+<!-- Continue from this point assumes a preset hardware setup. Links to tutorials for different environments could conclude this guide -->
