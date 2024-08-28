@@ -12,6 +12,7 @@ This guide will require the following things to fully complete it:
 
 - An active account for the Embever IoT Core, see [Creating Embever IoT Core Account](/tutorials/console/account_mgmt)
 - A supported hardware device with SIM card provided by Embever, see [Supported hardware devices](./supported_hardware)
+<!-- TODO : Supported hardware devices page -->
 - Visual Studio Code installed in your development machine (optional but recommended)
 
 ## Sign in to Embever IoT Core Browsable API
@@ -66,7 +67,7 @@ With that done, the device had been created and it is ready to receive the telem
 
 The CaaM Application Framework is designed to simplify and speed up IoT product development. This framework delivers essential IoT functionalities out of the box, eliminating the need for developers to implement them from scratch. With built-in support for telemetry data transfer, file transfers, firmware updates, and more, the framework handles complex connectivity, protocol management, and security implementations, allowing to be focused on creating applications.
 To read more about the CaaM Application Framework, see [CaaM Application Framework](/concepts/app_framework).
-To see the toolkit in action, a sample application will demonstrate the use of the CaaM Application Framework.
+
 
 ### Step 1: Setting Up the Software Development Environment
 
@@ -80,15 +81,11 @@ To get a local copy of the of the CaaM User Application Framework template, clon
 
     Note, this repository contain submodules which are necessary for its operation.
 
-Use the following command to make sure that the submodules are downloaded as well.*
+Use the following command to make sure that the submodules are downloaded as well.
 
 `git clone --recurse-submodules git@github.com:Embever/ebv_UAF_template.git`
 
 ![Cloning the CaaM User Application Framework Template](./resources/ebv_uaf_template_git_clone.png)
-
-The CaaM Application Framework Template contains sample applications under the `./samples` folder. In this quickstart we will work with
-`<application name>`. This application sends sample telemetry data from your Device to the cloud.
-<!-- TODO: Update info sample applicaiton -->
 
 ### Step 3: Working with the UAF template
 
@@ -98,25 +95,43 @@ The CaaM Application Framework Template contains sample applications under the `
 
 {% include 'fragments/mcuboot_pem_keys.md' %}
 
-### Step 6: Build and Flash
+### Step 6: Compiling and Flashing
 
 {% include 'fragments/vscode_ncs_compile_flash.md' %}
 
-<!-- TODO: Tutorial/Guide: 
-    How to flash the binary to CaaM Mini.
-    How to flash a firmware on nordic DK. -->
+To flash the firmware binaries to the CaaM device, select the Flash option on the sidebar.
+Uploading the firmware binaries may require different setup depending on the CaaM device, for example the CaaM Mini has no build in programmer so an external programming tool must be used.
+To find more details, see the [CaaM-OS hardware compatibility](/concepts/caam_hardware_compatibility)].
 
-### Step 7: Run the sample Application on your IoT Device
-.........
-<!-- TODO -->
+<!-- TODO : CaaM-OS hardware compatibility page -->
 
+### Step 7: The dash button sample application
 
-## View sent telemetry data in Embever IoT Core Browsable API
-Embever IoT Core REST API lets you interact with the devices on the {{UAF}}. We will use the Browsable API to see the telemetry data sent by the device.
-On your browser go to `https://api.embever.com/v2/events/?device=<your_device_id>`. Replace `your_device_id` with the id of your Device in the API. Events are the representation of data that is sent from the device to Embever IoT Core. Event object contains a type which denotes an specition occurence in the device and the payload contains the additional information of this occurence. In our case the telemetry data is sent as the payload of occurence of the event "<type>".
-Now you should see the telemetry data un like this.
-<!-- 
-We can be creative on what type of sample application we have, something that is more common for users and easy to understand -->
+The CaaM Application Framework Template contains several sample applications under the `./samples` folder. The dash button sample application will be used in this guide for demonstration. This application sends  simple telemetry data to the cloud. Edit the existing or add a new build configuration for the project as the screenshot shows:
+
+![CaaM Dash Button Sample Build Configuration](./resources/vscode_ncs_dash_btn_add_build_config.png#only-light)
+![CaaM Dash Button Sample Build Configuration](./resources/vscode_ncs_dash_btn_add_build_config_drk.png#only-dark)
+
+The extra argument for the CMake tool, which selects the Dash Buttom sample application, is the following:
+
+```
+-DUSER_APPLICATION="dash_button"
+```
+
+Whit that done, the sample application can be compiled by clicking the Build Configuration button. Shortly after flashing the application binary, the status LED should be turned on, indicating that the application is running. For development, it is recommended to look into the logs that the CaaM-OS prints to the serial terminal. To find out how to access the log messages, see the [CaaM-OS logs](/concepts/caam_logs) section. The CaaM-OS is done performing the telemetry data transfer when the status LED is switched to a blinking pattern.
+
+<!-- TODO: CaaM-OS logs page -->
+
+## Find the recent telemetry data in Embever IoT Core Browsable API
+
+The Embever IoT Core REST API provides access to the telemetry data sent by the CaaM device.
+In this example, the Browsable API will be used to examine this data by visiting the `https://api.embever.com/v2/events/?device=<your_device_id>`.
+Replace `your_device_id` with the device id of the CaaM device.
+Events are the representation of data that is sent from the device to Embever IoT Core.
+Event object contains a type which denotes an speciation occurrence in the device and the payload contains the additional information of this occurrence.
+In this case the telemetry data is sent as the payload of occurrence of the event "<type>".
+As soon as the device finished sending the telemetry data, it will show up in the Embever cloud. The IoT event will be similar to the following:
+
 ```
     [
         {
@@ -133,8 +148,8 @@ We can be creative on what type of sample application we have, something that is
     ]
 ```
 
-Furthermore, {{UAF}} provides and easy way to automatically send these telemetry data to any cloud application. See [How to send data from Embever IoT Core to you application](/tutorials/integrations/webhooks)
-{{UAF}} also provides an integration with Salesforce and Azure IoT Hub so that the data sent by the Devices can be used on your Business applicaitons. See [Integration with Salesforce](/tutorials/integrations/salesforce) and [Integration with Azure IoT Hub](/tutorials/integrations/azure_iot_hub) for more details.
+The Embever IoT Core provides an easy way to automatically forward these telemetry data to any cloud application, for more information see this guide: [How to send data from Embever IoT Core to you application](/tutorials/integrations/webhooks)
+The Embever IoT Core also provides an integration with Salesforce and Azure IoT Hub, the data sent by the devices can be used on any business applications. See [Integration with Salesforce](/tutorials/integrations/salesforce) and [Integration with Azure IoT Hub](/tutorials/integrations/azure_iot_hub) for more details.
 
 ## Next Steps
 .....
