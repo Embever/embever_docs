@@ -1,0 +1,1467 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Embever Console - Cloud-as-a-Module Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra-styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#embever-console" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud-as-a-Module Documentation" class="md-header__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud-as-a-Module Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Embever Console
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting_started/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../links/prerequisites/" class="md-tabs__link">
+          
+  
+  Links
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../faqs/" class="md-tabs__link">
+          
+  
+  FAQs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud-as-a-Module Documentation" class="md-nav__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Cloud-as-a-Module Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/esp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Esp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/uaf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CaaM Application Framework
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            FAQs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-account-on-embever-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an Account on Embever Console
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-and-logout-to-the-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login and Logout to the Console
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login and Logout to the Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forgot-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forgot Password
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organisation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organisation Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organisation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-organisation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit Organisation Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accounts Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accounts Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#owner-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Owner User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal User
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-ownership-of-the-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the ownership of the organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-your-own-account-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update your own Account Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otp-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      OTP Login
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTP Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activate-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activate OTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivate-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deactivate OTP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivate-an-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deactivate an Account
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salesforce-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salesforce Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Salesforce Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-your-salesforce-organisation-to-embever-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Your Salesforce Organisation to Embever Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embever-iot-core-salesforce-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embever IoT Core Salesforce App
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embever IoT Core Salesforce App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Events
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-messsage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device Messsage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inbound Message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outbound-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outbound Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="embever-console">Embever Console</h1>
+<p>Embever console is the web based interface that allows users to interact and manage their resources in Embever cloud. Using the embever console the user can manage accounts, organisatoin details and also manage integration with exteranal systems. It is reachable under this link <a href="https://console.embever.com">https://console.embever.com</a>.</p>
+<h2 id="creating-an-account-on-embever-console">Creating an Account on Embever Console</h2>
+<p>It's important to note that there is no provision for public signup within the Embever Console. Account creation is exclusively managed by administrative users of Embever and owners and admins of the organisation, ensuring controlled access to the platform's resources. Below are the steps involved in this process.</p>
+<ol>
+<li>Organisation creation<ul>
+<li>An organisation is created by the Administrative user of Embever. This step involves adding essential organisatinal details to the organisation.</li>
+</ul>
+</li>
+<li>Owner Account Setup<ul>
+<li>An owner account is setup by the Administrative user of Embever with the given email address from the related organisation.</li>
+</ul>
+</li>
+<li>Email Activation for Owner Account<ul>
+<li>An activation email is sent to the owner's email</li>
+</ul>
+</li>
+<li>Owner Account Activation<ul>
+<li>After the owner confirms their account activation, the owner gains access to the console.</li>
+</ul>
+</li>
+<li>User Account Creation by Owner<ul>
+<li>The owner can now create additional user accounts for the individuals within the organisation.</li>
+<li>The owner can assign admin or a normal user role to the accounts. See <a href="#user-roles">User Roles</a> for more detail information on roles in Embever console.</li>
+</ul>
+</li>
+</ol>
+<h2 id="login-and-logout-to-the-console">Login and Logout to the Console</h2>
+<h3 id="login">Login</h3>
+<p>To access the Embever Console, visit console.embever.com and enter your credentials (username and password) in the provided fields. Click on the "Sign In" button to authenticate your account. Upon succesful authentication you will be redirected to the homepage.</p>
+<h3 id="logout">Logout</h3>
+<p>To log out of your Embever Console account, simply click on the "Logout" button which looks like a switch button located in the top-right part of the dashboard. This action will terminate your session and return you to the login screen.</p>
+<div class="admonition recommendation">
+<p class="admonition-title">Recommendation</p>
+<p>It is always a best practice to always log out after you finish your work.</p>
+</div>
+<h3 id="forgot-password">Forgot Password</h3>
+<p>If you forget your password and are unable to log in, the Embever Console provides a simple and secure process to reset it. Follow the following steps to reset your password.</p>
+<ol>
+<li>Forgot Password Link: On the login page, locate and click on the "Forgot Password" link below the login form. You will be redirected to a another page.</li>
+<li>Email Verification: Enter the username and email address associated with your Embever IoT Core account and click on submit.</li>
+<li>Reset Link: You will receive an email containing a reset link to the provided email address. The link is valid only for 7 days.</li>
+<li>Password Reset: Click on the reset link in the email to navigate to the password reset page.</li>
+<li>New Password: Enter your username and set a new password for your account.</li>
+<li>Login: Once your password is successfully reset, you would be logged in and redirected to the home page of the console.</li>
+</ol>
+<p>This process ensures that even if you forget your password, you can regain access to your account securely and efficiently. If you encounter any issues during the password reset process, please don't hesitate to contact us for assistance.</p>
+<!-- ### Resetting your password
+!! Only available for the staff user.
+To reset you password follow the following steps.
+
+1. After logging in, navigate to ththe password change link. [https://console.embever.com/admin/password_change/] (https://console.embever.com/admin/password_change/)
+2. Enter your Old password and new password.
+3. Click on 'CHANGE MY PASSSWORD' button
+4. After the password is changed successfully you will be redirected to the page with the Password change successful message. -->
+
+<h2 id="organisation-details">Organisation Details</h2>
+<p>Organisation Details are first added by the Administrative users of Embever as provided by the respective organisation. It mainly contains the informatin of the Organisation like name and contact information.</p>
+<h3 id="edit-organisation-details">Edit Organisation Details</h3>
+<p>A user with the owner role of the organisation can change their organisation details. Organisational users with other roles (admin and normal users) will be only be able to see the details but not edit it.
+To change the organisation details follow the following steps.</p>
+<ol>
+<li>Login to the console.</li>
+<li>On the top right corner of the home screen click on the organisation icon. This will open a page with the organisation details.</li>
+<li>Edit your organisation details.</li>
+<li>Click on the submit button. If there are any errors please correct them and submit it.</li>
+<li>After the details are save successfully you will see edit successfull message on the top of the form itself.</li>
+</ol>
+<h2 id="accounts-management">Accounts Management</h2>
+<p>Embever IoT Core offers different user roles, each with specific permissions to manage resources effectively.</p>
+<h3 id="user-roles">User Roles</h3>
+<p>The users are primarily categorized into two groups.</p>
+<ol>
+<li>
+<p>Administrative users</p>
+<p>Administrative users are responsible or managing the Embever Console and the resources. These users are further categorized into two roles.</p>
+<ol>
+<li>
+<p>Superuser: Has full control over all aspects of the Embever Console, including user management and resource allocation.</p>
+</li>
+<li>
+<p>Staff User: Assigned to users for specific administrative tasks by superusers.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Organization Users</p>
+<p>Organization users are individuals associated with a particular organization and are typically assigned specific roles and permissions within the system. The organisational users are categorized further into three roles.</p>
+<ol>
+<li>
+<p>Owner: Has the highest level of authority within the organization. Can perform administrative tasks and manage other users.</p>
+</li>
+<li>
+<p>Admin User: Granted administrative privileges within the organization, such as user management and resource allocation.</p>
+</li>
+<li>
+<p>Normal User: Has limited permissions, typically restricted to accessing and interacting with assigned resources.</p>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are additional user types specifically for API which doesnot have accounts for logging into the console. They are called organisation user and applicaiton user. Organisation user and application user are created automatically when an organisation or an application is created. These are created to provide scope on the organisational level and applicaiton for api requests. </p>
+</div>
+<h4 id="owner-user">Owner User</h4>
+<p>Owners possess the highest level of control and can perform the following administrative actions.</p>
+<ol>
+<li>
+<p>Assign Another Owner: Owners can designate another user as an owner of the organization.</p>
+</li>
+<li>
+<p>Create Users: Owners can create new users within the organization.</p>
+</li>
+<li>
+<p>Edit Users: Owners can modify user details and roles.</p>
+</li>
+<li>
+<p>Delete Users: Owners cannot directly delete users. Contact support@embever.com for user deletion requests. However, owners can deactivate the users, the deactivated users are no longer able to login and use the console.</p>
+</li>
+</ol>
+<h4 id="admin-user">Admin User</h4>
+<p>Admin users have the second highest level of authority and can perform the following administrative actions.</p>
+<ol>
+<li>
+<p>Create Users: Admin users can create new users within the organization.</p>
+</li>
+<li>
+<p>Edit Users: Admin user can modify normal user details and roles. Admin user cannot modify details of other admin users and owner.</p>
+</li>
+<li>
+<p>Deactivate normal Users: Admin users can deactivate normal users. </p>
+</li>
+</ol>
+<h4 id="normal-user">Normal User</h4>
+<p>Normal organisation users have the lower level of authority and can not perform any administrative actions. They can only change thier own details.</p>
+<h3 id="changing-the-ownership-of-the-organization">Changing the ownership of the organization</h3>
+<p>A current owner can assign another user of the organisation as a owner. This can either be done by the Administrative user of Embever on the request from the owner of the organisation or by the owner user of the organisation him/herself. The following steps needs to be carried out to change the owner user of the organisation.</p>
+<ol>
+<li>Login to the Embever console as a owner user.</li>
+<li>On the Manage accounts section of the homepage click on "Manage your organisation accounts". You will be  redirected to the page with list of users on your organisation.</li>
+<li>If there are not any users besides you click on "Create New Account" and create a user to whom you want to transfer the ownership to.</li>
+<li>On, the users list, click on the "Edit" button for the specific user. Now you will see the Update Account form with the user details.</li>
+<li>Go to Role input and select "Owner". Make sure the user you are transferring the ownership is activated before you change the role to Owner.</li>
+<li>The user that you changed the owner role will receive an email with the ownership transfer request. The email contains a secure link to accept or decline the request. This link is valid for 7 days only. If the link is expired you have to reinitiate the process.</li>
+<li>When the user accepts the ownership transfer request. The designated user role will be changed to the owner and your role will be changed to a normal user.</li>
+</ol>
+<h3 id="update-your-own-account-details">Update your own Account Details</h3>
+<p>As a user you can update your account details like
+To change your account details follow the following steps</p>
+<ol>
+<li>Login to the console.</li>
+<li>Click on the account icon on the top right part of the menu. A form with your details will open.</li>
+<li>Edit your details and click submit. If the details are upadated successfully you will see a success message on the top of the form.</li>
+</ol>
+<h3 id="otp-login">OTP Login</h3>
+<p>OTP stands for one time password. When OTP is enabled for your account, embever console sends an email to your account email with a token. This token should be entered when you login else you are not able to log in to the console. This is one of the ways to make check if the person trying to log in is legit one. </p>
+<div class="admonition recommendation">
+<p class="admonition-title">Recommendation</p>
+<p>OTP is used for the tow factor authorization and turning this on always is highly recommended to secure your account from different attacks.</p>
+</div>
+<h4 id="activate-otp">Activate OTP</h4>
+<p>To enable  OTP for your account follow the following steps.</p>
+<ol>
+<li>Login to the console.</li>
+<li>Click on the account icon on the top right part of the menu. A form with your details will open.</li>
+<li>On the OTP input set the checkbox to checked to enable OTP for your account and click submit.</li>
+<li>You will receive an email with verification link to verify the OTP along with the verification code.</li>
+<li>Click on the verification link and enter the verification code to verify.</li>
+<li>Upon successful verification you will again receive an email notification that OTP login has been activated and verified.</li>
+</ol>
+<h4 id="deactivate-otp">Deactivate OTP</h4>
+<p>To enable disable OTP for your account follow the following steps.</p>
+<ol>
+<li>Login to the console.</li>
+<li>Click on the account icon on the top right part of the menu. A form with your details will open.</li>
+<li>On the OTP input uncheck the checkbox to disable OTP for your account and click submit.</li>
+<li>Upon successful update , you will receive an email that your OTP login has been deactivated.</li>
+</ol>
+<h3 id="deactivate-an-account">Deactivate an Account</h3>
+<p>To deactivae an accont follow the following steps</p>
+<ol>
+<li>Login to the console as owner or admin user.</li>
+<li>On the 'Manage Accounts' seciton of the homepage click on 'Manage your organisation's Accounts'. This will open a page with list of your organization accounts.</li>
+<li>Click on the 'Edit' button for the account you want to deactivate. This will open a 'Update Account' form for the selected user account.</li>
+<li>Uncheck the 'Activated' checkbox on the form an click 'Submit'.</li>
+<li>Updon successful deactivation you will get the success message and the status of the user account changes from active to inactive.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no option to delete user accounts from the console. Contact Embever at support@embever.com for account deletion requests.</p>
+</div>
+<h2 id="salesforce-integration">Salesforce Integration</h2>
+<h3 id="connecting-your-salesforce-organisation-to-embever-cloud">Connecting Your Salesforce Organisation to Embever Cloud</h3>
+<p>Your salesforce Organisation can be easily integrated to the Embever IoT core. This enables you to use the data from
+Embever IoT core on different business cases on your salesforce organisation.</p>
+<p>To connect your salesforce instance to Embever IoT Core follow the following steps:</p>
+<ol>
+<li>Go to  <a href="https://console.embever.com/integration/salesforce/new/">https://console.embever.com/integration/salesforce/new/</a></li>
+<li>Select the your type of organisation and an alias. Click on Authorize</li>
+<li>Next Authorize CAAM Embever by logging in with your salesforce credentials and clicking Allow. After that you will be redirected to the IoT Core console.</li>
+<li>Install the Embever IoT Core Salesforce App.</li>
+<li>After installing the IoT Core Salesforce App, Go back to your connection page on the IoT Core console</li>
+<li>On Install Salesforce App section, click on "I have already installed the App"</li>
+<li>Next, select the applications for the integration.</li>
+</ol>
+<p>Now you can send or receive data from the devices on the attached applications from salesforce.</p>
+<p>Optionally,</p>
+<ol>
+<li>You can install the sample Embever IoT Core Salesforce App by clicking the "Install Example App in Salesforce" button on the last section.</li>
+<li>Synchronize all the devices to Salesforce by simply clicking the "Synchronize All Devices to Salesforce" button.</li>
+</ol>
+<p>After sucessfully connecting the devices to your salesforce organisation you can now use the <a href="#platform_events">Platform Events</a> defined in the IoT Core App
+to communicate to the device via Embever IoT Core.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details on Embever cloud integration with Salesforce see <a href="../salesforce/">here</a>.</p>
+</div>
+<h3 id="embever-iot-core-salesforce-app">Embever IoT Core Salesforce App</h3>
+<p>Embever IoT Core Salesforce App contains the necessary salesforce components that are used to connect the salesforce organisation to Embever IoT Core.
+This app should be installed in the salesforce organistion to be able to communicate with the Embever IoT Core from salesforce. You can install this app
+while creating a salesforce connection in the Embever IoT Core console.</p>
+<p>The package contents can be categorized into mainly two groups. </p>
+<ol>
+<li><a href="#platform-events">Platform Events</a></li>
+<li><a href="utility_functions">Utility Functions</a></li>
+</ol>
+<h4 id="platform-events">Platform Events</h4>
+<p>Embever IoT Core Salesforce App Package contains three different Platform Events definition, which is used to communicate between your salesforece organisatio 
+and Embever IoT Core.</p>
+<p>The platform events are defined are as follows:</p>
+<ol>
+<li><a href="#device-message">Device Messge</a></li>
+<li><a href="#outbound-message">Outbound Message</a></li>
+<li><a href="#inbound-message">Inbound Message</a></li>
+</ol>
+<h5 id="device-messsage">Device Messsage</h5>
+<p>Platform Event for Devices is primarily used to syncronize devices from IoT Core to Salesforce. In Salesforce users can listen
+to this platform event and update or create their own custom Device objects using the information from the platform event.</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeviceId</td>
+<td>embevercore__DeviceId__c</td>
+<td>ID of the device in Embever IoT Core</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Device Name</td>
+<td>embevercore__DeviceName__c</td>
+<td>Alias Name of the device in Embever IoT Core</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>embevercore__DeviceType__c</td>
+<td>Indicates the type of the device connectivity technology. Contains 'virtual' for virtual devices. Otherwise contains the type of connectivity technology the device is using to communicate to Embever Core.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Application Id</td>
+<td>embevercore__ApplicationId__c</td>
+<td>The Application Id of the application the device has been assigned to in Embever Core.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Activated</td>
+<td>embevercore__Activated__c</td>
+<td>Indicates the activation status of the device. If false, the device has not been activated and cannot send or receive messages. Devices can be activated and deactivated in Embever Core.</td>
+<td>Checkbox</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Date/Time</td>
+<td>embevercore__DateTime__c</td>
+<td>The Date/Time a message was issued.</td>
+<td>Date/Time</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T11:46:39.357Z",
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__DeviceName__c": "HellowWorldDev",
+  "CreatedDate": "2022-02-23T11:46:40.212Z",
+  "embevercore__ApplicationId__c": "1c43d388-ab3b-4677-9f51-05dfg597a02d",
+  "embevercore__Activated__c": true,
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__DeviceType__c": "other"
+}
+</code></pre>
+<h5 id="inbound-message">Inbound Message</h5>
+<p>Inbound Message event is used to publish the transaction messages from Embever IoT core to the salesforce organisation. 
+Cases when inbound message platform events are used:</p>
+<ol>
+<li>When device sends an event</li>
+<li>When device sends a result for an action in Embever IoT core</li>
+<li>When an action status is updated</li>
+</ol>
+<p>By simply subscribing to this Plaform event from salesforce you can get the transaction messages from Embever IoT Core.
+Here we refer both the IoT Core Event and Action as a Transaction. </p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>embevercore__Type__c</td>
+<td>Indicates the type of the message. Allowed values are 'action' and 'event'.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Context Id</td>
+<td>embevercore__ContextId__c</td>
+<td>Contains the embevercore__Outbound__e.embevercore__ContextId__c for a specific action to link between the outbound and inbound action message if desired. In most cases, this should be the Salesforce Record Id of the Device Action Record that triggered the creation of the Outbound Message</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Created By Core</td>
+<td>embevercore__CreatedByCore__c</td>
+<td>Indicates whether the message originated in Embever Core or within Salesforce. When true, the messages originated outside of this Salesforce Organization.</td>
+<td>Checkbox</td>
+<td>No (Defaults to Unchecked)</td>
+</tr>
+<tr>
+<td>Date/Time</td>
+<td>embevercore__DateTime__c</td>
+<td>The Date/Time a message was issued.</td>
+<td>Checkbox</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Device Id</td>
+<td>embevercore__DeviceId__c</td>
+<td>Contains the Embever Core Device Id of the device the message is related to.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>embevercore__Id__c</td>
+<td>Unique id of the message within Embever Core. Can be either action id or event id from Embever IoT Core.</td>
+<td>Number</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>embevercore__Name__c</td>
+<td>Contains the event or action name the device used when sending the payload, e.g. "currentLocation".</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>embevercore__Payload__c</td>
+<td>Contains the message payload in JSON format. Can be a JSON object, JSON array, or JSON value.</td>
+<td>Long Text Area</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status Id</td>
+<td>embevercore__StatusId__c</td>
+<td>Id of the Status of the Action/Event in Action/Event Lifecycle (e.g. 'action_sent') as in the Embever IoT Core.</td>
+<td>Number</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status Name</td>
+<td>embevercore__StatusName__c</td>
+<td>Status of the Action/Event in Action/Event Lifecycle (e.g. 'action_sent').</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status Changed At</td>
+<td>embevercore__StatusChangedAt__c</td>
+<td>Date Time when the status of the transaction changed.</td>
+<td>DateTime</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Example:
+Inbound Platfrom event body when sending IoT core event to Salesforce.</p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T08:45:13.889Z",
+  "embevercore__StatusChangedAt__c": null,
+  "embevercore__Name__c": "wakeUp",
+  "embevercore__StatusName__c": null,
+  "embevercore__ContextId__c": null,
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__StatusId__c": null,
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__CreatedByCore__c": false,
+  "CreatedDate": "2022-02-23T08:45:15.364Z",
+  "embevercore__Type__c": "event",
+  "embevercore__Id__c": 15032,
+  "embevercore__Payload__c": "{\"lat\": 525841746, \"lon\": 112812903}"
+}
+</code></pre>
+<h5 id="outbound-message">Outbound Message</h5>
+<p>Outbound Message platform event is used to send message from salesforce organisation to Embever IoT Core.</p>
+<p>Cases when outbound message platform events are used:</p>
+<ol>
+<li>When an action is to be sent to the device</li>
+<li>Cancel an action</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>embevercore__Type__c</td>
+<td>Indicates the type of the message. Only 'action' is allowed as a value for outbound messages.</td>
+<td>Text</td>
+<td>Yes (defaults to "action")</td>
+</tr>
+<tr>
+<td>Operation</td>
+<td>embevercore__Operation__c</td>
+<td>Indicates if the message should create a new action or cancel a pending action. If set to 'cancel', the action id to be canceled needs to be provided in embevercore__Id__c.</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Context Id</td>
+<td>embevercore__ContextId__c</td>
+<td>Can be set to a value that will be sent back in the embevercore__Inbound__e.embevercore__ContextId__c field for related action responses. In most cases this should be the Salesforce Record Id of the Device Action Record that triggered the creation of the Outbound Message.</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Created By Core</td>
+<td>embevercore__CreatedByCore__c</td>
+<td>Indicates whether the message originated in Embever Core or within Salesforce. When true, the messages originated outside of this Salesforce Organization.</td>
+<td>Checkbox</td>
+<td>Yes (Defaults to Unchecked)</td>
+</tr>
+<tr>
+<td>Device Id</td>
+<td>embevercore__DeviceId__c</td>
+<td>Contains the Embever Core Device Id of the device the message is related to.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>embevercore__Id__c</td>
+<td>Unique id of the message within Embever Core. Can be either action id or event id from Embever IoT Core.</td>
+<td>Number</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>embevercore__Name__c</td>
+<td>Needs to be set to the Action Name that tells the Device how to handle the Payload, e.g. "setSettings".</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>embevercore__Payload__c</td>
+<td>Contains the message payload in JSON format. Can be a JSON object, JSON array, or JSON value.</td>
+<td>Long Text Area</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Service Level</td>
+<td>embevercore__ServiceLevel__c</td>
+<td>Can be set to the desired service level for the action. Defaults to 0. Valid service levels are: 0 - fire and forget, 1 - ensure the device received the message, 2 - ensure the device processed the message (with guaranteed response)</td>
+<td>Number</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Example : Outbound Platfrom event body when sending IoT core Action from Salesforce.</p>
+<pre><code>{
+    "embevercore__Operation__c": "create",
+    "embevercore__DeviceId__c": "xyzA",
+    "embevercore__Name__c": "setLED",
+    "embevercore__Payload__c": "{ \"LED\": \"off\" }",
+    "embevercore__ServiceLevel__c": 2,
+    "embevercore__ContextId__c": "a027Q00000198BpQAI"
+}
+</code></pre>
+<h4 id="utility-functions">Utility Functions</h4>
+<p>Apart from the platform events IoT core salesforce app also contains some utility functions which can be used to transform data.
+The utilty functions defined on the IoT Core salesforce app as an Apex Class are shown below.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GetJsonBoolean</td>
+<td>Returns the value for a specific key with Boolean type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonDateTime</td>
+<td>Returns the value for a specific key with DateTime type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonDecimal</td>
+<td>Returns the value for a specific key with Decimal type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonKeyExists</td>
+<td>Returns true if a specific key exists in a JSON string else returns false</td>
+</tr>
+<tr>
+<td>GetJsonString</td>
+<td>Returns the value for a specific key with string type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonValue</td>
+<td>Returns a valid JSON object as a JSON string</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Embever GmbH – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

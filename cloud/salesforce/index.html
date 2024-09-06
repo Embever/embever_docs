@@ -1,0 +1,1320 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Salesforce - Cloud-as-a-Module Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra-styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud-as-a-Module Documentation" class="md-header__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud-as-a-Module Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Salesforce
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting_started/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../links/prerequisites/" class="md-tabs__link">
+          
+  
+  Links
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../faqs/" class="md-tabs__link">
+          
+  
+  FAQs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud-as-a-Module Documentation" class="md-nav__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Cloud-as-a-Module Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/esp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Esp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/uaf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CaaM Application Framework
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            FAQs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embever-iot-core-salesforce-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embever IoT Core Salesforce App
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embever IoT Core Salesforce App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Events
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-messsage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device Messsage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inbound Message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outbound-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outbound Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronizing-devices-to-salesforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synchronizing devices to Salesforce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receiving-events-on-salesforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receiving Events on Salesforce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-action-from-salesforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an Action from Salesforce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancelling-an-action-from-salesforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cancelling an Action from Salesforce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receiving-response-of-an-action-to-salesforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receiving response of an Action to Salesforce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Salesforce</h1>
+
+<h3 id="overview">Overview</h3>
+<p>Embever Cloud integrates seamlessly with salesforce to send the data to and from Salesforce. This enables the customers to use the data from their deices further in salesforce to make the business decisions.
+To connect your devices from Embever cloud to salesforce you just need to connect your salesforce organisation to Embever Cloud from the console, install the Embever IoT Core Salesforce App and synchronize the devices.
+After the devices are successfully connected to the salesforce organization, Embever cloud will send and receive the data to and from salesforce via the specified platform Events which are availabe in the Embever IoT Core Salesforce App Package.</p>
+<h3 id="embever-iot-core-salesforce-app">Embever IoT Core Salesforce App</h3>
+<p>Embever IoT Core Salesforce App contains the necessary salesforce components that are used to connect the salesforce organisation to Embever IoT Core.
+This app should be installed in the salesforce organistion to be able to communicate with the Embever IoT Core from salesforce. You can install this app
+while creating a salesforce connection in the Embever IoT Core console.</p>
+<p>The package contents can be categorized into mainly two groups. </p>
+<ol>
+<li><a href="#platform-events">Platform Events</a></li>
+<li><a href="utility_functions">Utility Functions</a></li>
+</ol>
+<h4 id="platform-events">Platform Events</h4>
+<p>Embever IoT Core Salesforce App Package contains three different Platform Events definition, which is used to communicate between your salesforece organisatio 
+and Embever IoT Core.</p>
+<p>The platform events are defined are as follows:</p>
+<ol>
+<li><a href="#device-message">Device Messge</a></li>
+<li><a href="#outbound-message">Outbound Message</a></li>
+<li><a href="#inbound-message">Inbound Message</a></li>
+</ol>
+<h5 id="device-messsage">Device Messsage</h5>
+<p>Platform Event for Devices is primarily used to syncronize devices from IoT Core to Salesforce. In Salesforce users can listen
+to this platform event and update or create their own custom Device objects using the information from the platform event.</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeviceId</td>
+<td>embevercore__DeviceId__c</td>
+<td>ID of the device in Embever IoT Core</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Device Name</td>
+<td>embevercore__DeviceName__c</td>
+<td>Alias Name of the device in Embever IoT Core</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>embevercore__DeviceType__c</td>
+<td>Indicates the type of the device connectivity technology. Contains 'virtual' for virtual devices. Otherwise contains the type of connectivity technology the device is using to communicate to Embever Core.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Application Id</td>
+<td>embevercore__ApplicationId__c</td>
+<td>The Application Id of the application the device has been assigned to in Embever Core.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Activated</td>
+<td>embevercore__Activated__c</td>
+<td>Indicates the activation status of the device. If false, the device has not been activated and cannot send or receive messages. Devices can be activated and deactivated in Embever Core.</td>
+<td>Checkbox</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Date/Time</td>
+<td>embevercore__DateTime__c</td>
+<td>The Date/Time a message was issued.</td>
+<td>Date/Time</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T11:46:39.357Z",
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__DeviceName__c": "HellowWorldDev",
+  "CreatedDate": "2022-02-23T11:46:40.212Z",
+  "embevercore__ApplicationId__c": "1c43d388-ab3b-4677-9f51-05dfg597a02d",
+  "embevercore__Activated__c": true,
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__DeviceType__c": "other"
+}
+</code></pre>
+<h5 id="inbound-message">Inbound Message</h5>
+<p>Inbound Message event is used to publish the transaction messages from Embever IoT core to the salesforce organisation. 
+Cases when inbound message platform events are used:</p>
+<ol>
+<li>When device sends an event</li>
+<li>When device sends a result for an action in Embever IoT core</li>
+<li>When an action status is updated</li>
+</ol>
+<p>By simply subscribing to this Plaform event from salesforce you can get the transaction messages from Embever IoT Core.
+Here we refer both the IoT Core Event and Action as a Transaction. </p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>embevercore__Type__c</td>
+<td>Indicates the type of the message. Allowed values are 'action' and 'event'.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Context Id</td>
+<td>embevercore__ContextId__c</td>
+<td>Contains the embevercore__Outbound__e.embevercore__ContextId__c for a specific action to link between the outbound and inbound action message if desired. In most cases, this should be the Salesforce Record Id of the Device Action Record that triggered the creation of the Outbound Message</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Created By Core</td>
+<td>embevercore__CreatedByCore__c</td>
+<td>Indicates whether the message originated in Embever Core or within Salesforce. When true, the messages originated outside of this Salesforce Organization.</td>
+<td>Checkbox</td>
+<td>No (Defaults to Unchecked)</td>
+</tr>
+<tr>
+<td>Date/Time</td>
+<td>embevercore__DateTime__c</td>
+<td>The Date/Time a message was issued.</td>
+<td>Checkbox</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Device Id</td>
+<td>embevercore__DeviceId__c</td>
+<td>Contains the Embever Core Device Id of the device the message is related to.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>embevercore__Id__c</td>
+<td>Unique id of the message within Embever Core. Can be either action id or event id from Embever IoT Core.</td>
+<td>Number</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>embevercore__Name__c</td>
+<td>Contains the event or action name the device used when sending the payload, e.g. "currentLocation".</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>embevercore__Payload__c</td>
+<td>Contains the message payload in JSON format. Can be a JSON object, JSON array, or JSON value.</td>
+<td>Long Text Area</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status Id</td>
+<td>embevercore__StatusId__c</td>
+<td>Id of the Status of the Action/Event in Action/Event Lifecycle (e.g. 'action_sent') as in the Embever IoT Core.</td>
+<td>Number</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status Name</td>
+<td>embevercore__StatusName__c</td>
+<td>Status of the Action/Event in Action/Event Lifecycle (e.g. 'action_sent').</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status Changed At</td>
+<td>embevercore__StatusChangedAt__c</td>
+<td>Date Time when the status of the transaction changed.</td>
+<td>DateTime</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Example:
+Inbound Platfrom event body when sending IoT core event to Salesforce.</p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T08:45:13.889Z",
+  "embevercore__StatusChangedAt__c": null,
+  "embevercore__Name__c": "wakeUp",
+  "embevercore__StatusName__c": null,
+  "embevercore__ContextId__c": null,
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__StatusId__c": null,
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__CreatedByCore__c": false,
+  "CreatedDate": "2022-02-23T08:45:15.364Z",
+  "embevercore__Type__c": "event",
+  "embevercore__Id__c": 15032,
+  "embevercore__Payload__c": "{\"lat\": 525841746, \"lon\": 112812903}"
+}
+</code></pre>
+<h5 id="outbound-message">Outbound Message</h5>
+<p>Outbound Message platform event is used to send message from salesforce organisation to Embever IoT Core.</p>
+<p>Cases when outbound message platform events are used:</p>
+<ol>
+<li>When an action is to be sent to the device</li>
+<li>Cancel an action</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>embevercore__Type__c</td>
+<td>Indicates the type of the message. Only 'action' is allowed as a value for outbound messages.</td>
+<td>Text</td>
+<td>Yes (defaults to "action")</td>
+</tr>
+<tr>
+<td>Operation</td>
+<td>embevercore__Operation__c</td>
+<td>Indicates if the message should create a new action or cancel a pending action. If set to 'cancel', the action id to be canceled needs to be provided in embevercore__Id__c.</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Context Id</td>
+<td>embevercore__ContextId__c</td>
+<td>Can be set to a value that will be sent back in the embevercore__Inbound__e.embevercore__ContextId__c field for related action responses. In most cases this should be the Salesforce Record Id of the Device Action Record that triggered the creation of the Outbound Message.</td>
+<td>Text</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Created By Core</td>
+<td>embevercore__CreatedByCore__c</td>
+<td>Indicates whether the message originated in Embever Core or within Salesforce. When true, the messages originated outside of this Salesforce Organization.</td>
+<td>Checkbox</td>
+<td>Yes (Defaults to Unchecked)</td>
+</tr>
+<tr>
+<td>Device Id</td>
+<td>embevercore__DeviceId__c</td>
+<td>Contains the Embever Core Device Id of the device the message is related to.</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>embevercore__Id__c</td>
+<td>Unique id of the message within Embever Core. Can be either action id or event id from Embever IoT Core.</td>
+<td>Number</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>embevercore__Name__c</td>
+<td>Needs to be set to the Action Name that tells the Device how to handle the Payload, e.g. "setSettings".</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>embevercore__Payload__c</td>
+<td>Contains the message payload in JSON format. Can be a JSON object, JSON array, or JSON value.</td>
+<td>Long Text Area</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Service Level</td>
+<td>embevercore__ServiceLevel__c</td>
+<td>Can be set to the desired service level for the action. Defaults to 0. Valid service levels are: 0 - fire and forget, 1 - ensure the device received the message, 2 - ensure the device processed the message (with guaranteed response)</td>
+<td>Number</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Example : Outbound Platfrom event body when sending IoT core Action from Salesforce.</p>
+<pre><code>{
+    "embevercore__Operation__c": "create",
+    "embevercore__DeviceId__c": "xyzA",
+    "embevercore__Name__c": "setLED",
+    "embevercore__Payload__c": "{ \"LED\": \"off\" }",
+    "embevercore__ServiceLevel__c": 2,
+    "embevercore__ContextId__c": "a027Q00000198BpQAI"
+}
+</code></pre>
+<h4 id="utility-functions">Utility Functions</h4>
+<p>Apart from the platform events IoT core salesforce app also contains some utility functions which can be used to transform data.
+The utilty functions defined on the IoT Core salesforce app as an Apex Class are shown below.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GetJsonBoolean</td>
+<td>Returns the value for a specific key with Boolean type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonDateTime</td>
+<td>Returns the value for a specific key with DateTime type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonDecimal</td>
+<td>Returns the value for a specific key with Decimal type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonKeyExists</td>
+<td>Returns true if a specific key exists in a JSON string else returns false</td>
+</tr>
+<tr>
+<td>GetJsonString</td>
+<td>Returns the value for a specific key with string type from a JSON string</td>
+</tr>
+<tr>
+<td>GetJsonValue</td>
+<td>Returns a valid JSON object as a JSON string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples</h3>
+<h4 id="synchronizing-devices-to-salesforce">Synchronizing devices to Salesforce</h4>
+<p>When you are synchronizing all the devices to Salesforce from the Embever IoT Core console, a the Device Message Platfrom Event is published to 
+your salesforce organisation for each device in your salesforce connection.</p>
+<p>Example:  Payload of the message on the Device Message Platfrom event on Synchronize Devices</p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T11:46:39.357Z",
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__DeviceName__c": "HellowWorldDev",
+  "CreatedDate": "2022-02-23T11:46:40.212Z",
+  "embevercore__ApplicationId__c": "1c43d388-ab3b-4677-9f51-05dfg597a02d",
+  "embevercore__Activated__c": true,
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__DeviceType__c": "other"
+}
+</code></pre>
+<h4 id="receiving-events-on-salesforce">Receiving Events on Salesforce</h4>
+<p>All the events from the devices connected to your salesforce organisation will be published to the Inbound message Platform event with type event.
+You can read from the Inbound message Platform event from your salesforce instance and can use it further.
+E.g. 
+Event in Embever IoT Core</p>
+<pre><code>{
+    "url": "https://api.embever.com/v2/events/15032/",
+    "id": 15032,
+    "device": "xyzA",
+    "sim": "89777777777777766",
+    "type": "wakeUp",
+    "payload": {
+        "lat": 525841746,
+        "lon": 112812903
+    },
+    "created_at": "2022-02-23T08:45:13.889841Z"
+}
+</code></pre>
+<p>Correspondig message received on Subscribing to the Inbound Message Platform event (embevercore__Inbound__e)</p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T08:45:13.889Z",
+  "embevercore__StatusChangedAt__c": null,
+  "embevercore__Name__c": "wakeUp",
+  "embevercore__StatusName__c": null,
+  "embevercore__ContextId__c": null,
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__StatusId__c": null,
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__CreatedByCore__c": false,
+  "CreatedDate": "2022-02-23T08:45:15.364Z",
+  "embevercore__Type__c": "event",
+  "embevercore__Id__c": 15032,
+  "embevercore__Payload__c": "{\"lat\": 525841746, \"lon\": 112812903}"
+}
+</code></pre>
+<h4 id="creating-an-action-from-salesforce">Creating an Action from Salesforce</h4>
+<p>An Action in Embever IoT Core is the way to send message to the Device to perform certain actions. To create action on Embever IoT core
+you can simply publish to the Outbound Message Platform event from your Salesforce organisation.</p>
+<p>Example
+Message published on Outbound Message Platform Event to create 'setLED' action for device 'xyzA'.</p>
+<pre><code>{
+    "embevercore__Operation__c": "create",
+    "embevercore__DeviceId__c": "xyzA",
+    "embevercore__Name__c": "setLED",
+    "embevercore__Payload__c": "{ \"LED\": \"off\" }",
+    "embevercore__ServiceLevel__c": 2,
+    "embevercore__ContextId__c": "a027Q00000198BpQAI"
+}
+</code></pre>
+<p>Corresponding action created in the Embever IoT Core is as follows</p>
+<pre><code>{
+    "url": "https://api.embever.com/v2/actions/5530/",
+    "id": 5530,
+    "device": {
+        "id": "xyzA",
+        "name": "HellowWorldDev"
+    },
+    "type": "setLED",
+    "payload": {
+        "LED": "off"
+    },
+    "status": {},
+    "webhooks": null,
+    "service_level": 2,
+    "cancelled": false,
+    "finished": false,
+    "result": null,
+    "created_at": "2022-02-23T09:32:23.779159Z",
+    "result_code": null,
+    "expiry_date": null,
+    "expired": false
+}
+</code></pre>
+<p>On creating an action Embever IoT core also publishes a message to the Inbound Message Platform with the information on action created and the corresponding action id.
+Example: The payload of the Inbound message for action created is given below. The attributes 'embevercore__StatusName__c' contains the status 'action_created' and 'embevercore__Id__c'
+is the id of the action in Embever IoT Core. </p>
+<pre><code>{
+  "embevercore__DateTime__c": "2022-02-23T10:35:07.068Z",
+  "embevercore__StatusChangedAt__c": null,
+  "embevercore__Name__c": "setLED",
+  "embevercore__StatusName__c": "action_created",
+  "embevercore__ContextId__c": "a027Q00000198BpQAI",
+  "embevercore__DeviceId__c": "xyzA",
+  "embevercore__StatusId__c": null,
+  "CreatedById": "0057Q000002LlABCQA0",
+  "embevercore__CreatedByCore__c": true,
+  "CreatedDate": "2022-02-23T10:35:07.896Z",
+  "embevercore__Type__c": "action",
+  "embevercore__Id__c": 5530,
+  "embevercore__Payload__c": null
+}
+</code></pre>
+<h4 id="cancelling-an-action-from-salesforce">Cancelling an Action from Salesforce</h4>
+<p>There are cases you nolonger want the action to be sent to the devices, in that case you can easily cancel the actions from salesforce.
+To cancel an action you can use the same Outbound Message Platform event with the operation 'cancel'.</p>
+<p>Example
+Cancel the action with action id 5530, publish the following message to Outbound Message Platform event</p>
+<pre><code>{
+    "embevercore__Operation__c": "cancel",
+    "embevercore__Id__c": 5530,
+    "embevercore__DeviceId__c": "xyzA"
+}
+</code></pre>
+<p>Corresponding action in the Embever IoT Core is as follows, note the cancelled attribute is changed to true.</p>
+<pre><code>{
+    "url": "https://api.embever.com/v2/actions/5530/",
+    "id": 5530,
+    "device": {
+        "id": "xyzA",
+        "name": "HellowWorldDev"
+    },
+    "type": "setLED",
+    "payload": {
+        "LED": "off"
+    },
+    "status": {},
+    "webhooks": null,
+    "service_level": 2,
+    "cancelled": true,
+    "finished": false,
+    "result": null,
+    "created_at": "2022-02-23T09:32:23.779159Z",
+    "result_code": null,
+    "expiry_date": null,
+    "expired": false
+}
+</code></pre>
+<p>On cancelling an action Embever IoT core also publishes a message to the Inbound Message Platform with the information on action cancelled and the corresponding action id.
+Example: The payload of the Inbound message for action cancelled is given below. The attributes 'embevercore__StatusName__c' contains the status 'action_cancelled and 'embevercore__Id__c'
+is the id of the cancelled action in Embever IoT Core. </p>
+<pre><code>{
+    "embevercore__DateTime__c": "2022-02-23T10:41:36.891Z",
+    "embevercore__StatusChangedAt__c": null,
+    "embevercore__Name__c": "setLED",
+    "embevercore__StatusName__c": "action_cancelled",
+    "embevercore__ContextId__c": "a027Q00000198BpQAI",
+    "embevercore__DeviceId__c": "xyzA",
+    "embevercore__StatusId__c": null,
+    "CreatedById": "0057Q000002LlABCQA0",
+    "embevercore__CreatedByCore__c": true,
+    "CreatedDate": "2022-02-23T10:41:37.603Z",
+    "embevercore__Type__c": "action",
+    "embevercore__Id__c": 5530,
+    "embevercore__Payload__c": null
+}
+</code></pre>
+<h4 id="receiving-response-of-an-action-to-salesforce">Receiving response of an Action to Salesforce</h4>
+<p>A device can send the response for an action. This response is stored as an object on the result attribute of the action. For all the devices connected
+to the salesforce instance, on receiving the response from the device Embever IoT core publishes the message to the Inbound Message Platfrom event of 
+the connected salesforce organisations.</p>
+<p>Example: Action on Embever IoT Core with a result</p>
+<pre><code>{
+    "url": "https://api.embever.com/v2/actions/5531/",
+    "id": 5531,
+    "device": {
+        "id": "xyzA",
+        "name": "HellowWorldDev"
+    },
+    "type": "setLED",
+    "payload": {
+        "LED": "off"
+    },
+    "status": {
+        "action_sent": "2022-02-23T11:07:50.814981+00:00",
+        "action_delivered": "2022-02-23T11:07:50.866270+00:00",
+        "response_received": "2022-02-23T11:07:50.962695+00:00"
+    },
+    "webhooks": null,
+    "service_level": 2,
+    "cancelled": false,
+    "finished": true,
+    "result": {
+        "led": "off"
+    },
+    "created_at": "2022-02-23T10:35:07.068386Z",
+    "result_code": "Success",
+    "expiry_date": null,
+    "expired": false
+}
+</code></pre>
+<p>Corresponding message on the Salesforce Inbound Message Platform Event is given below. On recevieng the response the attribute 'embevercore__StatusName__c' contains 
+'response_received', 'embevercore__StatusId__c' contains the status id from the Embever IoT Core and 'embevercore__Payload__c' contains the result of the action.</p>
+<pre><code>{
+    "embevercore__DateTime__c": "2022-02-23T11:07:50.962Z",
+    "embevercore__StatusChangedAt__c": "2022-02-23T11:07:50.952Z",
+    "embevercore__Name__c": "setLED",
+    "embevercore__StatusName__c": "response_received",
+    "embevercore__ContextId__c": "a027Q00000198BpQAI",
+    "embevercore__DeviceId__c": "xyzA",
+    "embevercore__StatusId__c": 2522,
+    "CreatedById": "0057Q000002LlABCQA0",
+    "embevercore__CreatedByCore__c": true,
+    "CreatedDate": "2022-02-23T11:07:57.017Z",
+    "embevercore__Type__c": "action",
+    "embevercore__Id__c": 5531,
+    "embevercore__Payload__c": "{\"led\": \"off\"}"
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Embever GmbH – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

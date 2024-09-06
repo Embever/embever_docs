@@ -1,0 +1,1247 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../esp/">
+      
+      
+        <link rel="next" href="../../links/prerequisites/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>CaaM Application Framework - Cloud-as-a-Module Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra-styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#caam-application-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud-as-a-Module Documentation" class="md-header__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud-as-a-Module Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CaaM Application Framework
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../links/prerequisites/" class="md-tabs__link">
+          
+  
+  Links
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../faqs/" class="md-tabs__link">
+          
+  
+  FAQs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud-as-a-Module Documentation" class="md-nav__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Cloud-as-a-Module Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Esp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CaaM Application Framework
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    CaaM Application Framework
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sending-telemetry-data-to-the-cloud-using-uaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Telemetry Data to the Cloud Using UAF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sending Telemetry Data to the Cloud Using UAF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-in-to-embever-iot-core-browsable-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign In to Embever IoT Core Browsable API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensure-the-sim-card-is-allocated-to-the-correct-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ensure the SIM Card Is Allocated to the Correct Organization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-device-in-the-embever-iot-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Device in the Embever IoT Core
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-sample-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the Sample Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the Sample Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-setting-up-the-software-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Setting Up the Software Development Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-get-a-local-copy-of-the-embever-user-application-framework-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Get a Local Copy of the Embever User Application Framework Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-working-with-the-uaf-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Working with the UAF Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-crypto-keys-for-binary-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Crypto Keys for Binary Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-compiling-and-flashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Compiling and Flashing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-the-dash-button-sample-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: The Dash Button Sample Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-viewing-telemetry-data-in-the-embever-iot-core-browsable-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Viewing Telemetry Data in the Embever IoT Core Browsable API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            FAQs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sending-telemetry-data-to-the-cloud-using-uaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Telemetry Data to the Cloud Using UAF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sending Telemetry Data to the Cloud Using UAF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-in-to-embever-iot-core-browsable-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign In to Embever IoT Core Browsable API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensure-the-sim-card-is-allocated-to-the-correct-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ensure the SIM Card Is Allocated to the Correct Organization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-device-in-the-embever-iot-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Device in the Embever IoT Core
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-sample-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the Sample Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the Sample Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-setting-up-the-software-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Setting Up the Software Development Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-get-a-local-copy-of-the-embever-user-application-framework-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Get a Local Copy of the Embever User Application Framework Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-working-with-the-uaf-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Working with the UAF Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-crypto-keys-for-binary-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Crypto Keys for Binary Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-compiling-and-flashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Compiling and Flashing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-the-dash-button-sample-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: The Dash Button Sample Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-viewing-telemetry-data-in-the-embever-iot-core-browsable-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Viewing Telemetry Data in the Embever IoT Core Browsable API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="caam-application-framework">CaaM Application Framework</h1>
+<p>The CaaM Application Framework (UAF) provides a comprehensive set of APIs to accelerate the development of IoT applications, with built-in connectivity to the <a href="../../links/embever_iot_core/">Embever IoT Core</a>. This framework simplifies sending telemetry data to the cloud by offering easy-to-use APIs, reducing the complexity of implementing connectivity, secure communication, and other critical IoT tasks.</p>
+<p>To learn more about the User Application Framework API, refer to the <a href="../../links/uaf_api/">UAF API Documentation</a>.</p>
+<h2 id="sending-telemetry-data-to-the-cloud-using-uaf">Sending Telemetry Data to the Cloud Using UAF</h2>
+<p>This quick start guide demonstrates how to send device telemetry to the cloud. The <a href="../../links/iot_core_browsable_api/">Embever IoT Core Browsable API</a> will be used to view the telemetry data.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Ensure the following requirements are met to complete this guide:</p>
+<ul>
+<li>An activated account for the Embever IoT Core. See <a href="/tutorials/console/account_mgmt">Creating an Embever IoT Core Account</a>.</li>
+<li>A supported hardware device with an Embever-provided SIM card. See <a href="./supported_hardware">Supported hardware devices</a>.</li>
+</ul>
+<!-- TODO: Supported hardware devices page -->
+<ul>
+<li>Visual Studio Code installed on the development machine (optional but recommended).</li>
+</ul>
+<h2 id="sign-in-to-embever-iot-core-browsable-api">Sign In to Embever IoT Core Browsable API</h2>
+<p>Sign in to the <a href="https://api.embever.com/">Embever IoT Core Browsable API</a>. Keep the portal open while following this guide.</p>
+<h2 id="ensure-the-sim-card-is-allocated-to-the-correct-organization">Ensure the SIM Card Is Allocated to the Correct Organization</h2>
+<p>To list available SIM cards, go to the <a href="https://api.embever.com/v2/sims/">SIM resource</a> endpoint. Verify that the SIM card used by the CaaM device is listed and activated. The <code>iccid</code> attribute of the SIM resource should match the ICCID of the physical SIM card in the CaaM device.</p>
+<h2 id="create-a-device-in-the-embever-iot-core">Create a Device in the Embever IoT Core</h2>
+<p>A device instance in the Embever IoT Core represents a single physical IoT device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the CaaM Development Kit was provided by Embever, the device may already be created in the Embever IoT Core. To check available devices, go to the <a href="https://api.embever.com/v2/devices/">Devices API Endpoint</a>. If the device is listed, skip this section.</p>
+</div>
+<p>The simplest way to create a device is by using the Browsable API, though other tools like Postman or curl can also be used. This guide will use the Browsable API to perform the task.</p>
+<ol>
+<li>Visit the <a href="https://api.embever.com/v2/devices/">Devices API Endpoint</a>. Ensure that the correct account credentials are used.</li>
+<li>Scroll to the bottom of the page to find a form for inputting device data. Both HTML and raw input formats are available for initiating a POST request to create a new device. The raw data format will be used in this example.</li>
+<li>Set the media type field to <code>application/json</code>.</li>
+<li>
+<p>In the content field, input the following data:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;your_device_name&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;activated&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sims&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;&lt;iccid_of_sim&gt;&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Replace <code>&lt;your_device_name&gt;</code> with a unique name for the device (names should be unique within the organization). Replace <code>&lt;iccid_of_sim&gt;</code> with the ICCID of the SIM card used by the CaaM device.</p>
+</li>
+<li>
+<p>Click the <code>POST</code> button. This will create a device in the Embever IoT Core. A similar object will be returned:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.embever.com/v2/devices/4w4QD/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4w4QD&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;your_device_name&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;**********************&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;activated&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;application&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;webhooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sims&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;&lt;iccid_of_sim&gt;&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-14T07:37:23.361080Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ol>
+<p>Once the device is created, it is ready to receive telemetry data from the CaaM device.</p>
+<h2 id="run-the-sample-application">Run the Sample Application</h2>
+<p>The CaaM Application Framework simplifies and accelerates IoT product development by providing essential IoT functionalities out of the box. These include telemetry data transfer, file transfers, firmware updates, and more. The framework handles complex connectivity, protocol management, and security implementations, allowing the focus to remain on building the application. For more details, refer to the <a href="../concepts/app_framework">CaaM Application Framework</a>.</p>
+<h3 id="step-1-setting-up-the-software-development-environment">Step 1: Setting Up the Software Development Environment</h3>
+<p>Setting up the software development environment starts with the nRF Connect SDK installation, follow the official guide written by the Nordic Semiconductor team <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started/assistant.html">here</a>.
+Choose the nRF Connect SDK version 2.2.0 from the Toolchain Manager.</p>
+<!-- TODO: update the nordic links, as they will migrate to docs.nordicsemi.com -->
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If this version is not listed on the Toolchain Manager, change the setting of the application based on the screenshot below.</p>
+</div>
+<p><img alt="Nrf Connect Desktop Toolchain Manager Settings" src="../resources/nrf_toolchain_mgr_settings.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the mentioned SDK version is not listed, turn off the “Show only 3 newest minor version” option on the Toolchain Manager settings page.</p>
+</div>
+<p>To exploit all the possibilities of the development experience, review <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started.html">this</a> page as well.
+To verify the local development environment, try to compile and upload one of the nordic sample application.</p>
+<p><img alt="nRF Connect SDK version 2.2.0" src="../resources/nrf_toolchain_mgr_sdk_version_2_2.png" /></p>
+<h3 id="step-2-get-a-local-copy-of-the-embever-user-application-framework-template">Step 2: Get a Local Copy of the Embever User Application Framework Template</h3>
+<p>To obtain a local copy of the CaaM User Application Framework template, clone the repository or download the distributed archive.</p>
+<blockquote>
+<p><strong>Note</strong><br />
+This repository contains submodules necessary for its operation.</p>
+</blockquote>
+<p>Use the following command to ensure that the submodules are downloaded:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>git@github.com:Embever/ebv_UAF_template.git
+</code></pre></div>
+<p><img alt="Cloning the CaaM User Application Framework Template" src="../resources/ebv_uaf_template_git_clone.png" /></p>
+<h3 id="step-3-working-with-the-uaf-template">Step 3: Working with the UAF Template</h3>
+<p>To work with the UAF template, follow these steps to set up the environment and prepare the application for development:</p>
+<ol>
+<li><strong>Open Visual Studio Code</strong>: Once the repository is cloned, open Visual Studio Code.</li>
+<li><strong>Import the UAF Template</strong>: Import the cloned UAF template into the workspace.</li>
+</ol>
+<p>To start working with the UAF template, open the nRF Connect SDK IDE, which is the Visual Studio Code with the Nordic nRF Connect SDK plugin.
+To do that, click on the "Open VS Code" button in the nRF Connect Desktop Toolchain Manager.
+Importing the UAF template is as simple as clicking to the Open Application button after selecting the nRF Connect extension tab on the sidebar in VS Code.</p>
+<p><img alt="Opening the UAF template as an existing application" src="../resources/vscode_nrf_extension_open_application.png" /></p>
+<p>Opening the UAF template as and existing application by the Open Application button
+As the application opened successfully, the next step is to define a build target</p>
+<p><img alt="Defining a build target to the UAF Template application" src="../resources/build_config_vscode_nrf_extension.png" /></p>
+<p><img alt="Build configuration added, SDK and toolchain version set to 2.2.0" src="../resources/vscode_nrf_connect_plugin_uaf_temple.png" /></p>
+<div class="admonition note">
+<p>Build configuration successfully defined, SDK and toolchain version set to 2.2.0</p>
+</div>
+<h3 id="step-4-crypto-keys-for-binary-encryption">Step 4: Crypto Keys for Binary Encryption</h3>
+<p>To secure firmware, generate cryptographic keys for binary encryption. Follow the steps below to set up the necessary keys:</p>
+<p>To embed secure firmware update into the deployment process, the firmware binary has to be signed with a unique key. Ignoring this option and using the default keys of the SDK is not forbidden for internal development, but as soon as the firmware pass the development stage, it is recommended to use a custom keys to maintain security.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use the default keys to sign the firmware binaries, remove ( or make the line begin with the <code>#</code> sign to disable it) the following line in the <code>mcuboot.conf</code> file.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">CONFIG_BOOT_SIGNATURE_KEY_FILE</span><span class="o">=</span><span class="s">&quot;fota-keys/nRF9160/dev/mcuboot-ec-p256.pem&quot;</span>
+</code></pre></div>
+<p>To generate a custom signing keys, follow <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/app_dev/bootloaders_and_dfu/fw_update.html#signature-keys">this</a> guide written by the Nordic Semiconductor team.
+The newly generated keys can be places to any location and they can be referenced with they absolute path. Using a relative path is also possible ( like the default value of the <code>CONFIG_BOOT_SIGNATURE_KEY_FILE</code> ). In this case the base directory of this relative path is the following location:</p>
+<p><code>&lt;nrf_sdk_base&gt;/&lt;version_number&gt;/bootloader/mcuboot</code></p>
+<p><em>As an example, the absolute location of the signing key is : <code>/opt/nordic/ncs/v2.2.0/bootloader/mcuboot/fota-keys/nRF9160/dev/mcuboot-ec-p256.pem</code></em></p>
+<h3 id="step-5-compiling-and-flashing">Step 5: Compiling and Flashing</h3>
+<p>Once the crypto keys are set up, proceed with compiling and flashing the firmware onto the CaaM device:</p>
+<ol>
+<li><strong>Compiling</strong>: Use the build tools in Visual Studio Code to compile the project.</li>
+<li><strong>Flashing</strong>: After the compilation is complete, the firmware binaries are ready to be flashed to the CaaM device. This can be done by selecting the "Flash" option in the sidebar.</li>
+</ol>
+<blockquote>
+<p><strong>Note</strong>: Depending on the specific CaaM device being used, the flashing process may differ. For example, the CaaM Mini does not have a built-in programmer, so an external programming tool must be used. For more details, see the <a href="/concepts/caam_hardware_compatibility">CaaM-OS Hardware Compatibility</a> page.</p>
+</blockquote>
+<!-- TODO: Create the CaaM-OS hardware compatibility page -->
+
+<h3 id="step-6-the-dash-button-sample-application">Step 6: The Dash Button Sample Application</h3>
+<p>The UAF template includes several sample applications located in the <code>./samples</code> folder. The dash button sample application will be used to demonstrate sending telemetry data to the cloud.</p>
+<ol>
+<li>
+<p><strong>Add a Build Configuration</strong>: Edit the existing build configuration or create a new one, as shown in the screenshots below:</p>
+<p><img alt="CaaM Dash Button Sample Build Configuration" src="../resources/vscode_ncs_dash_btn_add_build_config.png#only-light" />
+<img alt="CaaM Dash Button Sample Build Configuration" src="../resources/vscode_ncs_dash_btn_add_build_config_drk.png#only-dark" /></p>
+</li>
+<li>
+<p><strong>Select the Dash Button Application</strong>: Add the following CMake argument to select the Dash Button sample application:</p>
+<div class="highlight"><pre><span></span><code>-DUSER_APPLICATION<span class="o">=</span><span class="s2">&quot;dash_button&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Build and Flash</strong>: After configuring, build the project and flash the application binary. Once flashed, the status LED on the device should turn on, indicating that the application is running. For development purposes, it is recommended to view the logs generated by CaaM-OS. To learn more about accessing the log messages, refer to the <a href="/concepts/caam_logs">CaaM-OS Logs</a> section.</p>
+</li>
+</ol>
+<p>The CaaM-OS will complete the telemetry data transfer when the status LED begins blinking. For further explanation of the Dash Button sample application, refer to the <a href="/samples/dash_button">Dash Button Sample Application for the CaaM Application Framework</a> article.</p>
+<!-- TODO: Create the CaaM-OS logs page -->
+
+<h3 id="step-7-viewing-telemetry-data-in-the-embever-iot-core-browsable-api">Step 7: Viewing Telemetry Data in the Embever IoT Core Browsable API</h3>
+<p>After the CaaM device sends telemetry data, the data can be viewed in the Embever IoT Core using the Browsable API. Follow these steps:</p>
+<ol>
+<li><strong>Open the Browsable API</strong>: Visit <code>https://api.embever.com/v2/events/?device=&lt;your_device_id&gt;</code> to access the telemetry data.</li>
+<li><strong>Replace <code>&lt;your_device_id&gt;</code></strong>: Substitute <code>&lt;your_device_id&gt;</code> with the actual ID of the CaaM device.</li>
+</ol>
+<p>Telemetry data is represented as events. Each event object contains a type, which denotes a specific occurrence on the device, and a payload, which includes additional details about that occurrence. Below is an example of telemetry data sent by a device:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.embever.com/v2/events/123456/&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-test-dev&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sim&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8988XXXXXXXXXXX&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;samples&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;temp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-05T14:44:38.497395Z&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>The Embever IoT Core makes it easy to forward telemetry data to other cloud applications. For more details, refer to the following guides:</p>
+<ul>
+<li><a href="/tutorials/integrations/webhooks">How to send data from the Embever IoT Core to other applications</a>,</li>
+<li><a href="/tutorials/integrations/salesforce">Integration with Salesforce</a>,</li>
+<li><a href="/tutorials/integrations/azure_iot_hub">Integration with Azure IoT Hub</a></li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="">Sample Applications of the CaaM Application Firmware</a></li>
+<li><a href="">CaaM Application Framework API</a></li>
+<li><a href="">Best Practices for developing IoT applications with the CaaM Application Firmware</a></li>
+</ul>
+<!-- ## Have your hardware/simcard ready
+- sim card
+- Supported System on Chip (SoC) (Currently the system supports only nRF9160)
+
+Tutorial: Introducing Embever Serial Protocol
+Tutorial: Introducing Embever Application Framework
+
+Notes:
+Caam OS sends only private events
+
+ESP 
+
+Embever Application Framework-
+    Static libaries, private (uneditable) +  public
+    Has a user app folder (where the application resides)
+    Compile the whole project to get the running application. 
+
+CaaM Mini - 
+
+ You must have a simcard either an e-sim or a normal sim card in your device provided by Embever. This sim card will be used for the cellular connection to send data to the Embever IoT Core.
+
+Step 0: 
+    Hardware ready... 
+    Can be nRF DK/ Caam Mini / own hardware with SoC and the sim. Caam Mini has an embeded sim,  also has an option to add plastic sim.
+
+Step 1:
+- Setup the environment Nordic Connect SDK.
+    https://github.com/Embever/embever_docs/blob/hardware/docs/tutorials/embedded/uaf/uaf_env_setup_guide.md
+
+- Clone Application Framework repository from Embever 
+https://github.com/Embever/ebv_UAF_template
+
+- Take the Sample Applications part of the UAF template 
+e.g. hello cloud
+    change something values..
+    The point here is to show how the user can send telemetry data from the applicaiton.
+    The user doesnot need to change the sample script but know how to call the api looking at the example.
+    send_event("<key>", "<value>")
+    Change the values to whatever telemetry data you want to send. Replce Key with "temp", value with "27"
+
+
+build the sample application
+ - 
+
+Flash the binary to your SoC
+    Tutorial/Guide: How to flash the binary to CaaM Mini.
+    How to flash a firmon nordic DK.
+
+Check in your Browsable api
+
+Another option:
+Provide pre build binary, upload to the hardware. Can be with sample applications. Flash the binary and see the results.
+
+
+ESP
+- protocol definition
+
+ESP and AF
+ESP app itself is an application that implements the ESP protocol.
+
+
+AF might be too overwhelming, can make use of the ESP tool.
+
+# Sign in to Embever IoT Core
+## Make sure you have a sim card allocated to your organisation
+You can see the list of available sim cards in the browsable api under the link https://api.embever.com/v2/sims/.
+Make sure the iccid of the sim that you have in your device is there in the list of sim cards.
+
+E.g.
+
+
+# Create a Device
+You can create the device using the browsable api or from any other tools like postman or curl. To make requests to the api besides the browsable api you will need an application. 
+
+TODO: Tutorial Read this how to get started with use the embever IoT Core api.
+
+Now to create a Device using the Browsable api follow the following steps:
+
+- On your browser open https://api.embever.com/v2/devices/. Make sure you are logged in with your account credentials.
+- Goto the End of the page, you should see a form to save device data. You can use either HTML form or Raw Data to make a post request to create a device. We will use Raw Data for this example.
+- On the Raw Data set the Media type field to application/json.
+- On the content field. Put the  following.
+<div class="highlight"><pre><span></span><code>{
+    &quot;name&quot;: &quot;&lt;your_device_name&gt;&quot;,
+    &quot;activated&quot;: &quot;true&quot;,
+    &quot;sims&quot;: [&quot;&lt;iccid_of_sim&gt;&quot;]
+}
+</code></pre></div>
+For this example we will set the basic required fields only. You can follow the api documentation for other fields.
+Replace "\<your_device_name>" with a unique name, the name of the device should be unique within your organisation. Replace <iccid_of_sim> with the iccid of the simcard that you have on your device at hand.
+
+Now, click the `POST` button on the bottom.
+
+You should now see the details of the device created like this
+
+TODO: <example>
+
+TODO: <screenshots>
+
+
+
+
+
+# Update the Frimware with User Application Framework
+
+# Send Events (Telemetry Data)
+
+# View Events -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Embever GmbH – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,828 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Embever IoT Messaging - Cloud-as-a-Module Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../stylesheets/extra-styles.css">
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#embever-iot-messaging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../../.." title="Cloud-as-a-Module Documentation" class="md-header__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../../../../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud-as-a-Module Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Embever IoT Messaging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../getting_started/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../links/prerequisites/" class="md-tabs__link">
+          
+  
+  Links
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../faqs/" class="md-tabs__link">
+          
+  
+  FAQs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../.." title="Cloud-as-a-Module Documentation" class="md-nav__button md-logo" aria-label="Cloud-as-a-Module Documentation" data-md-component="logo">
+      
+  <img src="../../../../../../images/logo.png" alt="logo">
+
+    </a>
+    Cloud-as-a-Module Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../getting_started/esp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Esp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../getting_started/uaf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CaaM Application Framework
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../links/prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            FAQs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-exchange-with-the-embever-cloud-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data exchange with the Embever Cloud system
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data exchange with the Embever Cloud system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-embever-cloud-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Embever Cloud Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-embever-cloud-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Embever Cloud Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-embever-cloud-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Embever Cloud Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message type rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-data-to-the-cloud-with-the" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending data to the cloud with the
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      API documentation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="embever-iot-messaging">Embever IoT Messaging</h1>
+<p>The Embever IoT Messaging layer is the top layer of the and is the only
+one that the user application shall interact with. The Embever IoT
+Messaging layer contains all the necessary functions which can be
+required during transferring data between the cloud and devices. The
+high level functions are designed to be easy to understand and simple to
+use.</p>
+<h2 id="data-exchange-with-the-embever-cloud-system">Data exchange with the Embever Cloud system</h2>
+<p>To be able to use the Embever IoT solutions successfully, a few working
+principles need to be clarified. Exchanging data with the Embever Cloud
+System is done in 3 major forms:</p>
+<ul>
+<li>Events</li>
+<li>Actions</li>
+<li>Responses</li>
+</ul>
+<h3 id="the-embever-cloud-event">The Embever Cloud Event</h3>
+<p>An event is the way to send data from the device to the cloud and has
+two fiels:</p>
+<ul>
+<li><strong>type</strong> <em>(string)</em>: event kind</li>
+<li><strong>payload</strong> <em>(key-pair string)</em>: event content</li>
+</ul>
+<p>This fields can be used freely during designing an application. The
+<strong>payload</strong> is organized by key-value pairs like the following:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;led_state&quot;</span><span class="p">:</span><span class="s2">&quot;on&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="the-embever-cloud-action">The Embever Cloud Action</h3>
+<p>An action is the way to send data from the cloud to the device and has
+four fields:</p>
+<ul>
+<li><strong>type</strong> <em>(string)</em>: action kind</li>
+<li><strong>id</strong> <em>(integer)</em>: action unique identification</li>
+<li><strong>payload</strong> <em>(key-pair string)</em>: action content</li>
+<li><strong>service_level</strong> <em>(integer)</em>: sets the action lifetime and supports
+    3 different service levels:<ul>
+<li><strong>0</strong>: The action lives in the cloud while it has been sent to
+    the device</li>
+<li><strong>1</strong>: The action lives in the cloud while a response is not
+    submitted for it</li>
+<li><strong>2</strong>: The action lives in the cloud while a successful response
+    is not submitted to it</li>
+</ul>
+</li>
+</ul>
+<p>For example, an action with <strong>service level 0</strong> will be in the cloud
+while it is not queried by the device. As soon as the device queries it,
+it will be marked in the cloud and not be sent to the device anymore. On
+the other hand, actions with <strong>service level 1</strong> or <strong>2</strong> will be send
+all the time, when the device queries actions until a response is not
+submitted for them. The difference between <strong>service level 1</strong> and
+<strong>service level 2</strong> is manner of the response result. In case of
+<strong>service level 1</strong> the action will be marked and not be sent to the
+device again if it get any valid response, the result code in this
+response can be indicate failure or success, the action will be marked
+in both cases. In case of <strong>service level 2</strong> the action will be marked
+only if the response contain a success result code.</p>
+<p>The <strong>id</strong> is automatically assigned on the cloud side and can be
+omitted, the other fields can be used freely during designing an
+application. The <strong>payload</strong> is organized by key-value pairs.</p>
+<h3 id="the-embever-cloud-response">The Embever Cloud Response</h3>
+<p>A response is a way to set the result of an action. It is a special type
+of event, where the corresponding action identifier should be carried by
+the device and sent to the cloud. It has tree fields:</p>
+<ul>
+<li><strong>id</strong> <em>(integer)</em>: should match the corresponding action</li>
+<li><strong>result_code</strong> <em>(integer)</em>: should be <strong>0</strong> for success and <strong>1</strong>
+    for failure (as default on unix systems)</li>
+<li><strong>payload</strong> <em>(key-pair string)</em>: response <em>optional</em> content</li>
+</ul>
+<p>As seen, the organization of the user payload is made by key-value pairs
+just like a JSON object. This form makes possible to easily separate and
+identify each value during their transfer to the cloud.</p>
+<h3 id="message-type-rules">Message type rules</h3>
+<p>The <code>type</code> field of an Embever IoT message is used to identify the
+corresponding message. There are some rules in this naming schema which
+need to be fulfil. The rules are the followings:</p>
+<ul>
+<li>Can not start with <code>_</code> (e.g. <code>_sensor1</code> is invalid)</li>
+<li>Can not be one of the following, this are reserved for the Embever
+    Cloud System<ul>
+<li><code>getFile</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="sending-data-to-the-cloud-with-the">Sending data to the cloud with the</h2>
+<div class="highlight"><pre><span></span><code><span class="n">ebv_iot_initGenericEvent</span><span class="p">(</span><span class="s">&quot;event_type_1&quot;</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;key1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value1&quot;</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;key2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value2&quot;</span><span class="p">);</span>
+<span class="n">ebv_iot_submitGenericEvent</span><span class="p">();</span>
+</code></pre></div>
+<p>Sending data to the cloud is as simple as the above lines of code. First
+create an event and set its type. The type can be any string which
+fullfils the mentioned rules.</p>
+<p>Next, specify a 2 key-value pair as part of the payload. Call this
+function several times if you want to add more fields to the payload.
+Finally, call the last function to submit the event to the cloud.</p>
+<p>Let\'s see a practical example: sending temperature data of an apartment
+to the cloud. A possible implementation would be the following:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ebv_iot_initGenericEvent</span><span class="p">(</span><span class="s">&quot;Temperature&quot;</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;living_room&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">24.7</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;bath_room&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">28.2</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;kitchen&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">26.1</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;bed_room&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span>
+<span class="n">ebv_iot_addGenericPayload</span><span class="p">(</span><span class="s">&quot;is_alarm_triggered&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="n">ebv_iot_submitGenericEvent</span><span class="p">();</span>
+</code></pre></div>
+<p>The sample above covers temperature data from 4 different places around
+the apartment and indicating an alarm state too. The equivalent data in
+JSON is the following:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;living_room&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">24.7</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;bath_room&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">28.2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;kitchen&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">26.1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;bed_room&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;is_alarm_triggered&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<!-- TODO -->
+<h2 id="api-documentation">API documentation</h2>
+<p>Header file: <code>ebv_iot.h</code>
+Source file: <code>ebv_iot.cpp</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Embever GmbH – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="../../../../../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
